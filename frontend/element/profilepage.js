@@ -9,7 +9,7 @@ function ProfilePage() {
         <>
             <section className="content-inner" style={{ "backgroundImage": "url(images/background/bg1.png)" }}>
                 <div>
-                   
+
                     <div className="container">
                         <div className="row">
                             <div className="col-md-3">
@@ -22,14 +22,20 @@ function ProfilePage() {
                                                     <h6 className="mb-2">Ashish Kumar</h6>
                                                     <p class="mb-1">+91 85680-79956</p>
                                                     <p>iamosahan@gmail.com</p>
-                                                    <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
+                                                    <Link href="/edit-profile" class="mb-0 text-black font-weight-bold">
+                                                        <a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal">
+                                                            <i class="icofont-ui-edit"></i> EDIT
+                                                        </a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <ul className="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
                                         <li className="nav-item">
-                                            <a className="nav-link active" id="payments-tab" data-toggle="tab" href="#payments" role="tab" aria-controls="payments" aria-selected="true"><i className="icofont-atom" /> Recent Events</a>
+                                            <Link href="#">
+                                                <a className="nav-link active" id="payments-tab" data-toggle="tab" role="tab" aria-controls="payments" aria-selected="true"><i className="icofont-atom" /> Recent Events</a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -43,19 +49,19 @@ function ProfilePage() {
                                                 <div class="col-md-6">
                                                     <div class="bg-white card payments-item mb-4 shadow-sm">
                                                         <div class="gold-members p-4">
-                                                            <a href="#">
-                                                            </a>
                                                             <div class="media">
                                                                 <div class="media-body">
-                                                                    <a href="#">
-                                                                        <i class="icofont-certificate-alt-1 icofont-4x"></i>
-                                                                    </a>
+                                                                    <Link href="#">
+                                                                        <a >
+                                                                            <i class="icofont-certificate-alt-1 icofont-4x"></i>
+                                                                        </a>
+                                                                    </Link>
                                                                     <h5 class="mb-1">Event Name</h5>
                                                                     <p>Events date : 12/06/2021</p>
                                                                     <p>Lorem ipsum dolor sit amet, consectetur adipis occ dzSubscribedsfast </p>
-                                                                    <p class="mb-0 text-black font-weight-bold">
-
-                                                                        <a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                                                    <Link href="#" class="mb-0 text-black font-weight-bold">
+                                                                        <a class="text-danger" data-toggle="modal" data-target="#delete-address-modal"><i class="icofont-ui-delete"></i> DELETE</a>
+                                                                    </Link>
                                                                 </div>
                                                             </div>
 
@@ -65,19 +71,20 @@ function ProfilePage() {
                                                 <div class="col-md-6">
                                                     <div class="bg-white card payments-item mb-4 shadow-sm">
                                                         <div class="gold-members p-4">
-                                                            <a href="#">
-                                                            </a>
                                                             <div class="media">
                                                                 <div class="media-body">
-                                                                    <a href="#">
-                                                                        <i class="icofont-certificate-alt-1 icofont-4x"></i>
-                                                                    </a>
-                                                                        <h5 class="mb-1">Event Name</h5>
-                                                                        <p>Events date : 17/10/2021</p>
-                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipis occ dzSubscribedsfast </p>
-                                                                    <p class="mb-0 text-black font-weight-bold">
-                                                                        <a href="#">
-                                                                        </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                                                    <Link href="#">
+                                                                        <a >
+                                                                            <i class="icofont-certificate-alt-1 icofont-4x"></i>
+                                                                        </a>
+                                                                    </Link>
+                                                                    <h5 class="mb-1">Event Name</h5>
+                                                                    <p>Events date : 17/10/2021</p>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipis occ dzSubscribedsfast </p>
+
+                                                                    <Link href="#" class="mb-0 text-black font-weight-bold">
+                                                                        <a class="text-danger" data-toggle="modal" data-target="#delete-address-modal"><i class="icofont-ui-delete"></i> DELETE</a>
+                                                                    </Link>
                                                                 </div>
                                                             </div>
 
