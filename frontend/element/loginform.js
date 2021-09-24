@@ -1,10 +1,45 @@
-
+import { useState } from 'react';
+import { useRouter } from 'next/router'
 import Link from 'next/link';
 function onChange(value) {
 	console.log("Captcha value:", value);
   }
 
 function LoginForm() {
+
+	const [username, setUsername] = useState();
+	const [password, setPassword] = useState();
+	const router = useRouter();
+
+	const loginUser = (e) => {
+		e.preventDefault();
+
+
+		fetch("http://localhost:8000/api/users/login", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				 username, password
+			})
+		}).then(res => res.json())
+			.then(data => {
+				if (data.error) {
+					alert(data.error)
+				} else {
+					localStorage.setItem("user", JSON.stringify(data.userLogin));
+					localStorage.setItem("jwt", JSON.stringify(data.token));
+					router.push("/profile-page");
+				}
+			}).catch(err => {
+				console.log(err);
+			})
+
+
+	}
+
+	
 	return (
 		<>
 			<section className="content-inner" style={{ "backgroundImage": "url(images/background/bg1.png)" }}>
@@ -17,7 +52,7 @@ function LoginForm() {
 								<h6 className="sub-title bgl-primary m-b20 text-primary">Login</h6>
 								<h2 className="title">We Love To Help Great Companies To Enlarge Their Revenues.</h2>
 							</div>
-							<form className="dlab-form dzForm" method="POST" action="script/contact.php">
+							<form className="dlab-form dzForm" method="POST" onSubmit={loginUser}>
 								<div className="dzFormMsg"></div>
 								<input type="hidden" className="form-control" name="dzToDo" value="Contact" />
 								<div className="row">
@@ -26,7 +61,7 @@ function LoginForm() {
 											<div className="input-group-prepend">
 												<span className="input-group-text"><i className="la la-user"></i></span>
 											</div>
-											<input name="dzName" type="text" required className="form-control" placeholder="Username" />
+											<input name="dzName" type="text" required className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" />
 										</div>
 									</div>
 								
@@ -35,7 +70,7 @@ function LoginForm() {
 											<div className="input-group-prepend">
 												<span className="input-group-text"><i className="la la-lock"></i></span>
 											</div>
-											<input name="dzOther[phone]" type="text" required className="form-control" placeholder="Password" />
+											<input name="dzOther[phone]" type="password" required className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
 										</div>
 									</div>
 							

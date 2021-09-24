@@ -1,10 +1,20 @@
-
+import { useRouter } from 'next/router'
 import Link from 'next/link';
 function onChange(value) {
     console.log("Captcha value:", value);
 }
 
 function ProfilePage() {
+    const router = useRouter();
+    const userData = localStorage.getItem("user");
+    const data = JSON.parse(userData);
+ 
+    const logout = () => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("jwt");
+        router.push("/");
+    }
+
     return (
         <>
             <section className="content-inner" style={{ "backgroundImage": "url(images/background/bg1.png)" }}>
@@ -19,14 +29,14 @@ function ProfilePage() {
                                             <div className="osahan-user-media">
                                                 <img className="mb-3 rounded-pill shadow-sm mt-1" src="images/avatar1.png" />
                                                 <div className="osahan-user-media-body">
-                                                    <h6 className="mb-2">Ashish Kumar</h6>
-                                                    <p class="mb-1">+91 85680-79956</p>
-                                                    <p>iamosahan@gmail.com</p>
-                                                    <Link href="/edit-profile" class="mb-0 text-black font-weight-bold">
-                                                        <a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal">
-                                                            <i class="icofont-ui-edit"></i> EDIT
+                                                    <h6 className="mb-2">{data.name}</h6>
+                                                    <p class="mb-1">{data.phone}</p>
+                                                    <p>{data.email}</p>
+                                            
+                                                        <a onClick={logout} class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal">
+                                                            Logout
                                                         </a>
-                                                    </Link>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
