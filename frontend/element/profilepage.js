@@ -32,11 +32,11 @@ function ProfilePage() {
                                                     <h6 className="mb-2">{data.name}</h6>
                                                     <p class="mb-1">{data.phone}</p>
                                                     <p>{data.email}</p>
-                                            
+                                                 
                                                         <a onClick={logout} class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal">
-                                                            Logout
+                                                        <i class="icofont-logout"/>Logout
                                                         </a>
-                                                    
+                                            
                                                 </div>
                                             </div>
                                         </div>
