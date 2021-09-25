@@ -1,10 +1,14 @@
 import Link from "next/link";
 import Footer from "../layout/footer";
 import Header from "../layout/header-3";
+import Head from "next/head";
 
 function Team1() {
   return (
     <>
+      <Head>
+        <title>Faculty | ISOI-HITK</title>
+      </Head>
       <Header />
       <div className="page-content bg-white">
         {/* <!-- Banner  --> */}
@@ -24,7 +28,7 @@ function Team1() {
                     </Link>
                   </li>
                   <li className="breadcrumb-item active" aria-current="page">
-                  Faculty
+                    Faculty
                   </li>
                 </ul>
               </nav>
@@ -47,24 +51,24 @@ function Team1() {
                 data-wow-delay="0.1s"
               >
                 <div className="dlab-team style-1 m-b30">
-                    <div className="dlab-media dlab-img-effect zoom zoom-slow">
-                        <img src="images/team/pic1.jpg" alt="" />
-                    </div>
+                  <div className="dlab-media dlab-img-effect zoom zoom-slow">
+                    <img src="images/team/pic1.jpg" alt="" />
+                  </div>
                   <div className="dlab-content">
                     <div className="clearfix">
                       <h4 className="dlab-name">Alina Jia</h4>
                       <span className="dlab-position">Senior Designer</span>
                     </div>
                     <ul className="dlab-social-icon primary-light">
-                        <li>
-                            <a href="https://en-gb.facebook.com/" className="fa fa-facebook"></a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/" className="fa fa-instagram"></a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/login?lang=en" className="fa fa-twitter"></a>
-                        </li>
+                      <li>
+                        <a href="https://en-gb.facebook.com/" className="fa fa-facebook"></a>
+                      </li>
+                      <li>
+                        <a href="https://www.instagram.com/" className="fa fa-instagram"></a>
+                      </li>
+                      <li>
+                        <a href="https://twitter.com/login?lang=en" className="fa fa-twitter"></a>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -76,7 +80,7 @@ function Team1() {
               >
                 <div className="dlab-team style-1 m-b30">
                   <div className="dlab-media dlab-img-effect zoom zoom-slow">
-                      <img src="images/team/pic2.jpg" alt="" />
+                    <img src="images/team/pic2.jpg" alt="" />
                   </div>
                   <div className="dlab-content">
                     <div className="clearfix">
@@ -115,12 +119,12 @@ function Team1() {
               >
                 <div className="dlab-team style-1 m-b30">
                   <div className="dlab-media dlab-img-effect zoom zoom-slow">
-                      <img src="images/team/pic3.jpg" alt="" />
+                    <img src="images/team/pic3.jpg" alt="" />
                   </div>
                   <div className="dlab-content">
                     <div className="clearfix">
                       <h4 className="dlab-name">
-                       Domina Li
+                        Domina Li
                       </h4>
                       <span className="dlab-position">Senior Designer</span>
                     </div>
@@ -154,7 +158,7 @@ function Team1() {
               >
                 <div className="dlab-team style-1 m-b30">
                   <div className="dlab-media dlab-img-effect zoom zoom-slow">
-                      <img src="images/team/pic4.jpg" alt="" />
+                    <img src="images/team/pic4.jpg" alt="" />
                   </div>
                   <div className="dlab-content">
                     <div className="clearfix">
@@ -193,7 +197,7 @@ function Team1() {
               >
                 <div className="dlab-team style-1 m-b30">
                   <div className="dlab-media dlab-img-effect zoom zoom-slow">
-                      <img src="images/team/pic5.jpg" alt="" />
+                    <img src="images/team/pic5.jpg" alt="" />
                   </div>
                   <div className="dlab-content">
                     <div className="clearfix">
@@ -232,7 +236,7 @@ function Team1() {
               >
                 <div className="dlab-team style-1 m-b30">
                   <div className="dlab-media dlab-img-effect zoom zoom-slow">
-                      <img src="images/team/pic6.jpg" alt="" />
+                    <img src="images/team/pic6.jpg" alt="" />
                   </div>
                   <div className="dlab-content">
                     <div className="clearfix">

@@ -14,13 +14,16 @@ import Slider1 from "../element/slider-1";
 import Team from "../element/team";
 import Footer from "../layout/footer";
 import Header from "../layout/header";
+import Head from "next/head";
 function Home() {
   useEffect(() => {
-    document.title = "ISOI-Heritage Institute of Technology - Home";
     document.querySelector("body").setAttribute("color", "color_1");
   }, []);
   return (
     <>
+      <Head>
+        <title>ISOI | Heritage Institute of Technology</title>
+      </Head>
       <Header />
       <div className="page-content bg-white" id="top">
         <Slider1 />

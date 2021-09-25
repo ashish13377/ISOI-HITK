@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Footer from '../layout/footer';
 import Header from '../layout/header-2';
 
@@ -5,6 +6,9 @@ import Header from '../layout/header-2';
 function SiteDown() {
   return (
     <>
+    <Head>
+				<title>Sitedown | ISOI-HITK</title>
+			</Head>
     <Header />
     <div className="page-content bg-white">
         {/* <!-- inner page banner END --> */}

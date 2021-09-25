@@ -33,7 +33,7 @@ function ProfilePage() {
                                                     <p class="mb-1">{data.phone}</p>
                                                     <p>{data.email}</p>
                                                  
-                                                        <a onClick={logout} class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal">
+                                                        <a onClick={logout} class="text-primary mr-3"  data-target="#edit-profile-modal">
                                                         <i class="icofont-logout"/>Logout
                                                         </a>
                                             
