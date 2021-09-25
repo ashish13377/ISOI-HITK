@@ -12,7 +12,6 @@ import Quote from "../element/quote";
 import Service from "../element/service";
 import Slider1 from "../element/slider-1";
 import Team from "../element/team";
-import Testimonial from "../element/testimonial";
 import Footer from "../layout/footer";
 import Header from "../layout/header";
 function Home() {

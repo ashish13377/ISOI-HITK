@@ -16314,4 +16314,8 @@ footer {
 }
 @import url('https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css');
 
+.dlab-blog .dlab-meta > ul{
+  justify-content: space-around;
+}
+
 /*# sourceMappingURL=style.css.map */
