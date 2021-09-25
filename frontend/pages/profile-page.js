@@ -8,7 +8,7 @@ function profilepage() {
   return (
     <>
       <Head>
-        <title>My Profile | ISOI-HITK</title>
+        <title>ISOI-HITK | My Profile</title>
       </Head>
       <Header />
       <div className="page-content bg-white">

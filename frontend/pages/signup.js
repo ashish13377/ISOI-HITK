@@ -8,7 +8,7 @@ function ContactUs1() {
 	return (
 		<>
 			<Head>
-				<title>Signup | ISOI-HITK</title>
+				<title>ISOI-HITK | Signup</title>
 			</Head>
 			<Header />
 			<div className="page-content bg-white">

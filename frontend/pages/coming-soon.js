@@ -27,7 +27,7 @@ function ComingSoon() {
 	return (
 		<>
 			<Head>
-				<title>Coming Soon | ISOI-HITK</title>
+				<title>ISOI-HITK | Coming Soon</title>
 			</Head>
 			<Header />
 			<div className="page-content bg-white">

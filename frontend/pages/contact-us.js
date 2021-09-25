@@ -9,7 +9,7 @@ function ContactUs1() {
 	return (
 		<>
 			<Head>
-				<title>Contact us | ISOI-HITK</title>
+				<title>ISOI-HITK | Contact us</title>
 			</Head>
 			<Header />
 			<div className="page-content bg-white">

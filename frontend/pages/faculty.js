@@ -7,7 +7,7 @@ function Team1() {
   return (
     <>
       <Head>
-        <title>Faculty | ISOI-HITK</title>
+        <title>ISOI-HITK | Faculty</title>
       </Head>
       <Header />
       <div className="page-content bg-white">

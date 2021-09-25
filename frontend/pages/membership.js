@@ -8,7 +8,7 @@ function PricingTable1() {
 	return (
 		<>
 			<Head>
-				<title>Membership | ISOI-HTK</title>
+				<title> ISOI-HITK | Membership </title>
 			</Head>
 			<Header />
 			<div className="page-content bg-white">

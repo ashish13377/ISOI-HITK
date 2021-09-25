@@ -16,7 +16,7 @@ function AboutUs1() {
 	return (
 		<>
 			<Head>
-				<title>About us | ISOI-HITK</title>
+				<title>ISOI-HITK | About us</title>
 			</Head>
 			<Header />
 

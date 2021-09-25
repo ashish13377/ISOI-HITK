@@ -7,7 +7,7 @@ function SiteDown() {
   return (
     <>
     <Head>
-				<title>Sitedown | ISOI-HITK</title>
+				<title>ISOI-HITK | Sitedown </title>
 			</Head>
     <Header />
     <div className="page-content bg-white">
