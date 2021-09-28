@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { useSelector , useDispatch } from "react-redux"
-import { logout } from "../redux/actions/index"
+import { logout, setUserDetails } from "../redux/actions/index"
 import { useEffect } from 'react';
 function onChange(value) {
     console.log("Captcha value:", value);
@@ -14,6 +14,7 @@ function ProfilePage() {
     const router = useRouter();
 
     useEffect(() => {
+        dispatch(setUserDetails(JSON.parse(localStorage.getItem("user"))));
         if(!data){
             router.push("/login");
         }
