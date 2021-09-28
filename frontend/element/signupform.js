@@ -19,7 +19,7 @@ function SignupForm() {
 		e.preventDefault();
 
 
-		fetch("http://localhost:8000/api/users/register", {
+		fetch("https://isoi-backend.herokuapp.com/api/users/register", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
