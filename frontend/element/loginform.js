@@ -1,15 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link';
+import { setUserDetails } from "../redux/actions/index"
+import { useDispatch , useSelector } from 'react-redux'
 function onChange(value) {
 	console.log("Captcha value:", value);
   }
 
 function LoginForm() {
-
+	const data = useSelector(state => state.user);
 	const [username, setUsername] = useState();
 	const [password, setPassword] = useState();
 	const router = useRouter();
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+ 
+		if(data){
+			router.push("/profile-page")
+		}
+
+	}, [])
 
 	const loginUser = (e) => {
 		e.preventDefault();
@@ -28,8 +39,9 @@ function LoginForm() {
 				if (data.error) {
 					alert(data.error)
 				} else {
-					localStorage.setItem("user", JSON.stringify(data.userLogin));
 					localStorage.setItem("jwt", JSON.stringify(data.token));
+					localStorage.setItem("user", JSON.stringify(data.userLogin));
+					dispatch(setUserDetails(data.userLogin))
 					router.push("/profile-page");
 				}
 			}).catch(err => {

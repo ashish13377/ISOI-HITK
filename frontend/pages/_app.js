@@ -8,23 +8,25 @@ import "../css/style.css";
 import "../css/skin/skin-1.css";
 import "../styles/globals.css";
 import "../styles/switcher.css";
+import { Provider } from 'react-redux';
+import store from "../redux/store"
 
 function MyApp({ Component, pageProps }) {
-	const [toggle1, setToggle1] = useState(false);
-	const [body_, setbody_] = useState();
-	const [header, setHeader] = useState("fixed");
-	const [header_, setHeader_] = useState();
+  const [toggle1, setToggle1] = useState(false);
+  const [body_, setbody_] = useState();
+  const [header, setHeader] = useState("fixed");
+  const [header_, setHeader_] = useState();
 
-	useEffect(() => {
-		setbody_(document.querySelector("body"));
-		setHeader_(document.getElementsByClassName("main-bar-wraper"));
-	}, []);
+  useEffect(() => {
+    setbody_(document.querySelector("body"));
+    setHeader_(document.getElementsByClassName("main-bar-wraper"));
+  }, []);
 
-	let scrollPosition = useScrollPosition();
-	function toggle() {
-		setToggle1(!toggle1);
-	}
- 
+  let scrollPosition = useScrollPosition();
+  function toggle() {
+    setToggle1(!toggle1);
+  }
+
   const chageHeader = (value) => {
     setHeader(value);
     if (value === "fixed") {
@@ -45,12 +47,14 @@ function MyApp({ Component, pageProps }) {
   header === "fixed" && scrollPosition > 10
     ? header_ && header_[0].classList.add("is-fixed")
     : header_ && header_[0].classList.remove("is-fixed");
-	
+
   return (
     <>
-      <div className="page-wraper">
-        <Component {...pageProps} />
-      </div>
+      <Provider store={store}>
+        <div className="page-wraper">
+          <Component {...pageProps} />
+        </div>
+      </Provider>
     </>
   );
 }

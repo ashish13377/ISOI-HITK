@@ -1,18 +1,30 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link';
+import { useSelector , useDispatch } from "react-redux"
+import { logout } from "../redux/actions/index"
+import { useEffect } from 'react';
 function onChange(value) {
     console.log("Captcha value:", value);
 }
 
 function ProfilePage() {
+
+    const data = useSelector(state => state.user);
+    const dispatch = useDispatch();
     const router = useRouter();
-    const userData = localStorage.getItem("user");
-    const data = JSON.parse(userData);
- 
-    const logout = () => {
-        localStorage.removeItem("user");
-        localStorage.removeItem("jwt");
+
+    useEffect(() => {
+        if(!data){
+            router.push("/login");
+        }
+    }, [])
+
+     
+    const logoutUser = () => {
         router.push("/");
+        localStorage.removeItem("jwt");
+        localStorage.removeItem("user");
+        dispatch(logout());
     }
 
     return (
@@ -29,11 +41,11 @@ function ProfilePage() {
                                             <div className="osahan-user-media">
                                                 <img className="mb-3 rounded-pill shadow-sm mt-1" src="images/avatar1.png" />
                                                 <div className="osahan-user-media-body">
-                                                    <h6 className="mb-2">{data.name}</h6>
-                                                    <p class="mb-1">{data.phone}</p>
-                                                    <p>{data.email}</p>
+                                                    <h6 className="mb-2">{!data ? "John" : data.name}</h6>
+                                                    <p class="mb-1">{!data ? "111222333" : data.phone}</p>
+                                                    <p>{!data ? "example@gmail.com" : data.email}</p>
                                                  
-                                                        <a onClick={logout} class="text-primary mr-3"  data-target="#edit-profile-modal">
+                                                        <a onClick={logoutUser} class="text-primary mr-3"  data-target="#edit-profile-modal">
                                                         <i class="icofont-logout"/>Logout
                                                         </a>
                                             
