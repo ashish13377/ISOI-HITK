@@ -46,7 +46,7 @@ function ProfilePage() {
                                                     <p class="mb-1">{!data ? "111222333" : data.phone}</p>
                                                     <p>{!data ? "example@gmail.com" : data.email}</p>
                                                  
-                                                        <a onClick={logoutUser} class="text-primary mr-3"  data-target="#edit-profile-modal">
+                                                        <a onClick={logoutUser} style={{  cursor: 'pointer' }} class="text-primary mr-3"  data-target="#edit-profile-modal">
                                                         <i class="icofont-logout"/>Logout
                                                         </a>
                                             
