@@ -1,9 +1,13 @@
-
 import Link from 'next/link';
 import { useState } from 'react';
 function Header() {
     const [show, setShow] = useState(false);
     const [open, setOpen] = useState("home");
+    const [isLogin , setIsLogin] = useState(false);
+    
+    
+
+
     return (
       <>
         {/* <!-- Header --> */}
@@ -25,7 +29,7 @@ function Header() {
                         {/* <!-- Extra Nav --> */}
                         <div className="extra-nav">
                             <div className="extra-cell">
-                                <Link href="/login"><a className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-user m-r10"></i>Login</a></Link>
+                                <Link href="/login"><a className={isLogin ? `isLogin btn btn-link d-inline-flex align-items-center` : `btn btn-link d-inline-flex align-items-center`}><i className="fa fa-user m-r10"></i>Login</a></Link>
                             </div>
                         </div>
                         <div className={`header-nav navbar-collapse collapse justify-content-end ${show ? "show" : ""}`} id="navbarNavDropdown">
