@@ -15,9 +15,15 @@ import Team from "../element/team";
 import Footer from "../layout/footer";
 import Header from "../layout/header";
 import Head from "next/head";
+import { useSelector , useDispatch } from "react-redux"
+import { logout, setUserDetails } from "../redux/actions/index"
+
 function Home() {
+  const dispatch = useDispatch();
   useEffect(() => {
     document.querySelector("body").setAttribute("color", "color_1");
+    const user = JSON.parse(localStorage.getItem("user"));
+    dispatch(setUserDetails(user));
   }, []);
   return (
     <>

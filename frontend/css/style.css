@@ -16648,4 +16648,8 @@ footer {
   color: var(--clr-light-gray);
 }
 
+.isLogin{
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */

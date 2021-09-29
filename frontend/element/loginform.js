@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { setUserDetails } from "../redux/actions/index"
-import { useDispatch , useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function onChange(value) {
 	console.log("Captcha value:", value);
-  }
+}
 
 function LoginForm() {
 	const data = useSelector(state => state.user);
@@ -15,8 +18,8 @@ function LoginForm() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
- 
-		if(data){
+
+		if (data) {
 			router.push("/profile-page")
 		}
 
@@ -26,18 +29,27 @@ function LoginForm() {
 		e.preventDefault();
 
 
-		fetch("https://isoi-backend.herokuapp.com/api/users/login", {
+		fetch("http://localhost:8000/api/users/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify({
-				 username, password
+				username, password
 			})
 		}).then(res => res.json())
 			.then(data => {
 				if (data.error) {
-					alert(data.error)
+					toast.error(data.error, {
+						position: "top-center",
+						autoClose: 5000,
+						hideProgressBar: true,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+						theme : 'colored'
+					})
 				} else {
 					localStorage.setItem("jwt", JSON.stringify(data.token));
 					localStorage.setItem("user", JSON.stringify(data.userLogin));
@@ -51,7 +63,7 @@ function LoginForm() {
 
 	}
 
-	
+
 	return (
 		<>
 			<section className="content-inner" style={{ "backgroundImage": "url(images/background/bg1.png)" }}>
@@ -76,7 +88,7 @@ function LoginForm() {
 											<input name="dzName" type="text" required className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" />
 										</div>
 									</div>
-								
+
 									<div className="col-sm-6">
 										<div className="input-group">
 											<div className="input-group-prepend">
@@ -85,28 +97,29 @@ function LoginForm() {
 											<input name="dzOther[phone]" type="password" required className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
 										</div>
 									</div>
-							
+
 									<div className="col-sm-12 mt-2">
 										<button name="submit" type="submit" value="Submit" className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i>Login Now</button>
 									</div>
 									<div className="col-sm-12 mt-2">
-										
+
 									</div>
 									<div className="col-sm-12 mt-2">
-										<br/>
-									 <p><Link href="/signup"><a> Sign-up </a></Link>and discover great amount of new opportunities!</p>
+										<br />
+										<p><Link href="/signup"><a> Sign-up </a></Link>and discover great amount of new opportunities!</p>
 									</div>
 								</div>
 							</form>
 						</div>
 						<div className="col-xl-6 col-lg-5 m-b30 wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.4s">
 							<div className="dz-media move-box wow fadeIn" data-wow-duration="1.6s" data-wow-delay="0.8s" >
-								<img className="move-1" src="images/move/pic5.png" alt=""/>
-								<img className="move-2" src="images/move/pic6.png" alt=""/>
+								<img className="move-1" src="images/move/pic5.png" alt="" />
+								<img className="move-2" src="images/move/pic6.png" alt="" />
 							</div>
 						</div>
 					</div>
 				</div>
+				<ToastContainer />
 			</section>
 		</>
 	)

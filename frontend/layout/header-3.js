@@ -1,9 +1,15 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { useSelector , useDispatch } from "react-redux"
+
 function Header3() {
     const [show, setShow] = useState(false);
     const [open, setOpen] = useState("home");
+    const data = useSelector(state => state.user);
+
+
+
     return (
       <>
         {/* <!-- Header --> */}
@@ -29,11 +35,11 @@ function Header3() {
                             <span></span>
                         </button>
                         {/* <!-- Extra Nav --> */}
-                        <div className="extra-nav">
+                        {!data && (<div className="extra-nav">
                             <div className="extra-cell">
                                 <Link href="/login"><a className="btn btn-corner gradient btn-primary"><i className="fa fa-user m-r10"></i>Login</a></Link>
                             </div>
-                        </div>
+                        </div>)}
                         <div className={`header-nav navbar-collapse collapse justify-content-end ${show ? "show" : ""}`} id="navbarNavDropdown">
                             <div className="logo-header">
                                 <Link href="/"><a><img src="images/logo.png" alt=""/></a></Link>
@@ -41,10 +47,11 @@ function Header3() {
                             <ul className="nav navbar-nav navbar">	
                                 <li><Link href="/"><a>Home</a></Link></li>
                                 <li><Link href="/about-us"><a>About Us</a></Link></li>
-                                <li><Link href="/membership"><a>Membership</a></Link></li>
+                                {data && <li><Link href="/membership"><a>Membership</a></Link></li>}
                                 <li><Link href="/faculty"><a>Faculty</a></Link></li>
-                                <li><Link href="/events"><a>Events</a></Link></li>
+                                {data && <li><Link href="/events"><a>Events</a></Link></li>}
 								<li><Link href="/contact-us"><a>Contact Us</a></Link></li>
+								{data && <li><Link href="/profile-page"><a>{data && data.username}</a></Link></li>}
                             </ul>
                             <div className="dlab-social-icon">
                                 <ul>
