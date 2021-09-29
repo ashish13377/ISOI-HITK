@@ -51,7 +51,9 @@ function Header3() {
                                 <li><Link href="/faculty"><a>Faculty</a></Link></li>
                                 {data && <li><Link href="/events"><a>Events</a></Link></li>}
 								<li><Link href="/contact-us"><a>Contact Us</a></Link></li>
-								{data && <li><Link href="/profile-page"><a>{data && data.username}</a></Link></li>}
+								{data && <li><Link href="/profile-page"><a><i className="fa fa-user" style={{
+                                    fontSize : "20px"
+                                }}></i> &nbsp; {data && data.username}</a></Link></li>}
                             </ul>
                             <div className="dlab-social-icon">
                                 <ul>
