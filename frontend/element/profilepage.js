@@ -42,11 +42,13 @@ function ProfilePage() {
                                             <div className="osahan-user-media">
                                                 <img className="mb-3 rounded-pill shadow-sm mt-1" src={!data ? `images/avatar1.png` : `http://localhost:8000/uploads/${data.picture}`} />
                                                 <div className="osahan-user-media-body">
-                                                    <h6 className="mb-2">{!data ? "John" : data.name}</h6>
-                                                    <p class="mb-1">{!data ? "111222333" : data.phone}</p>
-                                                    <p>{!data ? "example@gmail.com" : data.email}</p>
+                                                    <h6 className="mb-2">{data && data.name}</h6>
+                                                    <p class="mb-1">{data && data.phone}</p>
+                                                    <p>{data && data.email}</p>
                                                  
-                                                        <a onClick={logoutUser} class="text-primary mr-3"  data-target="#edit-profile-modal">
+                                                        <a onClick={logoutUser} class="text-primary mr-3"  data-target="#edit-profile-modal" style={{
+                                                            cursor : "pointer"
+                                                        }}>
                                                         <i class="icofont-logout"/>Logout
                                                         </a>
                                             
