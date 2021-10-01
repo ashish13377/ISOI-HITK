@@ -18,6 +18,7 @@ const App = ({ width }) => {
       ? body.setAttribute("data-sidebar-style", "mini")
       : body.setAttribute("data-sidebar-style", "overlay");
    return (
+      
       <Fragment>
          <Markup />
       </Fragment>
