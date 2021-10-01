@@ -9507,7 +9507,7 @@ a {
   transition: all .2s ease;
   z-index: 5; }
   .nav-header .logo-abbr {
-    max-width: 45px; }
+    max-width: 58px; }
     @media only screen and (max-width: 575px) {
       .nav-header .logo-abbr {
         max-width: 35px; } }
@@ -9538,7 +9538,7 @@ a {
         padding-right: 0;
         justify-content: center; } }
   .nav-header .brand-title {
-    margin-left: 20px;
+    margin-left: 5px;
     max-width: 120px;
     margin-top: 5px; }
     [data-theme-version="dark"] .nav-header .brand-title {

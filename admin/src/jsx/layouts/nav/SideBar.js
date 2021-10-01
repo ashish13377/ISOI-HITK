@@ -144,72 +144,17 @@ class SideBar extends Component {
                         to="#"
                      >
                         <i className="flaticon-381-television"></i>
-                        <span className="nav-text">Apps</span>
+                        <span className="nav-text">Events</span>
                      </Link>
                      <ul >
                         <li>
-                           <Link to="/app-profile">Profile</Link>
+                           <Link to="/app-profile">All Events</Link>
                         </li>
                         <li>
-                           <Link
-                              className="has-arrow"
-                              to="#"
-                              
-                           >
-                              Email
-                           </Link>
-                           <ul >
-                              <li>
-                                 <Link to="/email-compose">Compose</Link>
-                              </li>
-                              <li>
-                                 <Link to="/email-inbox">Inbox</Link>
-                              </li>
-                              <li>
-                                 <Link to="/email-read">Read</Link>
-                              </li>
-                           </ul>
+                           <Link to="/app-profile">Membership Events</Link>
                         </li>
                         <li>
-                           <Link to="/app-calender">Calendar</Link>
-                        </li>
-                        <li>
-                           <Link
-                              className="has-arrow"
-                              to="#"
-                              
-                           >
-                              Shop
-                           </Link>
-                           <ul >
-                              <li>
-                                 <Link to="/ecom-product-grid">
-                                    Product Grid
-                                 </Link>
-                              </li>
-                              <li>
-                                 <Link to="/ecom-product-list">
-                                    Product List
-                                 </Link>
-                              </li>
-                              <li>
-                                 <Link to="/ecom-product-detail">
-                                    Product Details
-                                 </Link>
-                              </li>
-                              <li>
-                                 <Link to="/ecom-product-order">Order</Link>
-                              </li>
-                              <li>
-                                 <Link to="/ecom-checkout">Checkout</Link>
-                              </li>
-                              <li>
-                                 <Link to="/ecom-invoice">Invoice</Link>
-                              </li>
-                              <li>
-                                 <Link to="/ecom-customers">Customers</Link>
-                              </li>
-                           </ul>
+                           <Link to="/app-profile">Free Events</Link>
                         </li>
                      </ul>
                   </li>
@@ -223,31 +168,22 @@ class SideBar extends Component {
                         to="#"
                         
                      >
-                        <i className="flaticon-381-controls-3"></i>
-                        <span className="nav-text">Charts</span>
+                        <i className="flaticon-381-network"></i>
+                        <span className="nav-text">Record</span>
                      </Link>
                      <ul >
                         <li>
-                           <Link to="/chart-rechart">RechartJs</Link>
+                           <Link to="/chart-rechart">Members List</Link>
                         </li>
-						<li>
-                           <Link to="/chart-float">Chartfloat</Link>
-                        </li>
-                        <li>
-                           <Link to="/chart-chartjs">Chartjs</Link>
+						      <li>
+                           <Link to="/chart-float">Events Members Register List</Link>
                         </li>
                         <li>
-                           <Link to="/chart-chartist">Chartist</Link>
-                        </li>
-                        <li>
-                           <Link to="/chart-sparkline">Sparkline</Link>
-                        </li>
-                        <li>
-                           <Link to="/chart-apexchart">Apexchart</Link>
+                           <Link to="/chart-float">Events Free Members Register List</Link>
                         </li>
                      </ul>
                   </li>
-                  <li
+                 <li
                      className={`${
                         bootstrap.includes(path.slice(1)) ? "mm-active" : ""
                      }`}

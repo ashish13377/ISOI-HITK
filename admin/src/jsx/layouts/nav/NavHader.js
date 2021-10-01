@@ -16,10 +16,12 @@ const NavHader = () => {
             <img className="logo-abbr" src={logo} alt="" />
             <img className="logo-compact" src={logoText} alt="" />
             <img className="brand-title" src={logoText} alt="" />
+            
          </Link>
 
          <div className="nav-control" onClick={() => setToggle(!toggle)}>
             <div className={`hamburger ${toggle ? "is-active" : ""}`}>
+            
                <span className="line"></span>
                <span className="line"></span>
                <span className="line"></span>

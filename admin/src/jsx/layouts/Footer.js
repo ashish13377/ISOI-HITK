@@ -7,14 +7,16 @@ const Footer = () => {
          <div className="copyright">
             <p>
                Copyright © Designed &amp; Developed by{" "}
-               <Link to="http://dexignzone.com/" target="_blank">
-                  DexignZone
+               <Link to="#" >
+                  Amrit &amp; Ashish
                </Link>{" "}
-               2020
+               2021
+               
             </p>
          </div>
       </div>
    );
 };
 
+// target="_blank
 export default Footer;

@@ -26,12 +26,7 @@ import Widget from "./pages/Widget";
 
 /// Deshboard
 import Home from "./components/Dashboard/Home/Home";
-import Companies from "./components/Dashboard/Companies/Companies";
-import Analytics from "./components/Dashboard/Analytics/Analytics";
 import Review from "./components/Dashboard/Review/Review";
-import Order from "./components/Dashboard/Order/Order";
-import Orderlist from "./components/Dashboard/Orderlist/Orderlist";
-import Customerlist from "./components/Dashboard/Customerlist/Customerlist";
 
 /// Bo
 import UiAlert from "./components/bootstrap/Alert";
@@ -54,7 +49,6 @@ import UiTypography from "./components/bootstrap/Typography";
 
 /// App
 import AppProfile from "./components/AppsMenu/AppProfile/AppProfile";
-import PostDetails from "./components/AppsMenu/AppProfile/PostDetails";
 import Compose from "./components/AppsMenu/Email/Compose/Compose";
 import Inbox from "./components/AppsMenu/Email/Inbox/Inbox";
 import Read from "./components/AppsMenu/Email/Read/Read";
@@ -100,12 +94,7 @@ const Markup = () => {
    const routes = [
 		/// Deshborad
 		{ url: "", component: Home },
-		{ url: "companies", component: Companies },
-		{ url: "analytics", component: Analytics },
 		{ url: "review", component: Review },
-		{ url: "order", component: Order },
-		{ url: "order-list", component: Orderlist },
-		{ url: "customer-list", component: Customerlist },
 		/// Bootstrap
 		{ url: "ui-alert", component: UiAlert },
 		{ url: "ui-badge", component: UiBadge },
@@ -126,7 +115,6 @@ const Markup = () => {
 		{ url: "ui-grid", component: UiGrid },
 		/// Apps
 		{ url: "app-profile", component: AppProfile },
-		{ url: "post-details", component: PostDetails },
 		{ url: "email-compose", component: Compose },
 		{ url: "email-inbox", component: Inbox },
 		{ url: "email-read", component: Read },
@@ -188,6 +176,7 @@ const Markup = () => {
 		
 			<Router basename="/admin">
 				<div id="main-wrapper" className="show">
+					
 					<Nav />
 					<div className="content-body">
 						<div className="container-fluid">
