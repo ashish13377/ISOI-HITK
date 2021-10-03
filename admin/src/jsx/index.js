@@ -186,9 +186,9 @@ const Markup = () => {
 
    return (
 		
-			<Router basename="/admin">
-				<div id="main-wrapper" className="show">
+	   <Router basename="/admin">
 					<Nav />
+				<div id="main-wrapper" className="show">
 					<div className="content-body">
 						<div className="container-fluid">
 							<Switch>
