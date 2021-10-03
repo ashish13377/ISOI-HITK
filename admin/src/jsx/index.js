@@ -174,10 +174,15 @@ const Markup = () => {
 
    return (
 		
+<<<<<<< HEAD
 			<Router basename="/admin">
 				<div id="main-wrapper" className="show">
 					
+=======
+	   <Router basename="/admin">
+>>>>>>> a7e43d426dc597da1c34d436329f7c03ca31ecf9
 					<Nav />
+				<div id="main-wrapper" className="show">
 					<div className="content-body">
 						<div className="container-fluid">
 							<Switch>
