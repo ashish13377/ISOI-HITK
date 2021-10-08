@@ -48,6 +48,7 @@ import UiGrid from "./components/bootstrap/Grid";
 import UiTypography from "./components/bootstrap/Typography";
 
 /// App
+import AllEvent from "./components/event/all-event";
 import AppProfile from "./components/AppsMenu/AppProfile/AppProfile";
 import Compose from "./components/AppsMenu/Email/Compose/Compose";
 import Inbox from "./components/AppsMenu/Email/Inbox/Inbox";
@@ -114,6 +115,7 @@ const Markup = () => {
 		{ url: "ui-typography", component: UiTypography },
 		{ url: "ui-grid", component: UiGrid },
 		/// Apps
+		{ url: "all-event", component: AllEvent },
 		{ url: "app-profile", component: AppProfile },
 		{ url: "email-compose", component: Compose },
 		{ url: "email-inbox", component: Inbox },

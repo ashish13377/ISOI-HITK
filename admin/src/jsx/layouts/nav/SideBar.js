@@ -53,6 +53,9 @@ class SideBar extends Component {
             "statistics",
 			
          ],
+         Event = [
+          "all-event",
+         ],
          app = [
             "app-profile",
             "app-calender",
@@ -136,7 +139,7 @@ class SideBar extends Component {
                   </li>
                   <li
                      className={`${
-                        app.includes(path.slice(1)) ? "mm-active" : ""
+                        Event.includes(path.slice(1)) ? "mm-active" : ""
                      }`}
                   >
                      <Link
@@ -148,7 +151,7 @@ class SideBar extends Component {
                      </Link>
                      <ul >
                         <li>
-                           <Link to="/app-profile">All Events</Link>
+                           <Link to="/all-event">All Events</Link>
                         </li>
                         <li>
                            <Link to="/app-profile">Membership Events</Link>
@@ -183,7 +186,7 @@ class SideBar extends Component {
                         </li>
                      </ul>
                   </li>
-                 <li
+                  <li
                      className={`${
                         bootstrap.includes(path.slice(1)) ? "mm-active" : ""
                      }`}
@@ -399,17 +402,17 @@ class SideBar extends Component {
                            <Link to="/page-lock-screen">Lock Screen</Link>
                         </li>
                      </ul>
-                  </li>
+                  </li> 
                </MM>
-				<div className="plus-box">
+				{/* <div className="plus-box">
 					<p className="fs-13 font-w300 mb-4">Organize your menus through button bellow</p>
 					<Link className="btn bg-white text-black btn-rounded d-block" to="#">+Add Menus</Link>
-				</div>
-               <div className="copyright">
+				</div> */}
+               <div style = {{ paddingTop: "40%" }}className="copyright">
                   <p>
-                     <strong>Koki Restaurant React Dashboard</strong> ©All Rights Reserved
+                     <strong>ISOI_HITK Admin Dashboard</strong> 2021 ©All Rights Reserved
                   </p>
-                  <p>by DexignZone</p>
+                  <p>Designed &amp; Developed by Amrit &amp; Ashish</p>
                </div>
             </PerfectScrollbar>
          </div>

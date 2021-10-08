@@ -6,11 +6,11 @@ const Footer = () => {
       <div className="footer">
          <div className="copyright">
             <p>
-               Copyright © Designed &amp; Developed by{" "}
+               Copyright 2021 © Designed &amp; Developed by{" "}
                <Link to="#" >
                   Amrit &amp; Ashish
                </Link>{" "}
-               2021
+               
                
             </p>
          </div>
