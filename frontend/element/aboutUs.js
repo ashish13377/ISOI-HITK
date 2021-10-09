@@ -18,9 +18,7 @@ function AboutUs() {
                           </div>
                           <p>Established in the year ___ , the student chapter of ISOI has focused on providing a platform for  the tech enthusiasts in the dept of electronic and instrumentation engineering To showcase their skills in an industrial environment under the guidance of experts.</p>
                           <p className="m-b30">Students get to participate in several events Which go on throughout the year and improve their understanding in the subject and thus help in the development of the instrumentation systems.</p>
-                          <img src="images/sign.png" alt=""/>
-                          <h4 className="m-b30">CEO Jhone Doe</h4>
-                         <Link href="about-us-1"><a  className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i>Learn More</a></Link> 
+                         <Link href="about-us"><a  className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i>Learn More</a></Link> 
                       </div>
                   </div>
               </div>
