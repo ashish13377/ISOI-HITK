@@ -27,6 +27,11 @@ import Widget from "./pages/Widget";
 /// Deshboard
 import Home from "./components/Dashboard/Home/Home";
 import Review from "./components/Dashboard/Review/Review";
+//Event
+import AllEvent from "./components/event/AllEvent/all-event";
+import FreeEvent from "./components/event/FreeEvent/FreeEvent";
+import MemberEvent from "./components/event/MemberEvent/MemberEvent";
+
 
 /// Bo
 import UiAlert from "./components/bootstrap/Alert";
@@ -49,11 +54,9 @@ import UiTypography from "./components/bootstrap/Typography";
 
 /// App
 import FreeEventMemberList from "./components/Record/FreeEvent-List/FreeEventMemberList";
-import MemberEvent from "./components/CreateEvent/MemberEvent/MemberEvent";
-import FreeEvent from "./components/CreateEvent/FreeEvent/FreeEvent";
 import MemberEventList from "./components/Record/MemberEvent-list/MembersEventList";
 import MemberList from "./components/Record/Member-List/MembersList";
-import AllEvent from "./components/event/all-event";
+
 import AppProfile from "./components/AppsMenu/AppProfile/AppProfile";
 import Compose from "./components/AppsMenu/Email/Compose/Compose";
 import Inbox from "./components/AppsMenu/Email/Inbox/Inbox";
@@ -102,6 +105,11 @@ const Markup = () => {
 		/// Deshborad
 		{ url: "", component: Home },
 		{ url: "review", component: Review },
+		//Event
+		{ url: "all-event", component: AllEvent },
+		{ url: "free-event", component: FreeEvent },
+		{ url: "Member-event", component: MemberEvent },
+	
 		/// Bootstrap
 		{ url: "ui-alert", component: UiAlert },
 		{ url: "ui-badge", component: UiBadge },
@@ -121,12 +129,10 @@ const Markup = () => {
 		{ url: "ui-typography", component: UiTypography },
 		{ url: "ui-grid", component: UiGrid },
 		/// Apps
-		{ url: "record-member-event", component: MemberEvent },
-		{ url: "ui-free-event", component: FreeEvent },
+		
 		{ url: "record-free-member-event", component: FreeEventMemberList},
 		{ url: "record-member-event-list", component: MemberEventList},
 		{ url: "members-list", component: MemberList },
-		{ url: "all-event", component: AllEvent },
 		{ url: "app-profile", component: AppProfile },
 		{ url: "email-compose", component: Compose },
 		{ url: "email-inbox", component: Inbox },

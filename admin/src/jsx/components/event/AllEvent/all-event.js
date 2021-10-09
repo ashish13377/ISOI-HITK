@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import PageTitle from "../../layouts/PageTitle";
+import PageTitle from "../../../layouts/PageTitle";
 import AllEventDatatable from "./AllEventDatatable";
 
-const DataTable = () => {
+const AllEvent = () => {
    return (
       <Fragment>
          <PageTitle activeMenu="Event Datatable" motherMenu="Table" />
@@ -13,4 +13,4 @@ const DataTable = () => {
    );
 };
 
-export default DataTable;
+export default AllEvent;

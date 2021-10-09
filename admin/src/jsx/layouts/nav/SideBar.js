@@ -53,10 +53,10 @@ class SideBar extends Component {
             "statistics",
 			
          ],
-         Event = [
+         event = [
           "all-event",
-          "record-free-event",
-          "record-member-event",
+          "free-event",
+          "Member-event",
          ],
          record =[
            "members-list",
@@ -145,7 +145,7 @@ class SideBar extends Component {
                   </li>
                   <li
                      className={`${
-                        Event.includes(path.slice(1)) ? "mm-active" : ""
+                        event.includes(path.slice(1)) ? "mm-active" : ""
                      }`}
                   >
                      <Link
@@ -160,10 +160,10 @@ class SideBar extends Component {
                            <Link to="/all-event">All Events</Link>
                         </li>
                         <li>
-                           <Link to="/record-member-event">Membership Events</Link>
+                           <Link to="/member-event">Membership Events</Link>
                         </li>
                         <li>
-                           <Link to="/ui-free-event">Free Event</Link>
+                           <Link to="/free-event">Free Event</Link>
                         </li>
                      </ul>
                   </li>

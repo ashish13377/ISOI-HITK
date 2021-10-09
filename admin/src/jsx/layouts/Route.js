@@ -48,6 +48,10 @@ import Checkout from "../components/AppsMenu/Shop/Checkout/Checkout";
 import Invoice from "../components/AppsMenu/Shop/Invoice/Invoice";
 import ProductOrder from "../components/AppsMenu/Shop/ProductOrder";
 import Customers from "../components/AppsMenu/Shop/Customers/Customers";
+//Event
+import AllEvent from "./components/event/AllEvent/all-event";
+import FreeEvent from "./components/event/FreeEvent/FreeEvent";
+import MemberEvent from "./components/event/MemberEvent/MemberEvent";
 
 /// Chirt
 import ChartChartist from "../components/charts/chartflot";
@@ -92,6 +96,10 @@ const Routes = () => {
       { url: "companies", component: Companies },
       { url: "search-job", component: SearchJobs },
       { url: "statistics", component: Statistics },
+      //Event
+      { url: "all-event", component: AllEvent },
+		{ url: "free-event", component: FreeEvent },
+		{ url: "Member-event", component: MemberEvent },
       /// Bootstrap
       { url: "ui-alert", component: UiAlert },
       { url: "ui-badge", component: UiBadge },

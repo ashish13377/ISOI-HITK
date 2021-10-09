@@ -1,6 +1,6 @@
 import React from "react";
 
-const StepThree = () => {
+const MemberStepThree = () => {
    return (
       <section>
          <div className="row">
@@ -59,4 +59,4 @@ const StepThree = () => {
    );
 };
 
-export default StepThree;
+export default MemberStepThree;

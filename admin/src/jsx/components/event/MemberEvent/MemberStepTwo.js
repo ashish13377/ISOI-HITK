@@ -2,7 +2,7 @@ import React from "react";
 import MemberMetarialDate from "../MemberEvent/MemberMetarialDate";
 import MemberMetarialTime from "../MemberEvent/MemberMetarialTime";
 
-const StepTwo = () => {
+const MemberStepTwo = () => {
    return (
       <section>
          <div className="row">
@@ -35,4 +35,4 @@ const StepTwo = () => {
    );
 };
 
-export default StepTwo;
+export default MemberStepTwo;

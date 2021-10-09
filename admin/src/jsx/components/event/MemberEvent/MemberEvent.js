@@ -2,16 +2,16 @@ import React, { Fragment } from "react";
 
 import Multistep from "react-multistep";
 
-import StepOne from "./MemberStepOne";
-import StepTwo from "./MemberStepTwo";
-import StepThree from "./MemberStepThree";
+import MemberStepOne from "./MemberStepOne";
+import MemberStepTwo from "./MemberStepTwo";
+import MemberStepThree from "./MemberStepThree";
 import PageTitle from "../../../layouts/PageTitle";
 
 const MemberEvent = () => {
    const steps = [
-      { name: "Event Info", component: <StepOne /> },
-      { name: "Event Details", component: <StepTwo /> },
-      { name: "Contact Details", component: <StepThree /> },
+      { name: "Event Info", component: <MemberStepOne /> },
+      { name: "Event Details", component: <MemberStepTwo /> },
+      { name: "Contact Details", component: <MemberStepThree /> },
    ];
    const prevStyle = {
       background: "#F7FAFC",

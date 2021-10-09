@@ -32,6 +32,8 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
       ? filterName.filter((f) => f !== "editor")
       : filterName.includes("record")
       ? filterName.filter((f) => f !== "record")
+      : filterName.includes("event")
+      ? filterName.filter((f) => f !== "event")
       : filterName;
       
       
