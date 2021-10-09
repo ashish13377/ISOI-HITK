@@ -53,7 +53,7 @@ function Counter() {
 								</a> 
 							</div>
 							<div className="icon-content">
-								<span className="title">Years Completed</span>
+								<span className="title">years Completed</span>
 								<h2 className="counter m-b0 text-primary"><Counterup  count={65}/></h2>
 							</div>
 						</div>
