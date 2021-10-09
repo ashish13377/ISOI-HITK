@@ -4,7 +4,7 @@ import NavHader from "./NavHader";
 import Header from "./Header";
 
 
-const KokiNav = ({ title }) => {
+const ISOINav = ({ title }) => {
    const [toggle, setToggle] = useState("");
    const onClick = (name) => setToggle(toggle === name ? "" : name);
    return (
@@ -20,4 +20,4 @@ const KokiNav = ({ title }) => {
    );
 };
 
-export default KokiNav;
+export default ISOINav;

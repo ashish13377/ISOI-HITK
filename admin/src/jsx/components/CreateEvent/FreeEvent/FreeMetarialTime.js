@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { TimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 
-function BasicDatePicker(props) {
+function BasicTImePicker(props) {
    const [selectedDate, handleDateChange] = useState(new Date());
 
    return (
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
-         <DatePicker
+         <TimePicker
             autoOk
             label=""
-            clearable
-            format="dd/MM/yyyy"
             value={selectedDate}
             onChange={handleDateChange}
          />
@@ -19,4 +17,4 @@ function BasicDatePicker(props) {
    );
 }
 
-export default BasicDatePicker;
+export default BasicTImePicker;

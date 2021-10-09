@@ -55,6 +55,12 @@ class SideBar extends Component {
          ],
          Event = [
           "all-event",
+          "free-event",
+          "member-event",
+         ],
+         record =[
+           "members-list",
+           "eventmember-list",
          ],
          app = [
             "app-profile",
@@ -154,16 +160,16 @@ class SideBar extends Component {
                            <Link to="/all-event">All Events</Link>
                         </li>
                         <li>
-                           <Link to="/app-profile">Membership Events</Link>
+                           <Link to="/member-event">Membership Events</Link>
                         </li>
                         <li>
-                           <Link to="/app-profile">Free Events</Link>
+                           <Link to="/free-event">Free Event</Link>
                         </li>
                      </ul>
                   </li>
                   <li
                      className={`${
-                        charts.includes(path.slice(1)) ? "mm-active" : ""
+                        record.includes(path.slice(1)) ? "mm-active" : ""
                      }`}
                   >
                      <Link
@@ -176,17 +182,17 @@ class SideBar extends Component {
                      </Link>
                      <ul >
                         <li>
-                           <Link to="/chart-rechart">Members List</Link>
+                           <Link to="/Members-list">Members List</Link>
                         </li>
 						      <li>
-                           <Link to="/chart-float">Events Members Register List</Link>
+                           <Link to="/eventmember-list">Events Members Register List</Link>
                         </li>
                         <li>
-                           <Link to="/chart-float">Events Free Members Register List</Link>
+                           <Link to="/freemember-event-list">Events Free Members Register List</Link>
                         </li>
                      </ul>
                   </li>
-                  <li
+                 <li
                      className={`${
                         bootstrap.includes(path.slice(1)) ? "mm-active" : ""
                      }`}
@@ -401,7 +407,7 @@ class SideBar extends Component {
                         <li>
                            <Link to="/page-lock-screen">Lock Screen</Link>
                         </li>
-                     </ul>
+                     </ul> 
                   </li> 
                </MM>
 				{/* <div className="plus-box">

@@ -34,6 +34,7 @@ import UiGrid from "../components/bootstrap/Grid";
 import UiTypography from "../components/bootstrap/Typography";
 
 /// App
+import Memberlist from "../components/Record/Member-List/MembersList";
 import AppProfile from "../components/AppsMenu/AppProfile/AppProfile";
 import Compose from "../components/AppsMenu/Email/Compose/Compose";
 import Inbox from "../components/AppsMenu/Email/Inbox/Inbox";
@@ -65,6 +66,8 @@ import ApexChart from "../components/charts/apexcharts";
 import Widget from "../pages/Widget";
 
 /// Form
+import FreeEvent from "../components/CreateEvent/FreeEvent/FreeEvent";
+import MemberEvent from "../components/CreateEvent/MemberEvent/MemberEvent";
 import Element from "../components/Forms/Element/Element";
 import Wizard from "../components/Forms/Wizard/Wizard";
 import SummerNote from "../components/Forms/Summernote/SummerNote";
@@ -133,6 +136,7 @@ const Routes = () => {
       { url: "chart-rechart", component: RechartJs },
 
       /// table
+     
       { url: "table-datatable-basic", component: DataTable },
       { url: "table-bootstrap-basic", component: BootstrapTable },
 
@@ -140,6 +144,11 @@ const Routes = () => {
       { url: "widget-basic", component: Widget },
 
       /// Form
+      { url: "member-list", component: Memberlist},
+      { url: "free-event", component: FreeEvent },
+      { url: "free-event", component: FreeEvent },
+      { url: "member-event", component: MemberEvent },
+      { url: "member-event", component: MemberEvent },
       { url: "form-element", component: Element },
       { url: "form-wizard", component: Wizard },
       { url: "form-wizard", component: Wizard },

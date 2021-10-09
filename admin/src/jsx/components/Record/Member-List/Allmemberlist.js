@@ -1,18 +1,18 @@
-import React, { useState, useRef } from "react";
+import React, { Fragment, useState, useRef } from "react";
 import { Table, Pagination } from "react-bootstrap";
 
-import data from "./eventstableData.js";
 import { Link } from "react-router-dom";
+import data from "./MemberData";
 
-const AllEventDatatable = () => {
-   const sort = 5;
-   let jobPaggination = Array(Math.ceil(data.jobsTable.data.length / sort))
+const  Allmemberlist = () => {
+   const sort = 10;
+   let jobPagination = Array(Math.ceil(data.profileTable.data.length / sort))
       .fill()
       .map((_, i) => i + 1);
 
    const activePag = useRef(0);
    const jobData = useRef(
-      data.jobsTable.data.slice(
+      data.profileTable.data.slice(
          activePag.current * sort,
          (activePag.current + 1) * sort
       )
@@ -21,12 +21,12 @@ const AllEventDatatable = () => {
    const onClick = (i) => {
       activePag.current = i;
 
-      jobData.current = data.jobsTable.data.slice(
+      jobData.current = data.profileTable.data.slice(
          activePag.current * sort,
          (activePag.current + 1) * sort
       );
       setdemo(
-         data.jobsTable.data.slice(
+         data.profileTable.data.slice(
             activePag.current * sort,
             (activePag.current + 1) * sort
          )
@@ -36,7 +36,7 @@ const AllEventDatatable = () => {
       <div className="col-12">
          <div className="card">
             <div className="card-header">
-               <h4 className="card-title">All Events Details</h4>
+               <h4 className="card-title">Members Profile Data</h4>
             </div>
             <div className="card-body">
                <Table responsive className="w-100">
@@ -44,7 +44,7 @@ const AllEventDatatable = () => {
                      <table id="example" className="display w-100 dataTable">
                         <thead>
                            <tr role="row">
-                              {data.jobsTable.columns.map((d, i) => (
+                              {data.profileTable.columns.map((d, i) => (
                                  <th key={i}>{d}</th>
                               ))}
                            </tr>
@@ -53,27 +53,59 @@ const AllEventDatatable = () => {
                            {jobData.current.map((d, i) => (
                               <tr key={i}>
                                  {d.map((da, i) => (
-                                    <td key={i}>{da}</td>
+                                    <Fragment key={i}>
+                                       <td>
+                                          {i === 0 ? (
+                                             <img
+                                                className="rounded-circle"
+                                                width="90"
+                                                src={da}
+                                                alt=""
+                                             />
+                                          ) : (
+                                             <Fragment>
+                                                {da}
+                                                {i === 8 && (
+                                                   <div className="d-flex">
+                                                      <Link
+                                                         to="#"
+                                                         className="btn btn-primary shadow btn-xs sharp mr-1"
+                                                      >
+                                                         <i className="fa fa-pencil"></i>
+                                                      </Link>
+                                                      <Link
+                                                         to="#"
+                                                         className="btn btn-danger shadow btn-xs sharp"
+                                                      >
+                                                         <i className="fa fa-trash"></i>
+                                                      </Link>
+                                                   </div>
+                                                )}
+                                             </Fragment>
+                                          )}
+                                       </td>
+                                    </Fragment>
                                  ))}
                               </tr>
                            ))}
                         </tbody>
                         <tfoot>
                            <tr role="row">
-                              {data.jobsTable.columns.map((d, i) => (
+                              {data.profileTable.columns.map((d, i) => (
                                  <th key={i}>{d}</th>
                               ))}
                            </tr>
                         </tfoot>
                      </table>
+
                      <div className="d-flex justify-content-between align-items-center mt-3">
                         <div className="dataTables_info">
-                           Showing {activePag.current * sort + 1} to 
-                           {data.jobsTable.data.length <
+                           Showing {activePag.current * sort + 1} to
+                           {data.profileTable.data.length <
                            (activePag.current + 1) * sort
-                              ? data.jobsTable.data.length
+                              ? data.profileTable.data.length
                               : (activePag.current + 1) * sort}
-                           of {data.jobsTable.data.length} entries
+                           of {data.profileTable.data.length} entries
                         </div>
                         <div className="dataTables_paginate paging_simple_numbers">
                            <Pagination
@@ -91,7 +123,7 @@ const AllEventDatatable = () => {
                                     <i className="la la-angle-left" />
                                  </Link>
                               </li>
-                              {jobPaggination.map((number, i) => (
+                              {jobPagination.map((number, i) => (
                                  <Pagination.Item
                                     className={
                                        activePag.current === i ? "active" : ""
@@ -105,7 +137,7 @@ const AllEventDatatable = () => {
                                  className="page-item page-indicator"
                                  onClick={() =>
                                     activePag.current + 1 <
-                                       jobPaggination.length &&
+                                       jobPagination.length &&
                                     onClick(activePag.current + 1)
                                  }
                               >
@@ -124,4 +156,4 @@ const AllEventDatatable = () => {
    );
 };
 
-export default AllEventDatatable;
+export default Allmemberlist;

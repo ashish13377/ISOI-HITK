@@ -48,6 +48,8 @@ import UiGrid from "./components/bootstrap/Grid";
 import UiTypography from "./components/bootstrap/Typography";
 
 /// App
+import EventMemberList from "./components/Record/MembersEvent-List";
+import MemberList from "./components/Record/Member-List/MembersList";
 import AllEvent from "./components/event/all-event";
 import AppProfile from "./components/AppsMenu/AppProfile/AppProfile";
 import Compose from "./components/AppsMenu/Email/Compose/Compose";
@@ -76,6 +78,8 @@ import DataTable from "./components/table/DataTable";
 import BootstrapTable from "./components/table/BootstrapTable";
 
 /// Form
+import FreeEvent from "./components/CreateEvent/FreeEvent/FreeEvent";
+import MemberEvent from "./components/CreateEvent/MemberEvent/MemberEvent";
 import Element from "./components/Forms/Element/Element";
 import Wizard from "./components/Forms/Wizard/Wizard";
 import SummerNote from "./components/Forms/Summernote/SummerNote";
@@ -90,6 +94,7 @@ import MainSweetAlert from "./components/PluginsMenu/Sweet Alert/SweetAlert";
 import Toastr from "./components/PluginsMenu/Toastr/Toastr";
 import JqvMap from "./components/PluginsMenu/Jqv Map/JqvMap";
 import RechartJs from "./components/charts/rechart";
+
 
 const Markup = () => {
    const routes = [
@@ -115,6 +120,8 @@ const Markup = () => {
 		{ url: "ui-typography", component: UiTypography },
 		{ url: "ui-grid", component: UiGrid },
 		/// Apps
+		{ url: "eventmember-list", component: EventMemberList},
+		{ url: "members-list", component: MemberList },
 		{ url: "all-event", component: AllEvent },
 		{ url: "app-profile", component: AppProfile },
 		{ url: "email-compose", component: Compose },
@@ -145,6 +152,10 @@ const Markup = () => {
 		{ url: "table-bootstrap-basic", component: BootstrapTable },
 	
 		/// Form
+		{ url: "free-event", component: FreeEvent },
+		{ url: "free-event", component: FreeEvent },
+		{ url: "member-event", component: MemberEvent },
+		{ url: "member-event", component: MemberEvent },
 		{ url: "form-element", component: Element },
 		{ url: "form-wizard", component: Wizard },
 		{ url: "form-wizard", component: Wizard },

@@ -5,7 +5,7 @@ import AllEventDatatable from "./AllEventDatatable";
 const DataTable = () => {
    return (
       <Fragment>
-         <PageTitle activeMenu="Datatable" motherMenu="Table" />
+         <PageTitle activeMenu="Event Datatable" motherMenu="Table" />
          <div className="row">
             <AllEventDatatable></AllEventDatatable>
          </div>
