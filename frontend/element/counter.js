@@ -14,7 +14,7 @@ function Counter() {
 								</a> 
 							</div>
 							<div className="icon-content">
-								<span className="title">Satisfied Clients</span>
+								<span className="title">Events completed</span>
 								<h2 className="counter m-b0 text-primary"><Counterup  count={9875}/></h2>
 							</div>
 						</div>
@@ -27,7 +27,7 @@ function Counter() {
 								</a> 
 							</div>
 							<div className="icon-content">
-								<span className="title">Project Completed</span>
+								<span className="title">Projects Completed</span>
 								<h2 className="counter m-b0 text-primary"><Counterup  count={8765}/></h2>
 							</div>
 						</div>
@@ -40,7 +40,7 @@ function Counter() {
 								</a> 
 							</div>
 							<div className="icon-content">
-								<span className="title">Project Lunched</span>
+								<span className="title">Active Members</span>
 								<h2 className="counter m-b0 text-primary"><Counterup  count={7894}/></h2>
 							</div>
 						</div>
