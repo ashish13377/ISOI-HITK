@@ -1,166 +1,52 @@
-import pic1 from "../../../images/profile/small/pic1.jpg";
+import React from "react";
+import { Table } from "react-bootstrap";
 
-const FreeMemberEvent = {
-   data: [
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-      
-      [
-         pic1,
-         "Gavin Joyce",
-         "2nd",
-         "Male",
-         "4 year",
-         "1234567890",
-         "info@example.com",
-         "2011/04/25",
-         "",
-      ],
-   ],
-   columns: [
-      "Profile Pic",
-      "Name",
-      "Year",
-      "Gender",
-      "Membership Duration",
-      "Mobile",
-      "Email",
-      "Joining Date",
-   ],
+import data from "./FreeDataList";
+
+const FreeEventData = () => {
+   return (
+      <div className="col-12">
+         <div className="card">
+            <div className="card-header">
+               <h4 className="card-title">Datatable</h4>
+            </div>
+            <div className="card-body">
+               <Table responsive className="w-100">
+                  <div id="example_wrapper" className="dataTables_wrapper">
+                     <table
+                        id="example"
+                        className="display w-100 dataTable"
+                        role="grid"
+                        aria-describedby="example_info"
+                     >
+                        <thead>
+                           {data.jobsTable.columns.map((d, i) => (
+                              <th key={i}>{d}</th>
+                           ))}
+                        </thead>
+                        <tbody>
+                           {data.jobsTable.data.map((d, i) => (
+                              <tr key={i}>
+                                 {d.map((da, i) => (
+                                    <td key={i}>{da}</td>
+                                 ))}
+                              </tr>
+                           ))}
+                        </tbody>
+                        <tfoot>
+                           <tr role="row">
+                              {data.jobsTable.columns.map((d, i) => (
+                                 <th key={i}>{d}</th>
+                              ))}
+                           </tr>
+                        </tfoot>
+                     </table>
+                  </div>
+               </Table>
+            </div>
+         </div>
+      </div>
+   );
 };
 
-const data = {
-   FreeMemberEvent,
-};
-
-export default data;
+export default FreeEventData;

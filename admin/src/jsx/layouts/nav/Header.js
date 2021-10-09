@@ -30,7 +30,11 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
       ? filterName.filter((f) => f !== "chart")
       : filterName.includes("editor")
       ? filterName.filter((f) => f !== "editor")
+      : filterName.includes("record")
+      ? filterName.filter((f) => f !== "record")
       : filterName;
+      
+      
 	
 	var page_name = (finalName.join(" ") === '')?'Dashboard':finalName.join(" ");	
 	  

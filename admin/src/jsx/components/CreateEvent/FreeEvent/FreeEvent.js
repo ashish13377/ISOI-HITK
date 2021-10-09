@@ -2,16 +2,16 @@ import React, { Fragment } from "react";
 
 import Multistep from "react-multistep";
 
-import StepOne from "./FreeStepOne";
-import StepTwo from "./FreeStepTwo";
-import StepThree from "./FreeStepThree";
+import FreeStepOne from "./FreeStepOne";
+import FreeStepTwo from "./FreeStepTwo";
+import FreeStepThree from "./FreeStepThree";
 import PageTitle from "../../../layouts/PageTitle";
 
 const FreeEvent = () => {
    const steps = [
-      { name: "Event Info", component: <StepOne /> },
-      { name: "Event Details", component: <StepTwo /> },
-      { name: "Contact Details", component: <StepThree /> },
+      { name: "Event Info", component: <FreeStepOne /> },
+      { name: "Event Details", component: <FreeStepTwo /> },
+      { name: "Contact Details", component: <FreeStepThree /> },
    ];
    const prevStyle = {
       background: "#F7FAFC",

@@ -55,12 +55,12 @@ class SideBar extends Component {
          ],
          Event = [
           "all-event",
-          "free-event",
-          "member-event",
+          "record-free-event",
+          "record-member-event",
          ],
          record =[
            "members-list",
-           "eventmember-list",
+           "record-member-event-list",
          ],
          app = [
             "app-profile",
@@ -160,10 +160,10 @@ class SideBar extends Component {
                            <Link to="/all-event">All Events</Link>
                         </li>
                         <li>
-                           <Link to="/member-event">Membership Events</Link>
+                           <Link to="/record-member-event">Membership Events</Link>
                         </li>
                         <li>
-                           <Link to="/free-event">Free Event</Link>
+                           <Link to="/ui-free-event">Free Event</Link>
                         </li>
                      </ul>
                   </li>
@@ -185,10 +185,10 @@ class SideBar extends Component {
                            <Link to="/Members-list">Members List</Link>
                         </li>
 						      <li>
-                           <Link to="/eventmember-list">Events Members Register List</Link>
+                           <Link to="/record-member-event-list">Events Members Register List</Link>
                         </li>
                         <li>
-                           <Link to="/freemember-event-list">Events Free Members Register List</Link>
+                           <Link to="/record-free-member-event">Events Free Members Register List</Link>
                         </li>
                      </ul>
                   </li>

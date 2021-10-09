@@ -1,18 +1,18 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Table, Pagination } from "react-bootstrap";
 
+import data from "./DataList";
 import { Link } from "react-router-dom";
-import data from "./EventMemberData";
 
-const  Allmemberlist = () => {
-   const sort = 10;
-   let jobPagination = Array(Math.ceil(data.MemberEvent.data.length / sort))
+const MemberData = () => {
+   const sort = 3;
+   let jobPaggination = Array(Math.ceil(data.jobsTable.data.length / sort))
       .fill()
       .map((_, i) => i + 1);
 
    const activePag = useRef(0);
    const jobData = useRef(
-      data.MemberEvent.data.slice(
+      data.jobsTable.data.slice(
          activePag.current * sort,
          (activePag.current + 1) * sort
       )
@@ -21,12 +21,12 @@ const  Allmemberlist = () => {
    const onClick = (i) => {
       activePag.current = i;
 
-      jobData.current = data.MemberEvent.data.slice(
+      jobData.current = data.jobsTable.data.slice(
          activePag.current * sort,
          (activePag.current + 1) * sort
       );
       setdemo(
-         data.MemberEvent.data.slice(
+         data.jobsTable.data.slice(
             activePag.current * sort,
             (activePag.current + 1) * sort
          )
@@ -36,7 +36,7 @@ const  Allmemberlist = () => {
       <div className="col-12">
          <div className="card">
             <div className="card-header">
-               <h4 className="card-title">Member Event Data</h4>
+               <h4 className="card-title">Basic Datatable</h4>
             </div>
             <div className="card-body">
                <Table responsive className="w-100">
@@ -44,7 +44,7 @@ const  Allmemberlist = () => {
                      <table id="example" className="display w-100 dataTable">
                         <thead>
                            <tr role="row">
-                              {data.MemberEvent.columns.map((d, i) => (
+                              {data.jobsTable.columns.map((d, i) => (
                                  <th key={i}>{d}</th>
                               ))}
                            </tr>
@@ -53,59 +53,27 @@ const  Allmemberlist = () => {
                            {jobData.current.map((d, i) => (
                               <tr key={i}>
                                  {d.map((da, i) => (
-                                    <Fragment key={i}>
-                                       <td>
-                                          {i === 0 ? (
-                                             <img
-                                                className="rounded-circle"
-                                                width="90"
-                                                src={da}
-                                                alt=""
-                                             />
-                                          ) : (
-                                             <Fragment>
-                                                {da}
-                                                {i === 8 && (
-                                                   <div className="d-flex">
-                                                      <Link
-                                                         to="#"
-                                                         className="btn btn-primary shadow btn-xs sharp mr-1"
-                                                      >
-                                                         <i className="fa fa-pencil"></i>
-                                                      </Link>
-                                                      <Link
-                                                         to="#"
-                                                         className="btn btn-danger shadow btn-xs sharp"
-                                                      >
-                                                         <i className="fa fa-trash"></i>
-                                                      </Link>
-                                                   </div>
-                                                )}
-                                             </Fragment>
-                                          )}
-                                       </td>
-                                    </Fragment>
+                                    <td key={i}>{da}</td>
                                  ))}
                               </tr>
                            ))}
                         </tbody>
                         <tfoot>
                            <tr role="row">
-                              {data.MemberEvent.columns.map((d, i) => (
+                              {data.jobsTable.columns.map((d, i) => (
                                  <th key={i}>{d}</th>
                               ))}
                            </tr>
                         </tfoot>
                      </table>
-
                      <div className="d-flex justify-content-between align-items-center mt-3">
                         <div className="dataTables_info">
                            Showing {activePag.current * sort + 1} to
-                           {data.MemberEvent.data.length <
+                           {data.jobsTable.data.length <
                            (activePag.current + 1) * sort
-                              ? data.MemberEvent.data.length
+                              ? data.jobsTable.data.length
                               : (activePag.current + 1) * sort}
-                           of {data.MemberEvent.data.length} entries
+                           of {data.jobsTable.data.length} entries
                         </div>
                         <div className="dataTables_paginate paging_simple_numbers">
                            <Pagination
@@ -123,7 +91,7 @@ const  Allmemberlist = () => {
                                     <i className="la la-angle-left" />
                                  </Link>
                               </li>
-                              {jobPagination.map((number, i) => (
+                              {jobPaggination.map((number, i) => (
                                  <Pagination.Item
                                     className={
                                        activePag.current === i ? "active" : ""
@@ -137,7 +105,7 @@ const  Allmemberlist = () => {
                                  className="page-item page-indicator"
                                  onClick={() =>
                                     activePag.current + 1 <
-                                       jobPagination.length &&
+                                       jobPaggination.length &&
                                     onClick(activePag.current + 1)
                                  }
                               >
@@ -156,4 +124,4 @@ const  Allmemberlist = () => {
    );
 };
 
-export default Allmemberlist;
+export default MemberData;

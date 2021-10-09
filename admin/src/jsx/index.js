@@ -48,7 +48,10 @@ import UiGrid from "./components/bootstrap/Grid";
 import UiTypography from "./components/bootstrap/Typography";
 
 /// App
-import EventMemberList from "./components/Record/MembersEvent-List";
+import FreeEventMemberList from "./components/Record/FreeEvent-List/FreeEventMemberList";
+import MemberEvent from "./components/CreateEvent/MemberEvent/MemberEvent";
+import FreeEvent from "./components/CreateEvent/FreeEvent/FreeEvent";
+import MemberEventList from "./components/Record/MemberEvent-list/MembersEventList";
 import MemberList from "./components/Record/Member-List/MembersList";
 import AllEvent from "./components/event/all-event";
 import AppProfile from "./components/AppsMenu/AppProfile/AppProfile";
@@ -78,8 +81,6 @@ import DataTable from "./components/table/DataTable";
 import BootstrapTable from "./components/table/BootstrapTable";
 
 /// Form
-import FreeEvent from "./components/CreateEvent/FreeEvent/FreeEvent";
-import MemberEvent from "./components/CreateEvent/MemberEvent/MemberEvent";
 import Element from "./components/Forms/Element/Element";
 import Wizard from "./components/Forms/Wizard/Wizard";
 import SummerNote from "./components/Forms/Summernote/SummerNote";
@@ -120,7 +121,10 @@ const Markup = () => {
 		{ url: "ui-typography", component: UiTypography },
 		{ url: "ui-grid", component: UiGrid },
 		/// Apps
-		{ url: "eventmember-list", component: EventMemberList},
+		{ url: "record-member-event", component: MemberEvent },
+		{ url: "ui-free-event", component: FreeEvent },
+		{ url: "record-free-member-event", component: FreeEventMemberList},
+		{ url: "record-member-event-list", component: MemberEventList},
 		{ url: "members-list", component: MemberList },
 		{ url: "all-event", component: AllEvent },
 		{ url: "app-profile", component: AppProfile },
@@ -152,10 +156,6 @@ const Markup = () => {
 		{ url: "table-bootstrap-basic", component: BootstrapTable },
 	
 		/// Form
-		{ url: "free-event", component: FreeEvent },
-		{ url: "free-event", component: FreeEvent },
-		{ url: "member-event", component: MemberEvent },
-		{ url: "member-event", component: MemberEvent },
 		{ url: "form-element", component: Element },
 		{ url: "form-wizard", component: Wizard },
 		{ url: "form-wizard", component: Wizard },
