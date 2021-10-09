@@ -192,7 +192,7 @@ class SideBar extends Component {
                         </li>
                      </ul>
                   </li>
-                 <li
+                 {/* <li
                      className={`${
                         bootstrap.includes(path.slice(1)) ? "mm-active" : ""
                      }`}
@@ -408,7 +408,7 @@ class SideBar extends Component {
                            <Link to="/page-lock-screen">Lock Screen</Link>
                         </li>
                      </ul> 
-                  </li> 
+                  </li>  */}
                </MM>
 				{/* <div className="plus-box">
 					<p className="fs-13 font-w300 mb-4">Organize your menus through button bellow</p>
