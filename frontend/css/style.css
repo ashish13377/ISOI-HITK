@@ -14078,14 +14078,7 @@ button.scroltop {
   .clients-logo img {
     width: auto !important;
     margin: auto; }
-  .clients-logo .logo-hover {
-    display: none !important; }
-  .clients-logo:hover {
-    background: #896eff; }
-    .clients-logo:hover .logo-main {
-      display: none; }
-    .clients-logo:hover .logo-hover {
-      display: block !important; }
+ 
 
 .video-bx {
   position: relative; }
