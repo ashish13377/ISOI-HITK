@@ -15,10 +15,9 @@ function Portfolio() {
           src="/images/projects/pic1.jpg"
           layout="responsive"
           width={370}
-          height={370}
+          height={430}
         />
       ),
-      author: "Jhone Doe",
     },
     {
       title: "Software Landing Page Design",
@@ -29,10 +28,10 @@ function Portfolio() {
           src="/images/projects/pic2.jpg"
           layout="responsive"
           width={370}
-          height={370}
+          height={430}
         />
       ),
-      author: "Jhone Doe",
+     
     },
     {
       title: "Software Landing Page Design",
@@ -42,11 +41,11 @@ function Portfolio() {
         <Image
           src="/images/projects/pic3.jpg"
           layout="responsive"
-          width={370}
-          height={370}
+          width={700}
+          height={400}
         />
       ),
-      author: "Jhone Doe",
+     
     },
     {
       title: "Software Landing Page Design",
@@ -56,11 +55,11 @@ function Portfolio() {
         <Image
           src="/images/projects/pic4.jpg"
           layout="responsive"
-          width={370}
-          height={370}
+          width={700}
+          height={400}
         />
       ),
-      author: "Jhone Doe",
+ 
     },
     {
       title: "Software Landing Page Design",
@@ -70,11 +69,11 @@ function Portfolio() {
         <Image
           src="/images/projects/pic5.jpg"
           layout="responsive"
-          width={370}
-          height={370}
+          width={700}
+          height={400}
         />
       ),
-      author: "Jhone Doe",
+     
     },
     {
       title: "Software Landing Page Design",
@@ -84,11 +83,11 @@ function Portfolio() {
         <Image
           src="/images/projects/pic6.jpg"
           layout="responsive"
-          width={370}
-          height={370}
+          width={700}
+          height={400}
         />
       ),
-      author: "Jhone Doe",
+ 
     },
   ];
 
