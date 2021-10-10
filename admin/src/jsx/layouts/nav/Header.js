@@ -116,7 +116,7 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
                               <span className="ml-2">Admin Profile </span>
                            </Link>
                            <Link
-                              to="/page-login"
+                              to="/login"
                               className="dropdown-item ai-icon"
                            >
                               <svg

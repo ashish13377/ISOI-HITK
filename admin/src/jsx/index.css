@@ -128,6 +128,9 @@ rect#chart_ChartBorder {
 .h-70 {
    min-height: 70vh;
 }
+.h-100{
+   min-height: 100vh;
+}
 
 /* pagination */
 .pagination {

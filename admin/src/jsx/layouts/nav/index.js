@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import SideBar from "./SideBar";
+
 import NavHader from "./NavHader";
 import Header from "./Header";
 
@@ -10,7 +10,7 @@ const ISOINav = ({ title }) => {
    return (
       <Fragment>
          <NavHader />
-         <SideBar />
+         
          <Header
             onProfile={() => onClick("profile")}
             toggle={toggle}

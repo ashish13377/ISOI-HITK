@@ -10,8 +10,6 @@ const Footer = () => {
                <Link to="#" >
                   Amrit &amp; Ashish
                </Link>{" "}
-               
-               
             </p>
          </div>
       </div>

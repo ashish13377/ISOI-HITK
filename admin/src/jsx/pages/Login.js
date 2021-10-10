@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import logo from "../../images/logofull.png";
+
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -13,12 +15,17 @@ const Login = () => {
 
    };
    return (
-      <div className="row justify-content-center h-100 align-items-center h-80">
-         <div className="col-md-6">
+
+      <div className="row justify-content-center h-100 align-items-center h-100">
+         <div className="col-md-5">
             <div className="authincation-content">
                <div className="row no-gutters">
                   <div className="col-xl-12">
                      <div className="auth-form">
+                        <div style={{ textAlign: "center" }}>
+                           <img className="mb-4" src={logo} alt="ISOI_HITK Logo" />
+                        </div>
+                        <h3 className="text-center mb-4 "> Welcome to ISOI_HITK Admin Dashboard</h3>
                         <h4 className="text-center mb-4 "> Sign in your account  </h4>
                         <form action="" onSubmit={(e) => e.preventDefault(submitHandler)}  >
                            <div className="form-group">    <label className="mb-1 ">  <strong>Username</strong> </label>
@@ -34,13 +41,21 @@ const Login = () => {
                               <button type="submit" className="btn btn-primary btn-block" onClick={() => submitHandler} > Sign Me In </button>
                            </div>
                         </form>
-
+                        <br />
+                        <br />
+                           <div>
+                              <h6  className="text-center">
+                                  Copyright © 2021 ISOI_HITK
+                              </h6>
+                           </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
       </div>
+
+
    );
 };
 
