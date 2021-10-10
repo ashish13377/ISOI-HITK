@@ -51,7 +51,9 @@ function AboutUs1() {
 							<div className="col-lg-6 m-b30 wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.4s">
 								<div className="section-head style-1 mb-4">
 									<h6 className="sub-title bgl-primary m-b20 text-primary">About Us</h6>
-									<h2 className="title">How We Can Help You Achieve Your Business Goal</h2>
+									<h2 className="title"> ISOI Student Chapter Heritage Institute of Technology,
+Kolkata : 
+</h2>
 								</div>
 								<p>Integer pretium molestie nisl, non blandit lectus suscipit in. Vivamus tellus diam, iaculis eget nulla sit amet, tincidunt consectetur sem. Suspendisse laoreet, quam sed faucibus feugiat, tortor velit suscipit orci, sed consectetur ante eros id urna. Mauris luctus nulla ut pharetra tempor.</p>
 								<p className="m-b30">Mauris egestas eleifend sapien eu malesuada. Phasellus at metus eget sapien tristique accumsan non sit amet augue.</p>
@@ -88,7 +90,7 @@ function AboutUs1() {
 							<div className="col-lg-6 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.2s">
 								<div className="section-head style-1">
 									<h6 className="sub-title bgl-primary m-b20 text-primary">Watch Us</h6>
-									<h2 className="title m-b15">Watch How Our Team Help You To Achive Goal</h2>
+									<h2 className="title m-b15">Benfits of becoming a member of ISOI student chapter</h2>
 									<p>Suspendisse euismod eget lacus quis mattis. Nunc ut auctor justo, et pulvinar lorem nteger tempor nisi venenatis</p>
 								</div>
 								<div className="row">
@@ -100,7 +102,7 @@ function AboutUs1() {
 												</a>
 											</div>
 											<div className="icon-content">
-												<h4 className="dlab-title m-b5">Online Support</h4>
+												<h4 className="dlab-title m-b5">Exposure </h4>
 												<p>Quisque efficitur consequat turpis, eget consequat risus vulputate eunc ligula.</p>
 											</div>
 										</div>
@@ -113,7 +115,7 @@ function AboutUs1() {
 												</a>
 											</div>
 											<div className="icon-content">
-												<h4 className="dlab-title m-b5">Worldwide Marketing</h4>
+												<h4 className="dlab-title m-b5">Recommendation</h4>
 												<p>Quisque efficitur consequat turpis, eget consequat risus vulputate eunc ligula.</p>
 											</div>
 										</div>
