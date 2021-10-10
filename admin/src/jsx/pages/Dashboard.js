@@ -5,37 +5,13 @@ import {  Sparklines,  SparklinesLine,  } from "react-sparklines";
 import Nav from "../layouts/nav";
 import Footer from "../layouts/Footer";
 import SideBar from "../layouts/nav/SideBar";
-import ApexchartsNegPost from '../components/Dashboard/Home/ApexNagetivePosative';
-import ApexchartsNegPost1 from '../components/Dashboard/Home/ApexNagetivePosative1';
+
 
 
 const sampleData1 = [8, 7, 6, 3, 2, 4, 6, 8, 12, 6, 12, 13, 10, 18, 14, 24, 16, 12, 19, 21, 16, 14, 24, 21, 13, 15, 27, 29, 21, 11, 14, 19, 21, 17,];
 const sampleData2 = [19, 21, 16, 14, 24, 21, 13, 15, 27, 29, 21, 11, 14, 19, 21, 17, 12, 6, 12, 13, 10, 18, 14, 24, 16, 12, 8, 7, 6, 3, 2, 7, 6, 8,];
 const sampleData3 = [8, 7, 6, 3, 2, 4, 6, 8, 10, 6, 12, 15, 13, 15, 14, 13, 21, 11, 14, 10, 21, 10, 13, 10, 12, 14, 16, 14, 12, 10, 9, 8, 4, 1,];
 const sampleData4 = [20, 18, 16, 12, 8, 10, 13, 15, 12, 6, 12, 13, 10, 18, 14, 16, 17, 15, 19, 16, 16, 14, 18, 21, 13, 15, 18, 17, 21, 11, 14, 19, 21, 17,];
-const tabData = [
-      {
-         name: "Home",
-         content:
-            <ApexchartsNegPost1 />,
-      },
-      {
-         name: "Profile",
-         content:
-            <ApexchartsNegPost />,
-      },
-      {
-         name: "Contact",
-         content:
-            <ApexchartsNegPost />,
-      },
-
-      {
-         name: "Message",
-         content:
-           <ApexchartsNegPost />,
-      },
-   ];
 
 const Dashboard = () => {
 	

@@ -17,7 +17,7 @@ const MemberData = () => {
          (activePag.current + 1) * sort
       )
    );
-   const [demo, setdemo] = useState();
+   const [ setdemo] = useState();
    const onClick = (i) => {
       activePag.current = i;
 

@@ -9,6 +9,7 @@ import "./chart.css";
 
 
 /// Pages
+import AdminProfile from "./pages/Profile";
 import FreeEventMemberList from"./pages/NonMemberEventList";
 import MembersEventList from "./pages/MembersEventList";
 import MemberList from"./pages/MemberList";
@@ -17,7 +18,6 @@ import MemberEvent from "./pages/MembershipEvent";
 import AllEvent from "./pages/All-event"
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
-import Error404 from "./pages/Error404";
 
 const Markup = () => {
 	
@@ -49,6 +49,9 @@ const Markup = () => {
 					</Route>
 					<Route exact path="/non-members-event-list">
 						<FreeEventMemberList />
+					</Route>
+					<Route exact path="/admin-profile">
+						<AdminProfile />
 					</Route>
 				</Switch>
 			</div>
