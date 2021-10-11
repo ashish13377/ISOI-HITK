@@ -1,12 +1,23 @@
-import React, { Fragment } from "react";
+import React, { Fragment , useEffect } from "react";
 import Nav from "../layouts/nav";
 import Footer from "../layouts/Footer";
 import SideBar from "../layouts/nav/SideBar";
 import PageTitle from "../layouts/PageTitle";
 import FreeEventData from "../components/Record/FreeEvent-List/FreeEventData";
-
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 const FreeEventMemberList = () => {
+
+    const data = useSelector(state => state.user);
+	const history = useHistory();
+
+	useEffect(() => {
+		if(!data){
+			history.push("/login")
+		}
+	})
+
     return (
         <Fragment>
             <Nav />

@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import React, { Fragment , useEffect } from "react";
 //** Import Image */
 
 import {  Sparklines,  SparklinesLine,  } from "react-sparklines";
 import Nav from "../layouts/nav";
 import Footer from "../layouts/Footer";
 import SideBar from "../layouts/nav/SideBar";
-
-
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 const sampleData1 = [8, 7, 6, 3, 2, 4, 6, 8, 12, 6, 12, 13, 10, 18, 14, 24, 16, 12, 19, 21, 16, 14, 24, 21, 13, 15, 27, 29, 21, 11, 14, 19, 21, 17,];
 const sampleData2 = [19, 21, 16, 14, 24, 21, 13, 15, 27, 29, 21, 11, 14, 19, 21, 17, 12, 6, 12, 13, 10, 18, 14, 24, 16, 12, 8, 7, 6, 3, 2, 7, 6, 8,];
@@ -14,6 +14,15 @@ const sampleData3 = [8, 7, 6, 3, 2, 4, 6, 8, 10, 6, 12, 15, 13, 15, 14, 13, 21, 
 const sampleData4 = [20, 18, 16, 12, 8, 10, 13, 15, 12, 6, 12, 13, 10, 18, 14, 16, 17, 15, 19, 16, 16, 14, 18, 21, 13, 15, 18, 17, 21, 11, 14, 19, 21, 17,];
 
 const Dashboard = () => {
+
+	const data = useSelector(state => state.user);
+	const history = useHistory();
+
+	useEffect(() => {
+		if(!data){
+			history.push("/login")
+		}
+	})
 	
    return (
       <Fragment>

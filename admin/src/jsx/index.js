@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 /// React router dom
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -19,7 +19,10 @@ import AllEvent from "./pages/All-event"
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 
+
 const Markup = () => {
+
+
 	
 	return (
 

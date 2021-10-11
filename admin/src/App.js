@@ -1,4 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment , useEffect } from "react";
+import { setUserDetails } from "./redux/actions/index"
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from "react-router-dom";
 
 /// Components
 import Markup from "./jsx";
@@ -11,6 +14,14 @@ import { withResizeDetector } from "react-resize-detector";
 
 const App = ({ width }) => {
    const body = document.querySelector("body");
+   const dispatch = useDispatch();
+   const history = useHistory();
+
+   useEffect(() => {
+      const data = localStorage.getItem("user");
+      dispatch(setUserDetails(JSON.parse(data)));
+
+   },[])
 
    width >= 1300
       ? body.setAttribute("data-sidebar-style", "full")

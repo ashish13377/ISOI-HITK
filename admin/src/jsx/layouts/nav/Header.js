@@ -1,45 +1,57 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-/// Image
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import profile from "../../../images/profile/12.png";
+import { logout } from "../../../redux/actions";
 
-const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
+const Header = ({ onNote, toggle, onProfile, onActivity, onNotification }) => {
    var path = window.location.pathname.split("/");
    var name = path[path.length - 1].split("-");
    var filterName = name.length >= 3 ? name.filter((n, i) => i > 0) : name;
    var finalName = filterName.includes("app")
       ? filterName.filter((f) => f !== "app")
       : filterName.includes("ui")
-      ? filterName.filter((f) => f !== "ui")
-      : filterName.includes("uc")
-      ? filterName.filter((f) => f !== "uc")
-      : filterName.includes("basic")
-      ? filterName.filter((f) => f !== "basic")
-      : filterName.includes("form")
-      ? filterName.filter((f) => f !== "form")
-      : filterName.includes("table")
-      ? filterName.filter((f) => f !== "table")
-      : filterName.includes("page")
-      ? filterName.filter((f) => f !== "page")
-      : filterName.includes("email")
-      ? filterName.filter((f) => f !== "email")
-      : filterName.includes("ecom")
-      ? filterName.filter((f) => f !== "ecom")
-      : filterName.includes("chart")
-      ? filterName.filter((f) => f !== "chart")
-      : filterName.includes("editor")
-      ? filterName.filter((f) => f !== "editor")
-      : filterName.includes("record")
-      ? filterName.filter((f) => f !== "record")
-      : filterName.includes("event")
-      ? filterName.filter((f) => f !== "event")
-      : filterName;
-      
-      
-	
-	var page_name = (finalName.join(" ") === '')?'Dashboard':finalName.join(" ");	
-	  
+         ? filterName.filter((f) => f !== "ui")
+         : filterName.includes("uc")
+            ? filterName.filter((f) => f !== "uc")
+            : filterName.includes("basic")
+               ? filterName.filter((f) => f !== "basic")
+               : filterName.includes("form")
+                  ? filterName.filter((f) => f !== "form")
+                  : filterName.includes("table")
+                     ? filterName.filter((f) => f !== "table")
+                     : filterName.includes("page")
+                        ? filterName.filter((f) => f !== "page")
+                        : filterName.includes("email")
+                           ? filterName.filter((f) => f !== "email")
+                           : filterName.includes("ecom")
+                              ? filterName.filter((f) => f !== "ecom")
+                              : filterName.includes("chart")
+                                 ? filterName.filter((f) => f !== "chart")
+                                 : filterName.includes("editor")
+                                    ? filterName.filter((f) => f !== "editor")
+                                    : filterName.includes("record")
+                                       ? filterName.filter((f) => f !== "record")
+                                       : filterName.includes("event")
+                                          ? filterName.filter((f) => f !== "event")
+                                          : filterName;
+
+
+
+   var page_name = (finalName.join(" ") === '') ? 'Dashboard' : finalName.join(" ");
+
+   const data = useSelector(state => state.user);
+   const dispatch = useDispatch()
+   const history = useHistory()
+
+   const logoutUser = () => {
+      localStorage.removeItem("jwt");
+      localStorage.removeItem("user");
+      dispatch(logout());
+      history.push("/login")
+   }
+
    return (
       <div className="header">
          <div className="header-content">
@@ -56,7 +68,7 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
 
                   <ul className="navbar-nav header-right">
                      <li className="nav-item">
-						{/*  <div className="input-group search-area d-lg-inline-flex d-none">
+                        {/*  <div className="input-group search-area d-lg-inline-flex d-none">
                            <input
                               type="text"
                               className="form-control"
@@ -68,13 +80,12 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
                               </span>
                            </div>
                         </div> */}
-               
-                      
+
+
                      </li>
                      <li
-                        className={`nav-item dropdown header-profile ${
-                           toggle === "profile" ? "show" : ""
-                        }`}
+                        className={`nav-item dropdown header-profile ${toggle === "profile" ? "show" : ""
+                           }`}
                         onClick={() => onProfile()}
                      >
                         <Link to={"#"}
@@ -83,15 +94,14 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
                            data-toggle="dropdown"
                         >
                            <div className="header-info">
-								<small>Namaste</small>
-								<span>Heritageit Admin</span>
+                              <small>Namaste</small>
+                              <span>{data && data.name}</span>
                            </div>
                            <img src={profile} width="20" alt="" />
                         </Link>
                         <div
-                           className={`dropdown-menu dropdown-menu-right ${
-                              toggle === "profile" ? "show" : ""
-                           }`}
+                           className={`dropdown-menu dropdown-menu-right ${toggle === "profile" ? "show" : ""
+                              }`}
                         >
                            <Link
                               to="/admin-profile"
@@ -136,11 +146,11 @@ const Header = ({ onNote, toggle, onProfile, onActivity, onNotification}) => {
                                  <polyline points="16 17 21 12 16 7"></polyline>
                                  <line x1="21" y1="12" x2="9" y2="12"></line>
                               </svg>
-                              <span className="ml-2">Logout </span>
+                              <span className="ml-2" onClick={logoutUser}>Logout </span>
                            </Link>
                         </div>
                      </li>
-					 
+
                   </ul>
                </div>
             </nav>

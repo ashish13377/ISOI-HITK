@@ -3,14 +3,20 @@ import { Link } from "react-router-dom";
 //** Import Image */
 
 import profile from "../../../../images/profile/profile.png";
+import { useSelector } from "react-redux";
+// import { useHistory } from "react-router";
 
 const AppProfile = () => {
+   
+	const data = useSelector(state => state.user);
+	// console.log(data);
+
    return (
       <Fragment>
          <div className="row page-titles mx-0">
 			<div className="col-sm-6 p-md-0">
 				<div className="welcome-text">
-					<h4>Howdy, Welcome Back!</h4>
+					<h4>{data && data.name}, Welcome Back!</h4>
 					<p className="mb-0">Your ISOI_HITK Dashboard </p>
 				</div>
 			</div>
@@ -36,15 +42,15 @@ const AppProfile = () => {
                         <div className="profile-details">
 							<div className="profile-name px-3 pt-2">
 								<h4 className="text-primary mb-0">
-                        Heritageit Admin
+                       {data && data.name}
 								</h4>
 								<p>Systems Administrator</p>
 							</div>
 							<div className="profile-email px-2 pt-2">
 								<h4 className="text-muted mb-0">
-									hello@email.com
+									{data && data.username}
 								</h4>
-								<p>Email</p>
+								<p>Username</p>
 							</div>
                         </div>
                     </div>
