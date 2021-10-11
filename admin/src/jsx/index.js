@@ -18,6 +18,7 @@ import MemberEvent from "./pages/MembershipEvent";
 import AllEvent from "./pages/All-event"
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import Error404 from "./pages/Error404"
 
 
 const Markup = () => {
@@ -56,6 +57,7 @@ const Markup = () => {
 					<Route exact path="/admin-profile">
 						<AdminProfile />
 					</Route>
+					<Route><Error404 /></Route>
 				</Switch>
 			</div>
 		</Router>

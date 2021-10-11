@@ -1,6 +1,16 @@
-import React from "react";
+import React , { useState } from "react";
 
 const MemberStepOne = () => {
+   const [eventName , setEventName] = useState();
+   const [eventDesc , setEventDesc] = useState();
+   const [eventPoster , setEventPoster] = useState();
+
+   const eventDetails = [];
+   
+   const addData = () => {
+
+   }
+
    return (
       <section> 
          <div className="row">

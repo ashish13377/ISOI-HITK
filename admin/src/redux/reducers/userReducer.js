@@ -1,4 +1,4 @@
-const userReducer = (state = null, action) => {
+const userReducer = (state = [], action) => {
     switch (action.type) {
         case "SET_USER":
             const { data } = action.payload;
@@ -10,4 +10,6 @@ const userReducer = (state = null, action) => {
 }
 
 
-export default userReducer;
+
+
+export default userReducer ;

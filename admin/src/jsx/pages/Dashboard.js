@@ -15,11 +15,12 @@ const sampleData4 = [20, 18, 16, 12, 8, 10, 13, 15, 12, 6, 12, 13, 10, 18, 14, 1
 
 const Dashboard = () => {
 
-	const data = useSelector(state => state.user);
+	const userData = JSON.parse(localStorage.getItem("user"))
 	const history = useHistory();
+    console.log(userData);
 
 	useEffect(() => {
-		if(!data){
+		if(!userData){
 			history.push("/login")
 		}
 	})

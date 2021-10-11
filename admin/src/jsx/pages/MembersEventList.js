@@ -9,11 +9,11 @@ import { useHistory } from "react-router";
 
 
 const MembersEventList = () => {
-    const data = useSelector(state => state.user);
+    const userData = JSON.parse(localStorage.getItem("user"))
 	const history = useHistory();
 
 	useEffect(() => {
-		if(!data){
+		if(!userData){
 			history.push("/login")
 		}
 	})

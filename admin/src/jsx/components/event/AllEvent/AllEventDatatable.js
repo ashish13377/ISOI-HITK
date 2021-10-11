@@ -1,8 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Table, Pagination } from "react-bootstrap";
 
 import data from "./eventstableData.js";
 import { Link } from "react-router-dom";
+import { setfreeEvents , setPaidEvents } from "../../../../redux/actions/index"
+import { useDispatch } from "react-redux";
 
 const AllEventDatatable = () => {
    const sort = 5;
@@ -17,7 +19,7 @@ const AllEventDatatable = () => {
          (activePag.current + 1) * sort
       )
    );
-   const [ setdemo] = useState();
+   const [setdemo] = useState();
    const onClick = (i) => {
       activePag.current = i;
 
@@ -32,6 +34,20 @@ const AllEventDatatable = () => {
          )
       );
    };
+
+   const [ fEvents , setfEvents ] = useState();
+   const [ mEvents , setmEvents ] = useState();
+   const dispatch = useDispatch();
+
+
+
+   useEffect(() => {
+      dispatch(setfreeEvents());
+      dispatch(setPaidEvents());
+   }, [])
+
+
+
    return (
       <div className="col-12">
          <div className="card">
@@ -68,9 +84,9 @@ const AllEventDatatable = () => {
                      </table>
                      <div className="d-flex justify-content-between align-items-center mt-3">
                         <div className="dataTables_info">
-                           Showing {activePag.current * sort + 1} to 
+                           Showing {activePag.current * sort + 1} to
                            {data.jobsTable.data.length <
-                           (activePag.current + 1) * sort
+                              (activePag.current + 1) * sort
                               ? data.jobsTable.data.length
                               : (activePag.current + 1) * sort}
                            of {data.jobsTable.data.length} entries
@@ -105,7 +121,7 @@ const AllEventDatatable = () => {
                                  className="page-item page-indicator"
                                  onClick={() =>
                                     activePag.current + 1 <
-                                       jobPaggination.length &&
+                                    jobPaggination.length &&
                                     onClick(activePag.current + 1)
                                  }
                               >

@@ -68,6 +68,7 @@
       "react-toastify": "^6.1.0",
       "recharts": "^1.8.5",
       "redux": "^4.1.1",
+      "redux-thunk": "^2.3.0",
       "simple-react-lightbox": "^3.5.0",
       "slick-carousel": "^1.8.1",
       "sweetalert": "^2.1.2",
