@@ -57,10 +57,8 @@ function Header3() {
                             </ul>
                             <div className="dlab-social-icon">
                                 <ul>
-                                    <Link href="https://en-gb.facebook.com/"><a className="fa fa-facebook"></a></Link>
-                                    <Link href="https://twitter.com/login?lang=en"><a className="fa fa-twitter"></a></Link>
-                                    <Link href="https://www.linkedin.com/login"><a className="fa fa-linkedin"></a></Link>
-                                    <Link href="https://www.instagram.com/"><a className="fa fa-instagram"></a></Link>
+                                <li><a className="fa fa-facebook" href="https://www.facebook.com/ISOIHITK/" target="_blank"></a></li>
+								<li><a className="fa fa-linkedin" href="https://www.linkedin.com/company/applied-electronics-instrumentation-engineering-hit-k/" target="_blank"></a></li>
                                 </ul>
                             </div>		
                         </div>

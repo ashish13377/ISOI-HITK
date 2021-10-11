@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import NextNprogress from 'nextjs-progressbar';
 
 import "react-rangeslider/lib/index.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +11,7 @@ import "../styles/globals.css";
 import "../styles/switcher.css";
 import { Provider } from 'react-redux';
 import store from "../redux/store"
+
 
 function MyApp({ Component, pageProps }) {
   const [toggle1, setToggle1] = useState(false);
@@ -52,6 +54,13 @@ function MyApp({ Component, pageProps }) {
     <>
       <Provider store={store}>
         <div className="page-wraper">
+          <NextNprogress
+            color="#896EFF"
+            startPosition={0.3}
+            stopDelayMs={200}
+            height={6}
+            showOnShallow={true}
+          />
           <Component {...pageProps} />
         </div>
       </Provider>

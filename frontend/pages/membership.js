@@ -94,8 +94,8 @@ function PricingTable1() {
 						<div className="row action-box style-1 align-items-center">
 							<div className="col-xl-7 col-lg-8 col-md-8">
 								<div className="section-head style-1">
-									<h6 className="sub-title bgl-primary m-b20 text-primary">More With Us</h6>
-									<h2 className="title">You Want To Showcase Your Website In Top Join With Us</h2>
+								<h6 className="sub-title bgl-primary m-b20 text-primary">Come Join Us</h6>
+									<h2 className="title">Enroll now and get your membership Join With Us</h2>
 								</div>
 							</div>
 							<div className="col-xl-5 col-lg-4 col-md-4 text-right m-b30">
