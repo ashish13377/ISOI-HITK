@@ -52,22 +52,25 @@ function Team1() {
               >
                 <div className="dlab-team style-1 m-b30">
                   <div className="dlab-media dlab-img-effect zoom zoom-slow">
-                    <img src="images/team/pic1.jpg" alt="" />
+                    <img src="images/team/pic1.jpg" />
                   </div>
                   <div className="dlab-content">
                     <div className="clearfix">
-                      <h4 className="dlab-name">Alina Jia</h4>
-                      <span className="dlab-position">Senior Designer</span>
+                      <h4 className="dlab-name" style={{ paddingRight: "8px" }}>
+                        Dr. Madhurima Chattopadhyay
+                      </h4>
+                      <span className="dlab-position">HoD & Chapter Mentor</span>
                     </div>
+                    <br />
                     <ul className="dlab-social-icon primary-light">
                       <li>
-                        <a href="https://en-gb.facebook.com/" className="fa fa-facebook"></a>
+                        <a href="https://www.facebook.com/madhurima.chattopadhyay1" target="_blank" className="fa fa-facebook"></a>
                       </li>
                       <li>
-                        <a href="https://www.instagram.com/" className="fa fa-instagram"></a>
+                        <a href="https://www.linkedin.com/in/dr-madhurima-chattopadhyay-1a62294a/" target="_blank" className="fa fa-linkedin"></a>
                       </li>
                       <li>
-                        <a href="https://twitter.com/login?lang=en" className="fa fa-twitter"></a>
+                        <a href="mailto:madhurima.chattopadhyay@heritageit.edu" target="_blank" className="fa fa-envelope"></a>
                       </li>
                     </ul>
                   </div>
@@ -84,29 +87,20 @@ function Team1() {
                   </div>
                   <div className="dlab-content">
                     <div className="clearfix">
-                      <h4 className="dlab-name">
-                        Suresh Doe
+                      <h4 className="dlab-name" style={{ paddingRight: "8px" }}>
+                        Debjyoti Chowdhury
                       </h4>
-                      <span className="dlab-position">Senior Designer</span>
+                      <span className="dlab-position">Event Convener</span>
                     </div>
                     <ul className="dlab-social-icon primary-light">
                       <li>
-                        <a
-                          href="https://en-gb.facebook.com/"
-                          className="fa fa-facebook"
-                        ></a>
+                        <a href="https://www.facebook.com/debjyoti.chowdhury.3" target="_blank" className="fa fa-facebook"></a>
                       </li>
                       <li>
-                        <a
-                          href="https://www.instagram.com/"
-                          className="fa fa-instagram"
-                        ></a>
+                        <a href="https://www.linkedin.com/in/debjyoti-chowdhury-47005776/" target="_blank" className="fa fa-linkedin"></a>
                       </li>
                       <li>
-                        <a
-                          href="https://twitter.com/login?lang=en"
-                          className="fa fa-twitter"
-                        ></a>
+                        <a href="mailto:debjyoti.chowdhury@heritageit.edu" target="_blank" className="fa fa-envelope"></a>
                       </li>
                     </ul>
                   </div>
@@ -124,28 +118,19 @@ function Team1() {
                   <div className="dlab-content">
                     <div className="clearfix">
                       <h4 className="dlab-name">
-                        Domina Li
+                        Dr. Santanu Ghorai
                       </h4>
-                      <span className="dlab-position">Senior Designer</span>
+                      <span className="dlab-position">Faculty Coordinator</span>
                     </div>
                     <ul className="dlab-social-icon primary-light">
                       <li>
-                        <a
-                          href="https://en-gb.facebook.com/"
-                          className="fa fa-facebook"
-                        ></a>
+                        <a href="https://www.facebook.com/santanu.ghorai.773" target="_blank" className="fa fa-facebook"></a>
                       </li>
                       <li>
-                        <a
-                          href="https://www.instagram.com/"
-                          className="fa fa-instagram"
-                        ></a>
+                        <a href="https://www.linkedin.com/in/dr-santanu-ghorai-b204779/" target="_blank" className="fa fa-linkedin"></a>
                       </li>
                       <li>
-                        <a
-                          href="https://twitter.com/login?lang=en"
-                          className="fa fa-twitter"
-                        ></a>
+                        <a href="mailto:santanu.ghorai@heritageit.edu" target="_blank" className="fa fa-envelope"></a>
                       </li>
                     </ul>
                   </div>
@@ -163,28 +148,19 @@ function Team1() {
                   <div className="dlab-content">
                     <div className="clearfix">
                       <h4 className="dlab-name">
-                        Tyler Hardy
+                        Kumar Harsh
                       </h4>
-                      <span className="dlab-position">Senior Designer</span>
+                      <span className="dlab-position">Vice Chairman</span>
                     </div>
                     <ul className="dlab-social-icon primary-light">
                       <li>
-                        <a
-                          href="https://en-gb.facebook.com/"
-                          className="fa fa-facebook"
-                        ></a>
+                        <a href="https://www.facebook.com/kumar.harsh.56" target="_blank" className="fa fa-facebook"></a>
                       </li>
                       <li>
-                        <a
-                          href="https://www.instagram.com/"
-                          className="fa fa-instagram"
-                        ></a>
+                        <a href="https://www.linkedin.com/in/krharsh/" target="_blank" className="fa fa-linkedin"></a>
                       </li>
                       <li>
-                        <a
-                          href="https://twitter.com/login?lang=en"
-                          className="fa fa-twitter"
-                        ></a>
+                        <a href="mailto:kumar.harsh.aeie22@heritageit.edu.in" target="_blank" className="fa fa-envelope"></a>
                       </li>
                     </ul>
                   </div>
@@ -202,72 +178,25 @@ function Team1() {
                   <div className="dlab-content">
                     <div className="clearfix">
                       <h4 className="dlab-name">
-                        Effie Arnold
+                        <a href="/team-1">Avijit Sharma</a>
                       </h4>
-                      <span className="dlab-position">Senior Designer</span>
+                      <span className="dlab-position">Secretary</span>
                     </div>
                     <ul className="dlab-social-icon primary-light">
                       <li>
-                        <a
-                          href="https://en-gb.facebook.com/"
-                          className="fa fa-facebook"
-                        ></a>
+                        <a href="https://www.facebook.com/avijit.sharma.3194" target="_blank" className="fa fa-facebook"></a>
                       </li>
                       <li>
-                        <a
-                          href="https://www.instagram.com/"
-                          className="fa fa-instagram"
-                        ></a>
+                        <a href="https://www.linkedin.com/in/avijit-sharma-0a11151b2/" target="_blank" className="fa fa-linkedin"></a>
                       </li>
                       <li>
-                        <a
-                          href="https://twitter.com/login?lang=en"
-                          className="fa fa-twitter"
-                        ></a>
+                        <a href="mailto:avijitprasadsharma@gmail.com" target="_blank" className="fa fa-envelope"></a>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-              <div
-                className="col-xl-4 col-md-6 wow fadeInUp"
-                data-wow-duration="2s"
-                data-wow-delay="0.6s"
-              >
-                <div className="dlab-team style-1 m-b30">
-                  <div className="dlab-media dlab-img-effect zoom zoom-slow">
-                    <img src="images/team/pic6.jpg" alt="" />
-                  </div>
-                  <div className="dlab-content">
-                    <div className="clearfix">
-                      <h4 className="dlab-name">
-                        Domina Li
-                      </h4>
-                      <span className="dlab-position">Senior Designer</span>
-                    </div>
-                    <ul className="dlab-social-icon primary-light">
-                      <li>
-                        <a
-                          href="https://en-gb.facebook.com/"
-                          className="fa fa-facebook"
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://www.instagram.com/"
-                          className="fa fa-instagram"
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://twitter.com/login?lang=en"
-                          className="fa fa-twitter"
-                        ></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+            
             </div>
           </div>
         </section>
