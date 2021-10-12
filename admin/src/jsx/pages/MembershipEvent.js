@@ -3,8 +3,6 @@ import React, { Fragment , useEffect } from "react";
 import Multistep from "react-multistep";
 
 import MemberStepOne from "../components/event/MemberEvent/MemberStepOne";
-import MemberStepTwo from "../components/event/MemberEvent/MemberStepTwo";
-import MemberStepThree from "../components/event/MemberEvent/MemberStepThree";
 import Nav from "../layouts/nav";
 import Footer from "../layouts/Footer";
 import SideBar from "../layouts/nav/SideBar";
@@ -22,33 +20,6 @@ const MemberEvent = () => {
 			history.push("/login")
 		}
 	})
-
-
-    const steps = [
-        { name: "Event Info", component: <MemberStepOne /> },
-        { name: "Event Details", component: <MemberStepTwo /> },
-        { name: "Contact Details", component: <MemberStepThree /> },
-    ];
-    const prevStyle = {
-        background: "#F7FAFC",
-        borderWidth: "0px",
-        color: "#333333",
-        borderRadius: "4px",
-        fontSize: "14px",
-        fontWeight: "600",
-        padding: "0.55em 2em",
-        border: "1px solid #EEEEEE",
-        marginRight: "1rem",
-    };
-    const nextStyle = {
-        background: "#DD2F6E",
-        borderWidth: "0px",
-        color: "#fff",
-        borderRadius: "4px",
-        fontSize: "14px",
-        fontWeight: "600",
-        padding: "0.55em 2em",
-    };
     return (
         <Fragment>
             <Nav />
@@ -65,16 +36,10 @@ const MemberEvent = () => {
                                 </div>
                                 <div className="card-body">
                                     <form
-                                        onSubmit={(e) => e.preventDefault()}
                                         id="step-form-horizontal"
                                         className="step-form-horizontal"
                                     >
-                                        <Multistep
-                                            showNavigation={true}
-                                            steps={steps}
-                                            prevStyle={prevStyle}
-                                            nextStyle={nextStyle}
-                                        />
+                                       <MemberStepOne />
                                     </form>
                                 </div>
                             </div>

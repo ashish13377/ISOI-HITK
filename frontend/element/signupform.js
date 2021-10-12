@@ -32,6 +32,8 @@ function SignupForm() {
 		formdata.append("phone", phone)
 		formdata.append("username", username)
 
+		console.log(formdata);
+
 		try {
 			const res = await axios.post("http://localhost:8000/api/users/register", formdata);
 
