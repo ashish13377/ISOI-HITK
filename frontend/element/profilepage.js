@@ -40,7 +40,7 @@ function ProfilePage() {
                                     <div className="border-bottom p-4">
                                         <div className="osahan-user text-center">
                                             <div className="osahan-user-media">
-                                                <img className="mb-3 rounded-pill shadow-sm mt-1" src={!data ? `images/avatar1.png` : `http://localhost:8000/uploads/${data.picture}`} />
+                                                <img className="mb-3 rounded-pill shadow-sm mt-1" src={!data ? `images/avatar1.png` : `https://isoi-backend.herokuapp.com/uploads/${data.picture}`} />
                                                 <div className="osahan-user-media-body">
                                                     <h6 className="mb-2">{data && data.name}</h6>
                                                     <p class="mb-1">{data && data.phone}</p>
