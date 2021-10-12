@@ -13,7 +13,7 @@ const Login = () => {
    const loginUser = (e) => {
       e.preventDefault();
 
-      fetch("http://localhost:8000/api/admin/login", {
+      fetch("https://isoi-backend.herokuapp.com/api/admin/login", {
          method: "POST",
          headers: {
             "Content-Type": "application/json"

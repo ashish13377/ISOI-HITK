@@ -14,7 +14,7 @@ export const logout = () => {
 
 export const setfreeEvents = () => {
     return (dispatch) => {
-        fetch("http://localhost:8000/api/admin/allfree-event", {
+        fetch("https://isoi-backend.herokuapp.com/api/admin/allfree-event", {
             method: "GET",
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("jwt")
@@ -30,7 +30,7 @@ export const setfreeEvents = () => {
 }
 export const setPaidEvents = () => {
     return (dispatch) => {
-        fetch("http://localhost:8000/api/admin/allmembershipevent", {
+        fetch("https://isoi-backend.herokuapp.com/api/admin/allmembershipevent", {
             method: "GET",
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("jwt")
