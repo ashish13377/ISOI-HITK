@@ -35,7 +35,7 @@ function SignupForm() {
 		console.log(formdata);
 
 		try {
-			const res = await axios.post("http://localhost:8000/api/users/register", formdata);
+			const res = await axios.post("https://isoi-backend.herokuapp.com/api/users/register", formdata);
 
 			if (res.status == 201) {
 				setName("")
