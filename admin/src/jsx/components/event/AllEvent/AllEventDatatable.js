@@ -7,6 +7,7 @@ import { setfreeEvents, setPaidEvents } from "../../../../redux/actions/index"
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
+
 const AllEventDatatable = () => {
    const sort = 5;
    let jobPaggination = Array(Math.ceil(data.jobsTable.data.length / sort))
@@ -36,9 +37,9 @@ const AllEventDatatable = () => {
       );
    };
 
-   // const [ fEvents , setfEvents ] = useState();
-   // const [ mEvents , setmEvents ] = useState();
+
    const dispatch = useDispatch();
+   const [loading, setLoading] = useState(false);
 
 
 
