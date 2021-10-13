@@ -6,7 +6,6 @@ function Header() {
     const [show, setShow] = useState(false);
     const [open, setOpen] = useState("home");
     const data = useSelector(state => state.user);
-    console.log(data);
     
 
 

@@ -3,8 +3,23 @@ import Footer from '../layout/footer';
 import Header from '../layout/header-3';
 import Link from 'next/link';
 import Head from "next/head";
+import { useEffect } from "react";
+import { setUserDetails, setPaidEvents } from "../redux/actions/index"
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from 'next/router'
 function PricingTable1() {
 	const [open, setOpen] = useState("p2")
+	const data = useSelector(state => state.user);
+	const dispatch = useDispatch();
+	const router = useRouter();
+
+	useEffect(() => {
+		const user = JSON.parse(localStorage.getItem("user"));
+		dispatch(setUserDetails(user));
+		if (!data) {
+			router.push("/login");
+		}
+	}, [])
 	return (
 		<>
 			<Head>

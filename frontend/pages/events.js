@@ -4,8 +4,24 @@ import Events from "../element/events";
 import Link from 'next/link';
 import Head from "next/head";
 import Cta from "../element/cta";
+import { useEffect } from "react";
+import { setUserDetails, setPaidEvents } from "../redux/actions/index"
+import { useDispatch , useSelector } from "react-redux";
+import { useRouter } from 'next/router'
 
 function Event() {
+	const data = useSelector(state => state.user);
+	const dispatch = useDispatch();
+	const router = useRouter();
+
+	useEffect(() => {
+		const user = JSON.parse(localStorage.getItem("user"));
+		dispatch(setUserDetails(user));
+		dispatch(setPaidEvents());
+		if (!data) {
+			router.push("/login");
+		}
+	}, [])
 	return (
 		<>
 			<Head>

@@ -13,8 +13,8 @@ const FreeStepOne = () => {
    const [eventName, setEventName] = useState();
    const [eventDescription, setEventDescription] = useState();
    const [eventPoster, setEventPoster] = useState();
-   const [eventDate, setEventDate] = useState();
-   const [eventTime, setEventTime] = useState();
+   const [date, setDate] = useState();
+   const [time, setTime] = useState();
    const [venue, setVenue] = useState();
    const [contactName, setContactName] = useState();
    const [contactEmail, setContactEmail] = useState();
@@ -31,6 +31,12 @@ const FreeStepOne = () => {
 
    const sendData = async (e) => {
       e.preventDefault();
+
+      const d = new Date(date);
+      const t = new Date(time);
+      const eventDate = d.toLocaleDateString();
+      const eventTime = t.toLocaleTimeString();
+
       console.log(eventPoster + "=" + eventPoster.name);
       const formdata = new FormData();
       formdata.append("myFile", eventPoster, eventPoster.name);
@@ -44,13 +50,16 @@ const FreeStepOne = () => {
       formdata.append("contactPhone", contactPhone)
       formdata.append("contactDesignation", contactDesignation)
 
+
+      
+
       const headers = {
          "Content-Type": "application/json",
          "Authorization": "Bearer " + localStorage.getItem("jwt")
       }
 
       try {
-         const res = await axios.post("http://localhost:8000/api/admin/free-event", formdata, { headers: headers });
+         const res = await axios.post("https://isoi-backend.herokuapp.com/api/admin/free-event", formdata, { headers: headers });
 
          if (res.status == 201) {
             alert("Event Created!")
@@ -123,8 +132,8 @@ const FreeStepOne = () => {
                         name="eventDate"
                         clearable
                         format="dd/MM/yyyy"
-                        value={eventDate}
-                        onChange={setEventDate}
+                        value={date}
+                        onChange={setDate}
                      />
                   </MuiPickersUtilsProvider>
                </div>
@@ -137,8 +146,8 @@ const FreeStepOne = () => {
                         autoOk
                         label=""
                         name="eventTime"
-                        value={eventTime}
-                        onChange={setEventTime}
+                        value={time}
+                        onChange={setTime}
                      />
                   </MuiPickersUtilsProvider>
                </div>
