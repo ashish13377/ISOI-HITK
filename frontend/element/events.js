@@ -1,10 +1,12 @@
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
+
 
 
 function Events() {
 
 	const pEvents = useSelector(state => state.pEvents);
-	console.log(pEvents);
 
 
 	return (
@@ -20,7 +22,7 @@ function Events() {
 						{
 							pEvents.map((currElem) => {
 								return (
-									<div className="col-lg-4 col-md-4">
+									<div className="col-lg-4 col-md-4" key={currElem._id}>
 										<div className="dlab-blog style-1 bg-white text-center m-b30">
 											<div className="dlab-media">
 												<img src={!pEvents ? `https://isoi-backend.herokuapp.com/uploads/poster/${currElem.eventPoster}` : `images/blog/default/thum2.jpg`} alt="Event Poster" />

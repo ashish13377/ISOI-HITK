@@ -37,3 +37,27 @@ export const setPaidEvents = () => {
 
     }
 }
+
+export const setProducts = () => {
+    return (dispatch => {
+        fetch("https://isoi-backend.herokuapp.com/api/membership/getproducts", {
+            method: "GET"
+        }).then(res => res.json()).then(data => {
+            dispatch({ type: "SET_PRODUCTS", payload: data })
+        }).catch((e) => alert(e))
+    })
+}
+
+
+export const setPaymentStat = () => {
+    return (dispatch => {
+        fetch("https://isoi-backend.herokuapp.com/api/membership/getmembershipdetails", {
+            method: "GET",
+            headers: {
+                "Authorization": "Bearer " + JSON.parse(localStorage.getItem("jwt"))
+            }
+        }).then(res => res.json()).then(data => {
+            dispatch({ type: "SET_PAYMENT", payload: data })
+        }).catch((e) => alert(e))
+    })
+}

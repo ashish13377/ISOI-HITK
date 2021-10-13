@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link';
-import { useSelector , useDispatch } from "react-redux"
-import { logout, setUserDetails } from "../redux/actions/index"
+import { useSelector, useDispatch } from "react-redux"
+import { logout, setUserDetails, setPaymentStat } from "../redux/actions/index"
 import { useEffect } from 'react';
 function onChange(value) {
     console.log("Captcha value:", value);
@@ -10,17 +10,20 @@ function onChange(value) {
 function ProfilePage() {
 
     const data = useSelector(state => state.user);
+    const member = useSelector(state => state.payStat);
+    console.log(member);
     const dispatch = useDispatch();
     const router = useRouter();
 
     useEffect(() => {
         dispatch(setUserDetails(JSON.parse(localStorage.getItem("user"))));
-        if(!data){
+        if (!data) {
             router.push("/login");
         }
+        dispatch(setPaymentStat())
     }, [])
 
-     
+
     const logoutUser = () => {
         router.push("/");
         localStorage.removeItem("jwt");
@@ -32,7 +35,7 @@ function ProfilePage() {
         <>
             <section className="content-inner" style={{ "backgroundImage": "url(images/background/bg1.png)" }}>
                 <div>
-                
+
                     <div className="container">
                         <div className="row">
                             <div className="col-md-3">
@@ -45,11 +48,13 @@ function ProfilePage() {
                                                     <h6 className="mb-2">{data && data.name}</h6>
                                                     <p class="mb-1">{data && data.phone}</p>
                                                     <p>{data && data.email}</p>
-                                                 
-                                                        <a onClick={logoutUser} style={{  cursor: 'pointer' }} class="text-primary mr-3"  data-target="#edit-profile-modal">
-                                                        <i class="icofont-logout"/>Logout
-                                                        </a>
-                                            
+                                                    {member && <small className="text-success fw-bold">Mermbership Active</small>}
+                                                    <br />
+
+                                                    <a onClick={logoutUser} style={{ cursor: 'pointer' }} class="text-primary mr-3" data-target="#edit-profile-modal">
+                                                        <i class="icofont-logout" />Logout
+                                                    </a>
+
                                                 </div>
                                             </div>
                                         </div>

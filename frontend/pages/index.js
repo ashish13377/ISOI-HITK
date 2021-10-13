@@ -16,7 +16,7 @@ import Footer from "../layout/footer";
 import Header from "../layout/header";
 import Head from "next/head";
 import { useSelector , useDispatch } from "react-redux"
-import { logout, setUserDetails , setfreeEvents } from "../redux/actions/index"
+import {  setUserDetails , setfreeEvents , setPaymentStat } from "../redux/actions/index"
 
 function Home() {
   const dispatch = useDispatch();
@@ -25,12 +25,14 @@ function Home() {
     const user = JSON.parse(localStorage.getItem("user"));
     dispatch(setUserDetails(user));
     dispatch(setfreeEvents());
+    dispatch(setPaymentStat());
   }, []);
+
   return (
     <>
-      <Head>
+      {/* <Head> */}
         <title>ISOI | Heritage Institute of Technology</title>
-      </Head>
+      {/* </Head> */}
       <Header />
       <div className="page-content bg-white" id="top">
         <Slider1 />
