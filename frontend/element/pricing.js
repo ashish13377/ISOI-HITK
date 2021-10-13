@@ -15,10 +15,10 @@ function Pricing() {
                         <div className={`${open === "p1" ? "pricingtable-wrapper active style-1 m-b30" : "pricingtable-wrapper style-1 center m-b30"}`} onMouseOver={() => setOpen("p1")}>
                             <div className="pricingtable-inner">
                                 <div className="pricingtable-title">
-                                    <h3 className="title">Free Membership</h3>
+                                    <h3 className="title">1 Year Membership</h3>
                                 </div>
                                 <div className="pricingtable-price"> 
-                                    <h2 className="pricingtable-bx">$99<small>/Month</small></h2>
+                                    <h2 className="pricingtable-bx">₹100<small>/Year</small></h2>
                                 </div>
                                 <p className="text">Aliquam dui lacus, lobortis quis sapien non.</p>
                                 <ul className="pricingtable-features">
@@ -39,10 +39,10 @@ function Pricing() {
                         <div className={`${open === "p2" ? "pricingtable-wrapper style-1 active m-b30" : "pricingtable-wrapper style-1 center m-b30"}`} onMouseOver={() => setOpen("p2")}>
                             <div className="pricingtable-inner">
                                 <div className="pricingtable-title">
-                                    <h3 className="title">Paid Membership</h3>
+                                    <h3 className="title">4 Year Membership</h3>
                                 </div>
                                 <div className="pricingtable-price"> 
-                                    <h2 className="pricingtable-bx">$199<small>/Month</small></h2>
+                                    <h2 className="pricingtable-bx">₹400<small>/One-Time</small></h2>
                                 </div>
                                 <p className="text">Aliquam dui lacus, lobortis quis sapien non.</p>
                                 <ul className="pricingtable-features">

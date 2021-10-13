@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import AboutUs from "../element/aboutUs";
-import Blog from "../element/blog";
+import FreeEvent from "../element/free-event";
 import Clients from "../element/clients";
 import Counter from "../element/counter";
 import Cta from "../element/cta";
@@ -42,7 +42,7 @@ function Home() {
         <Newsletter />
         <Team />
         <Pricing />
-        <Blog />
+        <FreeEvent />
         <Quote />
         <Cta />
       </div>

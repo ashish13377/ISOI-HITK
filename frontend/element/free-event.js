@@ -1,20 +1,20 @@
-import BlogSlider from "../component/blogSlider";
+import EventSlider from "../component/eventSlider";
 
 
-function Blog() {
+function FreeEvent() {
   return (
     <>
       <section className="content-inner-2" style={{"backgroundImage":"url(images/background/bg1.png)"}}>
 			<div className="container">
 				<div className="section-head style-1 text-center">
 					<h6 className="sub-title bgl-primary m-b20 text-primary">Events</h6>
-					<h2 className="title">Latest Event News</h2>
+					<h2 className="title">Latest Events</h2>
 				</div>
-				<BlogSlider/>
+				<EventSlider/>
 			</div>
 		</section>
     </>
   )
 }
 
-export default Blog;
+export default FreeEvent;

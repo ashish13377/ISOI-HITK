@@ -4,9 +4,10 @@ import ModalVideo from 'react-modal-video';
 import Header from "../layout/header-3";
 import Footer from "../layout/footer";
 import Counter from "../element/counter";
+import FreeEvent from "../element/free-event";
 import TeamSlider from '../component/teamSlider';
 import Testimonial from '../element/testimonial';
-import Blog from '../element/blog';
+
 import Link from 'next/link';
 import Quote from '../element/quote';
 import Head from "next/head";
@@ -155,9 +156,7 @@ function AboutUs1() {
 				{/* <!-- Testimonials --> */}
 				<Testimonial />
 
-				{/* <!-- Blog --> */}
-				<Blog />
-
+				<FreeEvent />
 				{/* <!-- Get A Quote --> */}
 				<Quote />
 

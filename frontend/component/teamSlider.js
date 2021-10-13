@@ -8,7 +8,7 @@ function TeamSlider() {
     slidesToScroll: 3,
     autoplay: false,
     arrows: false,
-    speed: 5000,
+    speed: 1000,
     responsive: [
       {
         breakpoint: 1000,
