@@ -36,9 +36,9 @@ function Home() {
 
   return (
     <>
-      {/* <Head> */}
+       <Head>
         <title>ISOI | Heritage Institute of Technology</title>
-      {/* </Head> */}
+       </Head>
       <Header />
       <div className="page-content bg-white" id="top">
         <Slider1 />
