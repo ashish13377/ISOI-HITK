@@ -83,7 +83,7 @@ function EventSlider() {
                                         </div>
                                         <div className="dlab-info">
                                             <h5 className="dlab-title">
-                                                <a href="/blog-large-right-sidebar">{currElem.eventName}</a>
+                                                <Link href={{ pathname: '/events-details', query: { id : currElem._id } }}>{currElem.eventName}</Link>
                                             </h5>
                                             <p className="m-b0">{currElem.eventDescription}</p>
                                             <div className="dlab-meta meta-bottom">

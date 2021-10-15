@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-
+import Link from 'next/link';
 
 
 function Events() {
-
+	const isMember = true;
 	const pEvents = useSelector(state => state.pEvents);
 
 
@@ -15,7 +15,11 @@ function Events() {
 			<section className="content-inner bg-img-fix" style={{ "backgroundImage": "url(images/background/bg1.png)", "backgroundSize": "contain" }}>
 				<div className="container">
 
-					<div className="row extra-blog style-1">
+					{!isMember && (<div className="col-lg-12">
+						<h2 className="blog-title">First get Your Membership </h2>
+					</div>)}
+
+					{isMember && (<div className="row extra-blog style-1">
 						<div className="col-lg-12">
 							<h2 className="blog-title">Resent Events </h2>
 						</div>
@@ -25,11 +29,11 @@ function Events() {
 									<div className="col-lg-4 col-md-4" key={currElem._id}>
 										<div className="dlab-blog style-1 bg-white text-center m-b30">
 											<div className="dlab-media">
-												<img src={!pEvents ? `https://isoi-backend.herokuapp.com/uploads/poster/${currElem.eventPoster}` : `images/blog/default/thum2.jpg`} alt="Event Poster" />
+												<img src={!pEvents ? `https://isoi-backend.herokuapp.com/uploads/poster/${currElem.eventPoster}` : `https://isoi-backend.herokuapp.com/uploads/poster/ISOI-Poster-1633931782725.png`} alt="Event Poster" />
 											</div>
 											<div className="dlab-info">
 												<h5 className="dlab-title">
-													<a href="/blog-large-right-sidebar">{currElem.eventName}</a>
+													<Link href={{ pathname: '/membership-events-details', query: { id : currElem._id } }}>{currElem.eventName}</Link>
 												</h5>
 												<p className="m-b0">{currElem.eventDescription}</p>
 												<div className="dlab-meta meta-bottom">
@@ -57,7 +61,7 @@ function Events() {
 								)
 							})
 						}
-					</div>
+					</div>)}
 				</div>
 			</section>
 

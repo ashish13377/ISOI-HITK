@@ -10,10 +10,9 @@ function onChange(value) {
 function ProfilePage() {
 
     const data = useSelector(state => state.user);
-    const member = useSelector(state => state.payStat);
-    console.log(member);
     const dispatch = useDispatch();
     const router = useRouter();
+    const isMember = false;
 
     useEffect(() => {
         dispatch(setUserDetails(JSON.parse(localStorage.getItem("user"))));
@@ -48,7 +47,7 @@ function ProfilePage() {
                                                     <h6 className="mb-2">{data && data.name}</h6>
                                                     <p class="mb-1">{data && data.phone}</p>
                                                     <p>{data && data.email}</p>
-                                                    {member && <small className="text-success fw-bold">Mermbership Active</small>}
+                                                    {isMember && (<p className="text-success font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Member of ISOI-HITK</p>)}
                                                     <br />
 
                                                     <a onClick={logoutUser} style={{ cursor: 'pointer' }} class="text-primary mr-3" data-target="#edit-profile-modal">
@@ -61,8 +60,8 @@ function ProfilePage() {
                                     </div>
                                     <ul className="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
                                         <li className="nav-item">
-                                            <Link href="#">
-                                                <a className="nav-link active" id="payments-tab" data-toggle="tab" role="tab" aria-controls="payments" aria-selected="true"><i className="icofont-atom" /> Recent Events</a>
+                                            <Link href="/events">
+                                                <a className="nav-link active" id="payments-tab" data-toggle="tab" role="tab" aria-controls="payments" aria-selected="true"><i className="icofont-atom" /> Membership Events</a>
                                             </Link>
                                         </li>
                                     </ul>

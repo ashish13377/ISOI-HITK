@@ -4,19 +4,33 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useSelector , useDispatch} from "react-redux"
+import { setUserDetails } from "../redux/actions/index"
 
 function BlogLargeRightSidebar() {
 	const router = useRouter()
+	const dispatch = useDispatch()
 	const { query } = useRouter()
 	const [fevent, setEvent] = useState();
 	const id = query.id;
+	const data = useSelector(state => state.user);
+
 
 	useEffect(() => {
 
-		document.title = "ISOI | Fevents Details";
+		document.title = "ISOI | Membership Details";
+		const user = JSON.parse(localStorage.getItem("user"));
+		dispatch(setUserDetails(user));
+		if (!data) {
+			router.push("/login");
+		}
+	}, [])
 
-		fetch(`https://isoi-backend.herokuapp.com/api/admin//freeevent/${id}`, {
+	useEffect(() => {
+
+		
+
+		fetch(`https://isoi-backend.herokuapp.com/api/admin//paidevent/${id}`, {
 			method : "GET",
 			headers : {
 				"Content-Type" : "application/json"
@@ -62,7 +76,7 @@ function BlogLargeRightSidebar() {
 							<div className="col-xl-7 col-lg-8 m-b50">
 								<div className="dlab-blog style-1 bg-white text-center m-b50">
 									<div className="dlab-media ">
-										<img src="images/blog/default/thum1.jpg" />
+										<img src="https://isoi-backend.herokuapp.com/uploads/poster/ISOI-Poster-1633931782725.png" />
 									</div>
 									<div className="dlab-info">
 										<h3 className="dlab-title">
