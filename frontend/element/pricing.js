@@ -65,7 +65,7 @@ function Pricing() {
                         // alert(response.razorpay_order_id);
                         // alert(response.razorpay_signature)
                         alert("Membership guaranteed!");
-                        router.push("/events");
+                        router.push("/member-registraion");
                     },
                     "prefill": {
                         "name": "",
