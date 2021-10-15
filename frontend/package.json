@@ -36,6 +36,7 @@
         "simple-react-lightbox": "^3.6.6",
         "slick-carousel": "^1.8.1",
         "use-scroll-position": "0.0.4",
+        "web-vitals": "^2.1.2",
         "wowjs": "^1.1.3"
     }
 }

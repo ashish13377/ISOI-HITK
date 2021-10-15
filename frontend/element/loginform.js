@@ -74,7 +74,7 @@ function LoginForm() {
 						<div className="col-xl-6 col-lg-7 m-b30 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.2s">
 							<div className="section-head style-1">
 								<h6 className="sub-title bgl-primary m-b20 text-primary">Login</h6>
-								<h2 className="title">We Love To Help Great Companies To Enlarge Their Revenues.</h2>
+								<h2 className="title">Welcome back! <br /> Please login or create a free account to get the most out of this site.</h2>
 							</div>
 							<form className="dlab-form dzForm" method="POST" onSubmit={loginUser}>
 								<div className="dzFormMsg"></div>

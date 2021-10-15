@@ -9,37 +9,35 @@ function EventSlider() {
     const fEvents = useSelector(state => state.fEvents)
     const eventLength = fEvents.length;
 
-    const settings = {
-        dots: false,
-        arrows: false,
-        centerMode: false,
-        slidesToShow: eventLength,
-        draggable: true,
-        infinite: true,
-        slidesToScroll: 1,
-        autoplay: true,
-        speed: 1000,
-        responsive: [
-            {
-                breakpoint: 1024,
+
+        const settings = {
+            dots: false,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            autoplay: false,
+            arrows: false,
+            speed: 1000,
+            responsive: [
+              {
+                breakpoint: 1000,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false,
-                    centerMode: false,
-                }
-            },
-            {
+                  slidesToShow: 2,
+                  slidesToScroll: 2,
+                  infinite: true,
+                  dots: false,
+                },
+              },
+              {
                 breakpoint: 767,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-
-                }
-            },
-        ]
+                  slidesToShow: 1,
+                  slidesToScroll: 1	,
+                  infinite: true,
+                  dots: false,
+                },
+              },
+            ],
     };
     const renderArrows = () => {
         return (
