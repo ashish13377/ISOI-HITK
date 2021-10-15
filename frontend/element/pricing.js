@@ -45,7 +45,7 @@ function Pricing() {
                 }
 
 
-                const res = await axios.get(`http://localhost:8000/api/membership/razorpay/${_id}`);
+                const res = await axios.get(`https://isoi-backend.herokuapp.com/api/membership/razorpay/${_id}`);
                 console.log(res);
                 if (res.status != 200) {
                     return;
