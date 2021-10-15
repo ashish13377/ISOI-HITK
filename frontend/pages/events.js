@@ -8,10 +8,12 @@ import { useEffect } from "react";
 import { setUserDetails, setPaidEvents } from "../redux/actions/index"
 import { useDispatch , useSelector } from "react-redux";
 import { useRouter } from 'next/router'
+import { route } from "next/dist/next-server/server/router";
 
 function Event() {
 	const data = useSelector(state => state.user);
 	const dispatch = useDispatch();
+
 	const router = useRouter();
 
 	useEffect(() => {
@@ -21,6 +23,8 @@ function Event() {
 		if (!data) {
 			router.push("/login");
 		}
+
+		
 	}, [])
 	return (
 		<>

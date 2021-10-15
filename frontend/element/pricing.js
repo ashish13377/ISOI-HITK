@@ -36,7 +36,7 @@ function Pricing() {
     const getMembership = async (_id) => {
         try {
             if (!state) {
-                router.push("/login")
+                router.push("/signup")
             } else {
                 
                 const response = await loadRazorpay('https://checkout.razorpay.com/v1/checkout.js')
@@ -45,7 +45,7 @@ function Pricing() {
                 }
 
 
-                const res = await axios.get(`https://isoi-backend.herokuapp.com/api/membership/razorpay/${_id}`);
+                const res = await axios.get(`http://localhost:8000/api/membership/razorpay/${_id}`);
                 console.log(res);
                 if (res.status != 200) {
                     return;
@@ -65,6 +65,7 @@ function Pricing() {
                         // alert(response.razorpay_order_id);
                         // alert(response.razorpay_signature)
                         alert("Membership guaranteed!");
+                        router.push("/events");
                     },
                     "prefill": {
                         "name": "",

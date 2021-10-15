@@ -1,14 +1,14 @@
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import { useSelector , useDispatch } from "react-redux"
+import { useRouter } from "next/router"
 
 function Header3() {
     const [show, setShow] = useState(false);
     const [open, setOpen] = useState("home");
     const data = useSelector(state => state.user);
-
-
+  
 
     return (
       <>
@@ -49,7 +49,7 @@ function Header3() {
                                 <li><Link href="/about-us"><a>About Us</a></Link></li>
                                 {data && <li><Link href="/membership"><a>Membership</a></Link></li>}
                                 <li><Link href="/faculty"><a>Faculty</a></Link></li>
-                                {data && <li><Link href="/events"><a>Events</a></Link></li>}
+                                {/* {data && <li><Link href="/events"><a>Events</a></Link></li>} */}
 								<li><Link href="/contact-us"><a>Contact Us</a></Link></li>
 								{data && <li><Link href="/profile-page"><a><i className="fa fa-user" style={{
                                     fontSize : "20px"

@@ -4,9 +4,10 @@ import Header from '../layout/header-3';
 import Link from 'next/link';
 import Head from "next/head";
 import { useEffect } from "react";
-import { setUserDetails, setPaidEvents } from "../redux/actions/index"
+import { setUserDetails, setPaidEvents , setProducts } from "../redux/actions/index"
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from 'next/router'
+import Pricing from "../element/pricing";
 function PricingTable1() {
 	const [open, setOpen] = useState("p2")
 	const data = useSelector(state => state.user);
@@ -15,6 +16,7 @@ function PricingTable1() {
 
 	useEffect(() => {
 		const user = JSON.parse(localStorage.getItem("user"));
+		dispatch(setProducts())
 		dispatch(setUserDetails(user));
 		if (!data) {
 			router.push("/login");
@@ -46,62 +48,7 @@ function PricingTable1() {
 				{/* <!-- Banner End --> */}
 
 				{/* <!-- Pricing Table --> */}
-				<section className="content-inner" style={{ "backgroundImage": "url(images/banner/bg1.jpg)" }}>
-					<div className="container">
-						<div className="pricingtable-row">
-							<div className="row">
-								<div className="col-lg-4 col-md-6 wow fadeIn" data-wow-duration="2s" data-wow-delay="0.2s">
-									<div className={`${open === "p1" ? "pricingtable-wrapper style-1 m-b30 active" : "pricingtable-wrapper style-1 m-b30"}`} onMouseOver={() => setOpen("p1")}>
-										<div className="pricingtable-inner">
-											<div className="pricingtable-title">
-												<h3>Free Membership</h3>
-											</div>
-											<div className="pricingtable-price">
-												<h2 className="pricingtable-bx">$49</h2>
-											</div>
-											<ul className="pricingtable-features">
-												<li>Graphic Design </li>
-												<li>Web Design</li>
-												<li>UI/UX</li>
-												<li>HTML/CSS</li>
-												<li>SEO Marketing</li>
-												<li>Business Analysis</li>
-											</ul>
-											<div className="pricingtable-footer">
-												<Link href="/pricing-table-1"><a className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i>Start Now</a></Link>
-
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-6 wow fadeIn" data-wow-duration="2s" data-wow-delay="0.4s">
-									<div className={`${open === "p2" ? "pricingtable-wrapper style-1 m-b30 active" : "pricingtable-wrapper style-1 m-b30"}`} onMouseOver={() => setOpen("p2")}>
-										<div className="pricingtable-inner">
-											<div className="pricingtable-title">
-												<h3>Paid Membership</h3>
-											</div>
-											<div className="pricingtable-price">
-												<h2 className="pricingtable-bx">$99</h2>
-											</div>
-											<ul className="pricingtable-features">
-												<li>Graphic Design </li>
-												<li>Web Design</li>
-												<li>UI/UX</li>
-												<li>HTML/CSS</li>
-												<li>SEO Marketing</li>
-												<li>Business Analysis</li>
-											</ul>
-											<div className="pricingtable-footer">
-												<Link href="pricing-table-1"><a className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i>Start Now</a></Link>
-											</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</section>
+				<Pricing />
 
 				{/* <!-- Call to Action --> */}
 				<section style={{ "backgroundImage": "url(images/background/bg5.jpg)", "backgroundSize": "cover" }}>
