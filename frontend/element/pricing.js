@@ -64,7 +64,24 @@ function Pricing() {
                         // alert(response.razorpay_payment_id);
                         // alert(response.razorpay_order_id);
                         // alert(response.razorpay_signature)
-                        alert("Membership guaranteed!");
+
+                        const razorpay_payment_id = response.razorpay_payment_id;
+                        const razorpay_order_id = response.razorpay_order_id;
+                        const razorpay_signature = response.razorpay_signature;
+
+                        // alert("Membership guaranteed!");
+                        fetch("https://isoi-backend.herokuapp.com/api/membership/member-registraion" , {
+                            method : "POST",
+                            headers : {
+                                "Content-Type" : "application/json",
+                                "Authorization": "Bearer " + JSON.parse(localStorage.getItem("jwt"))
+                            },
+                            body : JSON.stringify({
+                                razorpay_payment_id , razorpay_order_id , razorpay_signature
+                            })
+                        }).then(res => res.json()).then(data => {
+                            alert(data.message);
+                        })
                         router.push("/member-registraion");
                     },
                     "prefill": {
