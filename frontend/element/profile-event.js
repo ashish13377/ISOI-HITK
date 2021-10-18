@@ -73,13 +73,19 @@ function ProfileEvent() {
                                                     <h6 className="mb-2">{data && data.name}</h6>
                                                     <p class="mb-1">{data && data.phone}</p>
                                                     <p>{data && data.email}</p>
-                                                    {isMember && (<p className="text-success border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership Active</p>)}
-                                                    {!isMember && (<p className="text-danger border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership inActive</p>)}
-                                                    {!isMember && (
-                                                        <small style={{
-                                                            fontStyle: "italic"
-                                                        }}>If Your membership is guranteed , then <Link href="/member-registraion">Click here</Link> to activate your membership and enroll in membership events.</small>
-                                                    )}
+                                                    {
+                                                        isMember ? (
+                                                            <p className="text-success border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership Active</p>
+                                                        ) : (
+                                                            <div>
+
+                                                                <p className="text-danger border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership inActive</p>
+                                                                <small style={{
+                                                                    fontStyle: "italic"
+                                                                }}>If Your membership is guranteed , then <Link href="/member-registraion">Click here</Link> to activate your membership and enroll in membership events.</small>
+                                                            </div>
+                                                        )
+                                                    }
                                                     <br />
                                                     <br />
 
