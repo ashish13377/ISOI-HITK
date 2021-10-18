@@ -49,8 +49,13 @@ function ProfilePage() {
                                                     <p>{data && data.email}</p>
                                                     {isMember && (<p className="text-success border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership Active</p>)}
                                                     {!isMember && (<p className="text-danger border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership inActive</p>)}
+                                                    {!isMember && (
+                                                        <small style={{
+                                                            fontStyle: "italic"
+                                                        }}>If Your membership is guranteed , then <Link href="/member-registraion">Click here</Link> to activate your membership and enroll in membership events.</small>
+                                                    )}
                                                     <br />
-
+                                                    <br />
                                                     <a onClick={logoutUser} style={{ cursor: 'pointer' }} class="text-primary mr-3" data-target="#edit-profile-modal">
                                                         <i class="icofont-logout" />Logout
                                                     </a>
@@ -66,13 +71,13 @@ function ProfilePage() {
                                             </Link>
                                         </li>
                                     </ul>
-                                    <ul className="nav flex-column border-0 pt-4 " >
+                                    {isMember && (<ul className="nav flex-column border-0 pt-4 " >
                                         <li className="nav-item">
                                             <Link href="/profile/membership-event">
                                                 <a className="nav-link" ><i className="icofont-dropbox" /> Membership Events</a>
                                             </Link>
                                         </li>
-                                    </ul>
+                                    </ul>)}
 
                                 </div>
                             </div>

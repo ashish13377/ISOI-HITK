@@ -83,6 +83,7 @@ function Pricing() {
                             if(data.error){
                                 alert(data.error)
                             }else{
+                                alert("Payment Successfull , Now fill the Form to activate your Membership.")
                                 alert(data.message)
                                 router.push("/member-registraion");
                             }

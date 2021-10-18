@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { useSelector, useDispatch } from "react-redux"
-import { logout, setUserDetails, getMemberDetails , setPaidEvents } from "../redux/actions/index"
+import { logout, setUserDetails, getMemberDetails, setPaidEvents } from "../redux/actions/index"
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Slider from "react-slick";
@@ -68,13 +68,19 @@ function ProfileEvent() {
                                     <div className="border-bottom p-4">
                                         <div className="osahan-user text-center">
                                             <div className="osahan-user-media">
-                                                <img className="mb-3 rounded-pill shadow-sm mt-1" src={!data ? `images/avatar1.png` : `https://isoi-backend.herokuapp.com/uploads/${data.picture}`} />
+                                                <img className="mb-3 rounded-pill shadow-sm mt-1" src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_960_720.png" />
                                                 <div className="osahan-user-media-body">
                                                     <h6 className="mb-2">{data && data.name}</h6>
                                                     <p class="mb-1">{data && data.phone}</p>
                                                     <p>{data && data.email}</p>
                                                     {isMember && (<p className="text-success border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership Active</p>)}
                                                     {!isMember && (<p className="text-danger border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership inActive</p>)}
+                                                    {!isMember && (
+                                                        <small style={{
+                                                            fontStyle: "italic"
+                                                        }}>If Your membership is guranteed , then <Link href="/member-registraion">Click here</Link> to activate your membership and enroll in membership events.</small>
+                                                    )}
+                                                    <br />
                                                     <br />
 
                                                     <a onClick={logoutUser} style={{ cursor: 'pointer' }} class="text-primary mr-3" data-target="#edit-profile-modal">
@@ -92,13 +98,13 @@ function ProfileEvent() {
                                             </Link>
                                         </li>
                                     </ul>
-                                    <ul className="nav  flex-column border-0 pt-4" id="myTab" role="tablist">
+                                    {isMember && (<ul className="nav flex-column border-0 pt-4 " >
                                         <li className="nav-item">
                                             <Link href="/profile/membership-event">
-                                                <a className="nav-link active"><i className="icofont-dropbox" /> Membership Events</a>
+                                                <a className="nav-link" ><i className="icofont-dropbox" /> Membership Events</a>
                                             </Link>
                                         </li>
-                                    </ul>
+                                    </ul>)}
                                 </div>
                             </div>
                             <div className="col-md-9">
