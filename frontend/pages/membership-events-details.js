@@ -17,11 +17,11 @@ function BlogLargeRightSidebar() {
 
 
 	useEffect(() => {
-
+		
 		document.title = "ISOI | Membership Details";
 		const user = JSON.parse(localStorage.getItem("user"));
 		dispatch(setUserDetails(user));
-		if (!data) {
+		if (!user) {
 			router.push("/login");
 		}
 	}, [])
@@ -42,8 +42,6 @@ function BlogLargeRightSidebar() {
 		
 		
 	}, [])
-	
-	// console.log(fevent);
 
 
 	return (

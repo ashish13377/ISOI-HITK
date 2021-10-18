@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Head from "next/head";
 import Cta from "../element/cta";
 import { useEffect } from "react";
-import { setUserDetails, setPaidEvents } from "../redux/actions/index"
+import { setUserDetails, setPaidEvents , getMemberDetails } from "../redux/actions/index"
 import { useDispatch , useSelector } from "react-redux";
 import { useRouter } from 'next/router'
 import { route } from "next/dist/next-server/server/router";
@@ -20,7 +20,8 @@ function Event() {
 		const user = JSON.parse(localStorage.getItem("user"));
 		dispatch(setUserDetails(user));
 		dispatch(setPaidEvents());
-		if (!data) {
+		dispatch(getMemberDetails())
+		if (!user) {
 			router.push("/login");
 		}
 

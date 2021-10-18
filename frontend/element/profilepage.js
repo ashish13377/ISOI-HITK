@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { useSelector, useDispatch } from "react-redux"
-import { logout, setUserDetails } from "../redux/actions/index"
+import { logout, setUserDetails , getMemberDetails } from "../redux/actions/index"
 import { useEffect } from 'react';
 function onChange(value) {
     console.log("Captcha value:", value);
@@ -10,12 +10,14 @@ function onChange(value) {
 function ProfilePage() {
 
     const data = useSelector(state => state.user);
+    const isMember = useSelector(state => state.memberDetails) 
     const dispatch = useDispatch();
     const router = useRouter();
-    const isMember = false;
+  ////  console.log(isMember);
 
     useEffect(() => {
         dispatch(setUserDetails(JSON.parse(localStorage.getItem("user"))));
+        dispatch(getMemberDetails());
         if (!data) {
             router.push("/login");
         }
@@ -46,7 +48,8 @@ function ProfilePage() {
                                                     <h6 className="mb-2">{data && data.name}</h6>
                                                     <p class="mb-1">{data && data.phone}</p>
                                                     <p>{data && data.email}</p>
-                                                    {isMember && (<p className="text-success font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Member of ISOI-HITK</p>)}
+                                                    {isMember && (<p className="text-success border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership Active</p>)}
+                                                    {!isMember && (<p className="text-danger border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership inActive</p>)}
                                                     <br />
 
                                                     <a onClick={logoutUser} style={{ cursor: 'pointer' }} class="text-primary mr-3" data-target="#edit-profile-modal">

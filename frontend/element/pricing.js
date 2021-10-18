@@ -58,7 +58,7 @@ function Pricing() {
                     "currency": 'INR',
                     "name": res.data.notes.name,
                     "description": res.data.notes.desc,
-                    "image": "https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png",
+                    "image": "../../images/logo.png",
                     "order_id": res.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                     "handler": function (response) {
                         // alert(response.razorpay_payment_id);
@@ -90,7 +90,7 @@ function Pricing() {
                     },
                     "prefill": {
                         "name": "",
-                        "email": "",
+                        "email": state.email,
                         "contact": ""
                     },
                     "theme": {

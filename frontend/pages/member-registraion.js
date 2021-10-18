@@ -16,7 +16,7 @@ function memberregistraion() {
 	useEffect(() => {
 		const user = JSON.parse(localStorage.getItem("user"));
 		dispatch(setUserDetails(user));
-		if (!data) {
+		if (!user) {
 			router.push("/login");
 		}
 	}, [])

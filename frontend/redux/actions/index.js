@@ -48,3 +48,16 @@ export const setProducts = () => {
     })
 }
 
+export const getMemberDetails = () => {
+    return (dispatch => {
+        fetch("https://isoi-backend.herokuapp.com/api/membership/getmember" , {
+            method : "GET",
+            headers : {
+                "Content-Type": "application/json",
+				"Authorization": "Bearer " + JSON.parse(localStorage.getItem("jwt"))
+            }
+        }).then(res => res.json()).then(data => {
+            dispatch({type : "SET_MEMBERS_DETAILS" , payload : data})
+        }).catch((e) => alert(e))
+    })
+}

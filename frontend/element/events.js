@@ -5,8 +5,9 @@ import Link from 'next/link';
 
 
 function Events() {
-	const isMember = true;
+	const isMember = useSelector(state => state.memberDetails);
 	const pEvents = useSelector(state => state.pEvents);
+	console.log(pEvents);
 
 
 	return (

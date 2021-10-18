@@ -18,7 +18,7 @@ function PricingTable1() {
 		const user = JSON.parse(localStorage.getItem("user"));
 		dispatch(setProducts())
 		dispatch(setUserDetails(user));
-		if (!data) {
+		if (!user) {
 			router.push("/login");
 		}
 	}, [])
