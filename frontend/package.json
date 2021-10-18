@@ -17,6 +17,7 @@
         "nextjs-progressbar": "0.0.11",
         "node-sass": "^5.0.0",
         "nprogress": "^0.2.0",
+        "paper-css": "^0.4.1",
         "react": "^17.0.1",
         "react-bootstrap": "^1.5.0",
         "react-countup": "^4.3.3",
@@ -37,6 +38,7 @@
         "slick-carousel": "^1.8.1",
         "use-scroll-position": "0.0.4",
         "web-vitals": "^2.1.2",
+        "webpack": "^5.58.2",
         "wowjs": "^1.1.3"
     }
 }

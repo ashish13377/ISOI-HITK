@@ -16,7 +16,7 @@ import Footer from "../layout/footer";
 import Header from "../layout/header";
 import Head from "next/head";
 import { useSelector , useDispatch } from "react-redux"
-import {  setUserDetails , setfreeEvents , setPaymentStat , setProducts } from "../redux/actions/index"
+import {  setUserDetails , setfreeEvents  , setProducts } from "../redux/actions/index"
 
 function Home() {
   const dispatch = useDispatch();
@@ -25,7 +25,6 @@ function Home() {
     const user = JSON.parse(localStorage.getItem("user"));
     dispatch(setUserDetails(user));
     dispatch(setfreeEvents());
-    dispatch(setPaymentStat());
 
     fetch("https://isoi-backend.herokuapp.com/api/membership/getproducts", {
             method: "GET"

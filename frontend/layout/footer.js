@@ -74,7 +74,8 @@ function Footer() {
 						   <h5 className="footer-title">Other links</h5>
 						   <ul>
 								<li><Link href="/privacy-policy">Privacy Policy</Link></li>
-								<li><Link href="/trems-conditions">Terms & Conditions</Link></li>
+								<li><Link href="/terms-conditions">Terms & Conditions</Link></li>
+								<li><Link href="/refund-cancellation">Refunds & Cancellation</Link></li>
 								<li><Link href="/contact-us">Support </Link></li>
 							</ul>
 						</div>

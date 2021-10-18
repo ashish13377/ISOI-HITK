@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { useSelector, useDispatch } from "react-redux"
-import { logout, setUserDetails, setPaymentStat } from "../redux/actions/index"
+import { logout, setUserDetails } from "../redux/actions/index"
 import { useEffect } from 'react';
 function onChange(value) {
     console.log("Captcha value:", value);
@@ -19,7 +19,6 @@ function ProfilePage() {
         if (!data) {
             router.push("/login");
         }
-        dispatch(setPaymentStat())
     }, [])
 
 

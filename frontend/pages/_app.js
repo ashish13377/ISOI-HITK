@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import NextNprogress from 'nextjs-progressbar';
-
 import "react-rangeslider/lib/index.css";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -10,7 +9,7 @@ import "../css/skin/skin-1.css";
 import "../styles/globals.css";
 import "../styles/switcher.css";
 import { Provider } from 'react-redux';
-import store from "../redux/store"
+import store from "../redux/store";
 
 
 function MyApp({ Component, pageProps }) {
