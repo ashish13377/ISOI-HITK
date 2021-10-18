@@ -196,7 +196,7 @@ function Team1() {
                   </div>
                 </div>
               </div>
-            
+
             </div>
           </div>
         </section>
@@ -216,12 +216,8 @@ function Team1() {
                 data-wow-delay="0.2s"
               >
                 <div className="section-head style-1">
-                  <h6 className="sub-title bgl-primary m-b20 text-primary">
-                    More With Us
-                  </h6>
-                  <h2 className="title">
-                    You Want To Showcase Your Website In Top Join With Us
-                  </h2>
+                  <h6 className="sub-title bgl-primary m-b20 text-primary">Come Join Us</h6>
+                  <h2 className="title">Enroll now and get your membership Join With Us</h2>
                 </div>
               </div>
               <div

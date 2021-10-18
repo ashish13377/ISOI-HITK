@@ -47,3 +47,4 @@ export const setProducts = () => {
         }).catch((e) => alert(e))
     })
 }
+

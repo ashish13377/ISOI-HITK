@@ -21,7 +21,7 @@ function Header() {
                         <div className="container clearfix">
                             {/* <!-- Website Logo --> */}
                             <div className="logo-header mostion logo-dark">
-                                <Link href="/"><a><img src="images/logo.png" alt="" /></a></Link>
+                                <Link href="/"><a><img src="../../images/logo.png" alt="" /></a></Link>
                             </div>
                             {/* <!-- Nav Toggle Button --> */}
                             <button className={`navbar-toggler collapsed navicon justify-content-end ${show ? "open" : ""}`} onClick={() => setShow(!show)}>

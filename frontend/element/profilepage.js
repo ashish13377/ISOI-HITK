@@ -41,7 +41,7 @@ function ProfilePage() {
                                     <div className="border-bottom p-4">
                                         <div className="osahan-user text-center">
                                             <div className="osahan-user-media">
-                                                <img className="mb-3 rounded-pill shadow-sm mt-1" src={!data ? `images/avatar1.png` : `https://isoi-backend.herokuapp.com/uploads/poster/${data.picture}`} />
+                                                <img className="mb-3 rounded-pill shadow-sm mt-1" src={!data ? `images/avatar1.png` : `https://isoi-backend.herokuapp.com/uploads/${data.picture}`} />
                                                 <div className="osahan-user-media-body">
                                                     <h6 className="mb-2">{data && data.name}</h6>
                                                     <p class="mb-1">{data && data.phone}</p>
@@ -57,13 +57,21 @@ function ProfilePage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <ul className="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
+                                    <ul className="nav  flex-column border-0 pt-4" >
                                         <li className="nav-item">
-                                            <Link href="/events">
-                                                <a className="nav-link active" id="payments-tab" data-toggle="tab" role="tab" aria-controls="payments" aria-selected="true"><i className="icofont-atom" /> Membership Events</a>
+                                            <Link href="/profile/dashboard">
+                                                <a className="nav-link active" ><i className="icofont-search-user" /> My Account</a>
                                             </Link>
                                         </li>
                                     </ul>
+                                    <ul className="nav flex-column border-0 pt-4 " >
+                                        <li className="nav-item">
+                                            <Link href="/profile/membership-event">
+                                                <a className="nav-link" ><i className="icofont-dropbox" /> Membership Events</a>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                    
                                 </div>
                             </div>
                             <div className="col-md-9">

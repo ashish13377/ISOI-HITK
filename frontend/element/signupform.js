@@ -65,7 +65,7 @@ return (
 					<div className="col-xl-6 col-lg-7 m-b30 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.2s">
 						<div className="section-head style-1">
 							<h6 className="sub-title bgl-primary m-b20 text-primary">Sign Up</h6>
-							<h2 className="title">We Love To Help Great Companies To Enlarge Their Revenues.</h2>
+							<h2 className="title">Create an account to get the most out of this site</h2>
 						</div>
 						<form className="dlab-form dzForm" method="POST" onSubmit={sendData}>
 							<div className="dzFormMsg"></div>
@@ -99,7 +99,7 @@ return (
 								<div className="col-sm-6">
 									<div className="input-group">
 										<div className="input-group-prepend">
-											<span className="input-group-text"><i className="la la-lock"></i></span>
+											<span className="input-group-text"><i className="la la-user"></i></span>
 										</div>
 										<input name="dzOther[phone]" value={username} onChange={(e) => setUsername(e.target.value)} type="text" required className="form-control" placeholder="Username" />
 									</div>
@@ -122,10 +122,8 @@ return (
 								</div>
 								<div className="col-sm-12">
 									<div className="input-group">
-										<div className="input-group-prepend">
-											<span className="input-group-text"><i className="la la-lock"></i></span>
-										</div>
-										<input name="dzOther[phone]" type="file" onChange={imageUpload} required className="form-control" placeholder="Confirm Password" />
+				
+										<input name="dzOther[phone]" type="file" onChange={imageUpload} required className="form-control"/>
 									</div>
 								</div>
 
