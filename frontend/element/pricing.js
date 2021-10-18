@@ -138,7 +138,7 @@ function Pricing() {
                                                     <h3 className="title">{products && product.name}</h3>
                                                 </div>
                                                 <div className="pricingtable-price">
-                                                    <h2 className="pricingtable-bx">{products && product.price}<small>/Year</small></h2>
+                                                    <h2 className="pricingtable-bx">₹{products && product.price}<small>/Year</small></h2>
                                                 </div>
                                                 <p className="text">{products && product.desc}</p>
                                                 <div className="pricingtable-footer">
