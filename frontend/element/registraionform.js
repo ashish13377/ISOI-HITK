@@ -28,7 +28,7 @@ function RegistraionFrom() {
 
 	const submitApplication = (e) => {
 		e.preventDefault()
-		fetch("http://localhost:8000/api/membership/addmembers", {
+		fetch("https://isoi-backend.herokuapp.com/api/membership/addmembers", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
