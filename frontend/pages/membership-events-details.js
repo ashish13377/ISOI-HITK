@@ -12,8 +12,8 @@ function BlogLargeRightSidebar() {
 	const dispatch = useDispatch()
 	const { query } = useRouter()
 	const [fevent, setEvent] = useState();
-	const id = query.id;
 	const data = useSelector(state => state.user);
+	const id = query.id;
 
 
 	useEffect(() => {
