@@ -1,6 +1,79 @@
-
+import { useState } from "react"
+import { useSelector } from "react-redux"
+import { useRouter } from "next/router"
 
 function RegistraionFrom() {
+
+	const user = useSelector(state => state.user)
+	const router = useRouter()
+
+	
+
+	const [wpNumber, setwpNumber] = useState()
+	const [birthData, setbirthData] = useState()
+	const [gender, setgender] = useState()
+	const [years, setyears] = useState()
+	const [address, setaddress] = useState()
+	const [city, setcity] = useState()
+	const [state, setstate] = useState()
+	const [postalCode, setpostalCode] = useState()
+	const [autonomyRoll, setautonomyRoll] = useState()
+	const [collegeRoll, setcollegeRoll] = useState()
+	const [attendAnyEvent, setattendAnyEvent] = useState()
+	const [feedback, setfeedback] = useState()
+	const [image, setimage] = useState()
+	const [name , setname] = useState();
+	const [email , setemail] = useState();
+	const [phone , setphone] = useState();
+
+	const submitApplication = (e) => {
+		e.preventDefault()
+		fetch("http://localhost:8000/api/membership/addmembers", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": "Bearer " + JSON.parse(localStorage.getItem("jwt"))
+			},
+			body: JSON.stringify({
+				name , birthData, gender, email : user.email, phone, wpNumber, years, address, city, state, postalCode, autonomyRoll, collegeRoll, attendAnyEvent, feedback, image
+			})
+		}).then(res => res.json())
+		.then(data => {
+			if(data.error){
+				alert(data.error)
+			}else{
+				alert(data.message);
+				router.push("/profile-page");
+			}
+		})
+	}
+
+	const imageUpload = (pic) => {
+		console.log(pic);
+		const filename = pic.name
+		const ext = filename.split('.').pop();
+		if (ext === 'jpg' || ext === 'png' || ext === 'jpeg') {
+			const data = new FormData();
+			data.append("file", pic);
+			data.append("upload_preset", "ISOI-HITK");
+			data.append("cloud_name", "amritrajmaurya");
+			fetch("https://api.cloudinary.com/v1_1/amritrajmaurya/image/upload", {
+				method: "post",
+				body: data,
+			})
+				.then((res) => res.json())
+				.then((data) => {
+					setimage(data.url.toString());
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		} else {
+			alert("Please select a valid image [Either JPEG or PNG]")
+		}
+	}
+
+
 	return (
 		<>
 			{/* <!-- Blog Large --> */}
@@ -23,25 +96,9 @@ function RegistraionFrom() {
 								<div className="col-sm-4">
 									<div className="input-group">
 										<div className="input-group-prepend">
-											<span className="input-group-text"><i className="la la-user"></i></span> 
+											<span className="input-group-text"><i className="la la-user"></i></span>
 										</div>
-										<input name="dzName" type="text" required className="form-control" placeholder="First Name" />
-									</div>
-								</div>
-								<div className="col-sm-4">
-									<div className="input-group">
-										<div className="input-group-prepend">
-											<span className="input-group-text"><i className="las la-user-cog"></i></span>
-										</div>
-										<input name="dzName" type="text" required className="form-control" placeholder="Middle Name" />
-									</div>
-								</div>
-								<div className="col-sm-4">
-									<div className="input-group">
-										<div className="input-group-prepend">
-											<span className="input-group-text"><i className="las la-user-cog"></i></span>
-										</div>
-										<input name="dzOther[last_name]" type="text" className="form-control" required placeholder="Last Name" />
+										<input name="dzName" type="text" required className="form-control" value={name} onChange={(e) => setname(e.target.value)} />
 									</div>
 								</div>
 							</div>
@@ -55,13 +112,13 @@ function RegistraionFrom() {
 										<div className="input-group-prepend">
 											<span className="input-group-text"><i className="las la-calendar-day"></i></span>
 										</div>
-										<input name="dzName" type="date" required className="form-control" placeholder="First Name" />
+										<input name="dzName" type="date" required value={birthData} onChange={((e) => setbirthData(e.target.value))} className="form-control" placeholder="First Name" />
 									</div>
 								</div>
 								<div className="col-sm-6">
 									<h5>Gender</h5>
 									<div className="input-group">
-										<select style={{ appearance: 'none' }} name="dzOther[last_name]" className="form-control">
+										<select style={{ appearance: 'none' }} value={gender} onChange={((e) => setgender(e.target.value))} name="dzOther[last_name]" className="form-control">
 											<option>Please select</option>
 											<option>Male</option>
 											<option>Female</option>
@@ -80,8 +137,9 @@ function RegistraionFrom() {
 										<div className="input-group-prepend">
 											<span className="input-group-text"><i className="las la-envelope-open-text"></i></span>
 										</div>
-										<input name="dzName" type="text" required className="form-control" placeholder="ex: xyz@gmail.com" />
+										<input name="dzName" type="text" required className="form-control" value={user && user.email} onChange={(e) => setemail(e.target.value)} />
 									</div>
+									<small>Note : Email same as during signup & payment for ISOI Membership</small>
 								</div>
 
 								<div className="col-sm-6">
@@ -90,7 +148,7 @@ function RegistraionFrom() {
 										<div className="input-group-prepend">
 											<span className="input-group-text"><i className="las la-phone"></i></span>
 										</div>
-										<input name="dzOther[last_name]" type="text" className="form-control" required placeholder="(+91) 000-000-0000" />
+										<input name="dzOther[last_name]" type="text" className="form-control" required value={phone} onChange={(e) => setphone(e.target.value)} />
 									</div>
 								</div>
 							</div>
@@ -104,19 +162,19 @@ function RegistraionFrom() {
 										<div className="input-group-prepend">
 											<span className="input-group-text"><i className="la la-whatsapp"></i></span>
 										</div>
-										<input name="dzName" type="text" required className="form-control" placeholder="(+91) 000-000-0000" />
+										<input name="dzName" type="text" required value={wpNumber} onChange={((e) => setwpNumber(e.target.value))} className="form-control" placeholder="(+91) 000-000-0000" />
 									</div>
 								</div>
 								<div className="col-sm-6">
 									<h5>Years</h5>
 									<div className="input-group">
-									
-										<select style={{ appearance: 'none', padding: '10px 20px 10px 20px' }} name="dzOther[last_name]" className="form-control">
+
+										<select style={{ appearance: 'none', padding: '10px 20px 10px 20px' }} value={years} onChange={(e) => setyears(e.target.value)} name="dzOther[last_name]" className="form-control">
 											<option>Please select</option>
-											<option>1st Years</option>
-											<option>2nd Years</option>
-											<option>3rd Years</option>
-											<option>4rd Years</option>
+											<option>1st Year</option>
+											<option>2nd Year</option>
+											<option>3rd Year</option>
+											<option>4rd Year</option>
 											<option>M. Tech</option>
 										</select>
 									</div>
@@ -125,7 +183,7 @@ function RegistraionFrom() {
 							{/* <!-- End whatsapp and Years --> */}
 
 							{/* <!-- Duration --> */}
-							<div className="row row2">
+							{/* <div className="row row2">
 								<div className="col-sm-6">
 									<h5>Duration</h5>
 									<div className="input-group">
@@ -140,7 +198,7 @@ function RegistraionFrom() {
 									</div>
 									<p>Registration Fees: Rs.400/- for 4 years</p>
 								</div>
-							</div>
+							</div> */}
 							{/* <!-- End Duration --> */}
 
 							{/* <!-- Address Row --> */}
@@ -148,26 +206,23 @@ function RegistraionFrom() {
 								<div className="col-sm-12">
 									<h5>Address</h5>
 									<div className="input-group">
-										<input name="dzName" type="text" style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="Area" />
-									</div>
-									<div className="input-group">
-										<input name="dzName" type="text" style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="Address Line 2" />
+										<input name="dzName" type="text" value={address} onChange={((e) => setaddress(e.target.value))} style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="Address" />
 									</div>
 								</div>
 
 								<div className="col-sm-6">
 									<div className="input-group">
-										<input name="dzName" type="text" style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="City" />
+										<input name="dzName" type="text" value={city} onChange={((e) => setcity(e.target.value))} style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="City" />
 									</div>
 								</div>
 								<div className="col-sm-6">
 									<div className="input-group">
-										<input name="dzName" type="text" style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="State / Province" />
+										<input name="dzName" type="text" value={state} onChange={((e) => setstate(e.target.value))} style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="State / Province" />
 									</div>
 								</div>
 								<div className="col-sm-12">
 									<div className="input-group">
-										<input name="dzName" type="text" style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="Postal / Zip Code" />
+										<input name="dzName" type="text" value={postalCode} onChange={((e) => setpostalCode(e.target.value))} style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="Postal / Zip Code" />
 									</div>
 								</div>
 							</div>
@@ -178,13 +233,27 @@ function RegistraionFrom() {
 								<div className="col-sm-5">
 									<div className="input-group">
 										<div className="input-option-dropdown">
+											<p> Autonomy Roll Number </p>
+										</div>
+									</div>
+								</div>
+								<div className="col-sm-7">
+									<div className="input-group">
+										<input name="dzName" type="text" value={autonomyRoll} onChange={((e) => setautonomyRoll(e.target.value))} style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="ex: 1262000XXXX" />
+									</div>
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-sm-5">
+									<div className="input-group">
+										<div className="input-option-dropdown">
 											<p> College Roll Number </p>
 										</div>
 									</div>
 								</div>
 								<div className="col-sm-7">
 									<div className="input-group">
-										<input name="dzName" type="text" style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="ex: 18530XX" />
+										<input name="dzName" type="text" value={collegeRoll} onChange={((e) => setcollegeRoll(e.target.value))} style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="ex: 18530XX" />
 									</div>
 								</div>
 							</div>
@@ -202,7 +271,7 @@ function RegistraionFrom() {
 								<div className="col-sm-7">
 									<div className="input-group">
 
-										<select style={{ appearance: 'none', padding: '10px 20px 10px 20px' }} name="dzOther[last_name]" className="form-control">
+										<select style={{ appearance: 'none', padding: '10px 20px 10px 20px' }} value={attendAnyEvent} onChange={(e) => setattendAnyEvent(e.target.value)} name="dzOther[last_name]" className="form-control">
 											<option>Please select</option>
 											<option>Yes</option>
 											<option>No</option>
@@ -223,7 +292,7 @@ function RegistraionFrom() {
 								</div>
 								<div className="col-sm-7">
 									<div className="input-group">
-										<textarea name="dzName" type="text" style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="I'm a Python & IoT geek. I would like to participate more in events/webinars/seminars/workshops related to this particular field."></textarea>
+										<textarea name="dzName" type="text" value={feedback} onChange={((e) => setfeedback(e.target.value))} style={{ padding: '10px 20px 10px 20px' }} required className="form-control" placeholder="I'm a Python & IoT geek. I would like to participate more in events/webinars/seminars/workshops related to this particular field."></textarea>
 									</div>
 								</div>
 							</div>
@@ -240,46 +309,19 @@ function RegistraionFrom() {
 								</div>
 								<div className="col-sm-7">
 									{/* Upload Area */}
-									<div id="uploadArea" className="upload-area">
-										{/* Drop Zoon */}
-										<div id="dropZoon" className="upload-area__drop-zoon drop-zoon">
-											<span className="drop-zoon__icon">
-												<i className="bx bxs-file-image" />
-											</span>
-											<p className="drop-zoon__paragraph">Drop your file here or Click to browse</p>
-											<span id="loadingText" className="drop-zoon__loading-text">Please Wait</span>
-											<img src alt="Preview Image" id="previewImage" className="drop-zoon__preview-image" draggable="false" />
-											<input type="file" id="fileInput" className="drop-zoon__file-input" accept="image/*" />
-											
-										</div>
-										
-										{/* End Drop Zoon */}
-										{/* File Details */}
-										<div id="fileDetails" className="upload-area__file-details file-details">
-											<h3 className="file-details__title">Uploaded File</h3>
-											<div id="uploadedFile" className="uploaded-file">
-												<div className="uploaded-file__icon-container">
-													<i className="bx bxs-file-blank uploaded-file__icon" />
-													<span className="uploaded-file__icon-text" /> {/* Data Will be Comes From Js */}
-												</div>
-												<div id="uploadedFileInfo" className="uploaded-file__info">
-													<span className="uploaded-file__name">Proejct 1</span>
-													<span className="uploaded-file__counter">0%</span>
-												</div>
-											</div>
-										</div>
-										{/* End File Details */}
-									
+									<div>
+										<input type="file" id="file" onChange={(e) => imageUpload(e.target.files[0])} />
 									</div>
+
 									{/* End Upload Area */}
-										<p>Upload a recent Passport Size Photograph</p>
+									<p className="mt-4">Upload a recent Passport Size Photograph</p>
 								</div>
 							</div>
 							{/* <!-- end Image Upload --> */}
 
 
 							<div className="col-sm-12 mt-2">
-								<button name="submit" type="submit" value="Submit" className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i>Submit Application</button>
+								<button name="submit" type="submit" onClick={submitApplication} value="Submit" className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i>Submit Application</button>
 							</div>
 
 						</form>
