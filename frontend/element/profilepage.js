@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { useSelector, useDispatch } from "react-redux"
-import { logout, setUserDetails , getMemberDetails } from "../redux/actions/index"
+import { logout, setUserDetails, getMemberDetails } from "../redux/actions/index"
 import { useEffect } from 'react';
 function onChange(value) {
     console.log("Captcha value:", value);
@@ -10,10 +10,9 @@ function onChange(value) {
 function ProfilePage() {
 
     const data = useSelector(state => state.user);
-    const isMember = useSelector(state => state.memberDetails) 
+    const isMember = useSelector(state => state.memberDetails)
     const dispatch = useDispatch();
     const router = useRouter();
-  ////  console.log(isMember);
 
     useEffect(() => {
         dispatch(setUserDetails(JSON.parse(localStorage.getItem("user"))));
@@ -43,7 +42,7 @@ function ProfilePage() {
                                     <div className="border-bottom p-4">
                                         <div className="osahan-user text-center">
                                             <div className="osahan-user-media">
-                                                <img className="mb-3 rounded-pill shadow-sm mt-1" src={!data ? `images/avatar1.png` : `https://isoi-backend.herokuapp.com/uploads/${data.picture}`} />
+                                                <img className="mb-3 rounded-pill shadow-sm mt-1" src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_960_720.png" />
                                                 <div className="osahan-user-media-body">
                                                     <h6 className="mb-2">{data && data.name}</h6>
                                                     <p class="mb-1">{data && data.phone}</p>
@@ -74,7 +73,7 @@ function ProfilePage() {
                                             </Link>
                                         </li>
                                     </ul>
-                                    
+
                                 </div>
                             </div>
                             <div className="col-md-9">
