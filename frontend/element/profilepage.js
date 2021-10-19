@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useSelector, useDispatch } from "react-redux"
 import { logout, setUserDetails, getMemberDetails } from "../redux/actions/index"
 import { useEffect } from 'react';
+import ReactLoading from 'react-loading';
 function onChange(value) {
     console.log("Captcha value:", value);
 }
@@ -47,19 +48,25 @@ function ProfilePage() {
                                                     <h6 className="mb-2">{data && data.name}</h6>
                                                     <p class="mb-1">{data && data.phone}</p>
                                                     <p>{data && data.email}</p>
-                                                    {
-                                                        isMember ? (
-                                                            <p className="text-success border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership Active</p>
-                                                        ) : (
-                                                            <div>
+                                                    <div>
+                                                        {
+                                                            isMember ? (
+                                                                <div className="border">
+                                                                    <small className="text-success font-weight-normal">{isMember && isMember.duration} Year Duration</small>
+                                                                    <p className="text-success font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership Active</p>
+                                                                </div>
 
-                                                                <p className="text-danger border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership inActive</p>
-                                                                <small style={{
-                                                                    fontStyle: "italic"
-                                                                }}>If Your membership is guranteed , then <Link href="/member-registraion">Click here</Link> to activate your membership and enroll in membership events.</small>
-                                                            </div>
-                                                        )
-                                                    }
+                                                            ) : (
+                                                                <div>
+
+                                                                    <p className="text-danger border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership inactive</p>
+                                                                    <small style={{
+                                                                        fontStyle: "italic"
+                                                                    }}>If Your membership is guranteed , then <Link href="/member-registraion">Click here</Link> to activate your membership and enroll in membership events.</small>
+                                                                </div>
+                                                            )
+                                                        }
+                                                    </div>
                                                     <br />
                                                     <br />
                                                     <a onClick={logoutUser} style={{ cursor: 'pointer' }} class="text-primary mr-3" data-target="#edit-profile-modal">

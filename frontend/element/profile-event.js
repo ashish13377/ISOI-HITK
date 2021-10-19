@@ -75,11 +75,14 @@ function ProfileEvent() {
                                                     <p>{data && data.email}</p>
                                                     {
                                                         isMember ? (
-                                                            <p className="text-success border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership Active</p>
+                                                            <div className="border">
+                                                                <small className="text-success font-weight-normal">{isMember && isMember.duration} Year Duration</small>
+                                                                <p className="text-success font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership Active</p>
+                                                            </div>
                                                         ) : (
                                                             <div>
 
-                                                                <p className="text-danger border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership inActive</p>
+                                                                <p className="text-danger border font-weight-bold "><i class="fa fa-shield" aria-hidden="true"></i>&nbsp; Membership inactive</p>
                                                                 <small style={{
                                                                     fontStyle: "italic"
                                                                 }}>If Your membership is guranteed , then <Link href="/member-registraion">Click here</Link> to activate your membership and enroll in membership events.</small>

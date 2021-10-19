@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../redux/actions";
 import { useRouter } from "next/router"
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function loadRazorpay(src) {
     return new Promise((resolve) => {
@@ -41,12 +43,20 @@ function Pricing() {
                 
                 const response = await loadRazorpay('https://checkout.razorpay.com/v1/checkout.js')
                 if(!response){
-                    alert("Razorpay SDK failed to load, Are you Online!")
+                    toast.error("Razorpay SDK failed to load, Are you Online!", {
+						position: "top-center",
+						autoClose: false,
+						hideProgressBar: true,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+						theme : 'colored'
+					})
                 }
 
 
                 const res = await axios.get(`https://isoi-backend.herokuapp.com/api/membership/razorpay/${_id}`);
-                console.log(res);
                 if (res.status != 200) {
                     return;
                 }
@@ -81,7 +91,16 @@ function Pricing() {
                             })
                         }).then(res => res.json()).then(data => {
                             if(data.error){
-                                alert(data.error)
+                                toast.error(data.error, {
+                                    position: "top-center",
+                                    autoClose: false,
+                                    hideProgressBar: true,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                    theme : 'colored'
+                                })
                             }else{
                                 alert("Payment Successfull , Now fill the Form to activate your Membership.")
                                 alert(data.message)
@@ -152,6 +171,7 @@ function Pricing() {
                             })}
                     </div>
                 </div>
+                <ToastContainer />
             </section>
         </>
     )

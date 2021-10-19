@@ -42,7 +42,7 @@ function LoginForm() {
 				if (data.error) {
 					toast.error(data.error, {
 						position: "top-center",
-						autoClose: 5000,
+						autoClose: false,
 						hideProgressBar: true,
 						closeOnClick: true,
 						pauseOnHover: true,
@@ -51,6 +51,16 @@ function LoginForm() {
 						theme : 'colored'
 					})
 				} else {
+					toast.success(data.message, {
+						position: "top-center",
+						autoClose: false,
+						hideProgressBar: true,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+						theme : 'colored'
+					})
 					localStorage.setItem("jwt", JSON.stringify(data.token));
 					localStorage.setItem("user", JSON.stringify(data.userLogin));
 					dispatch(setUserDetails(data.userLogin))

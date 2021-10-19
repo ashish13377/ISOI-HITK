@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useRouter } from "next/router"
 import { useSelector } from "react-redux"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function RegistraionFrom() {
 
-	
+
 	const user = useSelector(state => state.user)
 	const router = useRouter()
 
@@ -23,10 +25,10 @@ function RegistraionFrom() {
 	const [attendAnyEvent, setattendAnyEvent] = useState()
 	const [feedback, setfeedback] = useState()
 	const [image, setimage] = useState()
-	const [fName , setfname] = useState();
-	const [mName , setmname] = useState();
-	const [lName , setlname] = useState();
-	const [phone , setphone] = useState();
+	const [fName, setfname] = useState();
+	const [mName, setmname] = useState();
+	const [lName, setlname] = useState();
+	const [phone, setphone] = useState();
 
 	const submitApplication = (e) => {
 		e.preventDefault()
@@ -37,17 +39,26 @@ function RegistraionFrom() {
 				"Authorization": "Bearer " + JSON.parse(localStorage.getItem("jwt"))
 			},
 			body: JSON.stringify({
-				fName, mName, lName , birthData, gender, email : user.email,  phone, wpNumber, years, address, city, state, postalCode, autonomyRoll, collegeRoll, attendAnyEvent, feedback, image
+				fName, mName, lName, birthData, gender, email: user.email, phone, wpNumber, years, address, city, state, postalCode, autonomyRoll, collegeRoll, attendAnyEvent, feedback, image
 			})
 		}).then(res => res.json())
-		.then(data => {
-			if(data.error){
-				alert(data.error)
-			}else{
-				alert(data.message);
-				router.push("/profile-page");
-			}
-		})
+			.then(data => {
+				if (data.error) {
+					toast.info(data.error, {
+						position: "top-center",
+						autoClose: 5000,
+						hideProgressBar: true,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+						theme: 'colored'
+					})
+				} else {
+					alert(data.message);
+					router.push("/profile-page");
+				}
+			})
 	}
 
 	const imageUpload = (pic) => {
@@ -69,10 +80,29 @@ function RegistraionFrom() {
 					console.log(data.url);
 				})
 				.catch((err) => {
-					console.log(err);
+					toast.error(err, {
+						position: "top-center",
+						autoClose: 5000,
+						hideProgressBar: true,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+						theme: 'colored'
+					});
 				});
 		} else {
-			alert("Please select a valid image [Either JPEG or PNG]")
+			toast.info("Please select a valid image [Either JPEG or PNG]", {
+				position: "top-center",
+				autoClose: 5000,
+				hideProgressBar: true,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: 'colored'
+			})
+			setimage("https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_960_720.png");
 		}
 	}
 
@@ -101,7 +131,7 @@ function RegistraionFrom() {
 										<div className="input-group-prepend">
 											<span className="input-group-text"><i className="la la-user"></i></span>
 										</div>
-										<input name="dzName" type="text" required value={fName} onChange={(e) => setfname(e.target.value)}  className="form-control" placeholder="First Name" />
+										<input name="dzName" type="text" required value={fName} onChange={(e) => setfname(e.target.value)} className="form-control" placeholder="First Name" />
 									</div>
 								</div>
 								<div className="col-sm-4">
@@ -109,7 +139,7 @@ function RegistraionFrom() {
 										<div className="input-group-prepend">
 											<span className="input-group-text"><i className="las la-user-cog"></i></span>
 										</div>
-										<input name="dzName" type="text" required value={mName} onChange={(e) => setmname(e.target.value)}  className="form-control" placeholder="Middle Name" />
+										<input name="dzName" type="text" required value={mName} onChange={(e) => setmname(e.target.value)} className="form-control" placeholder="Middle Name" />
 									</div>
 								</div>
 								<div className="col-sm-4">
@@ -156,7 +186,7 @@ function RegistraionFrom() {
 										<div className="input-group-prepend">
 											<span className="input-group-text"><i className="las la-envelope-open-text"></i></span>
 										</div>
-										<input name="dzName" value={user && user.email}  type="text" required className="form-control" placeholder="ex: xyz@gmail.com" />
+										<input name="dzName" value={user && user.email} type="text" required className="form-control" placeholder="ex: xyz@gmail.com" />
 									</div>
 									<small>Note : Email same as during signup & payment for ISOI Membership</small>
 								</div>
@@ -328,14 +358,15 @@ function RegistraionFrom() {
 								</div>
 								<div className="col-sm-7">
 									{/* Upload Area */}
-										{/* Drop Zoon */}
-										<div>
-											<input type="file" id="file" onChange={(e) => imageUpload(e.target.files[0])} />
-										</div>
+									{/* Drop Zoon */}
+									<div>
+										<input type="file" id="file" onChange={(e) => imageUpload(e.target.files[0])} />
+									</div>
 
-									
+
 									{/* End Upload Area */}
 									<p className="mt-4">Upload a recent Passport Size Photograph</p>
+									<p className="mt-4"><small className="font-italic">Note : </small>File should be either JPEG or PNG format.</p>
 								</div>
 							</div>
 							{/* <!-- end Image Upload --> */}
@@ -348,6 +379,7 @@ function RegistraionFrom() {
 						</form>
 					</div>
 				</div>
+				<ToastContainer />
 			</section>
 
 		</>
