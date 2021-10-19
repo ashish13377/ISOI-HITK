@@ -3,12 +3,14 @@ import { useRouter } from "next/router"
 import { useSelector } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReactLoading from 'react-loading';
 
 function RegistraionFrom() {
 
 
 	const user = useSelector(state => state.user)
 	const router = useRouter()
+	const [loading, setLoading] = useState(false)
 
 
 
@@ -32,6 +34,7 @@ function RegistraionFrom() {
 
 	const submitApplication = (e) => {
 		e.preventDefault()
+		setLoading(true)
 		fetch("https://isoi-backend.herokuapp.com/api/membership/addmembers", {
 			method: "POST",
 			headers: {
@@ -54,8 +57,10 @@ function RegistraionFrom() {
 						progress: undefined,
 						theme: 'colored'
 					})
+					setLoading(false)
 				} else {
 					alert(data.message);
+					setLoading(false)
 					router.push("/profile-page");
 				}
 			})
@@ -370,7 +375,11 @@ function RegistraionFrom() {
 								</div>
 							</div>
 							{/* <!-- end Image Upload --> */}
-
+							{loading && (<div style={{
+								marginLeft: "3rem"
+							}}>
+								<ReactLoading type="bars" color="#896eff" height={'20%'} width={'20%'} />
+							</div>)}
 
 							<div className="col-sm-12 mt-2">
 								<button name="submit" onClick={submitApplication} type="submit" value="Submit" className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i>Submit Application</button>
