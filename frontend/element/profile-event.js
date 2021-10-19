@@ -16,6 +16,7 @@ function ProfileEvent() {
     const pEvents = useSelector(state => state.pEvents);
     const dispatch = useDispatch();
     const router = useRouter();
+    
 
     useEffect(() => {
         dispatch(setPaidEvents());
@@ -159,7 +160,7 @@ function ProfileEvent() {
                                                                         </ul>
                                                                     </div>
                                                                     <br />
-                                                                    <a href="/contact-us-1" className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i>Join Now</a>
+                                                                    <a href="#" className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i><Link href={{ pathname: '/membership-event-registration', query: { id : currElem._id } }}>Join Now</Link></a>
                                                                 </div>
                                                             </div>
                                                         </div>

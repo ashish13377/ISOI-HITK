@@ -25,6 +25,8 @@ function EventRegistraion() {
 	const [pevent, setEvent] = useState();
 	const id = query.id;
 	const router = useRouter();
+	const eventName = pevent && pevent.eventName;
+	const eventDate = pevent && pevent.eventDate;
 
 	const joinEvent = (e) => {
 		e.preventDefault();
@@ -35,7 +37,7 @@ function EventRegistraion() {
 				"Authorization": "Bearer " + JSON.parse(localStorage.getItem("jwt"))
 			},
 			body : JSON.stringify({
-				fname , lname , mname , phone , wpNumber , department 
+				fname , lname , mname , phone , wpNumber , department , eventName , eventDate
 			})
 		}).then(res => res.json())
 		.then(data => {

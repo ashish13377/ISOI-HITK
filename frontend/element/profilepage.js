@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { useSelector, useDispatch } from "react-redux"
-import { logout, setUserDetails, getMemberDetails } from "../redux/actions/index"
-import { useEffect } from 'react';
-
+import { logout, setUserDetails, getMemberDetails, getMyPevents, getMyfEvents } from "../redux/actions/index"
+import { useEffect, useState } from 'react';
 function onChange(value) {
     console.log("Captcha value:", value);
 }
@@ -11,16 +10,24 @@ function onChange(value) {
 function ProfilePage() {
 
     const data = useSelector(state => state.user);
+    const fevent = useSelector(state => state.myfevents);
+    console.log(fevent);
+    const mevent = useSelector(state => state.mypevents);
     const isMember = useSelector(state => state.memberDetails)
     const dispatch = useDispatch();
     const router = useRouter();
 
+
+
     useEffect(() => {
         dispatch(setUserDetails(JSON.parse(localStorage.getItem("user"))));
         dispatch(getMemberDetails());
+        dispatch(getMyfEvents());
+        dispatch(getMyPevents());
         if (!data) {
             router.push("/login");
         }
+
     }, [])
 
 
@@ -99,52 +106,75 @@ function ProfilePage() {
                                     <div className="tab-content" id="myTabContent">
                                         <div className="tab-pane fade active show" id="payments" role="tabpanel" aria-labelledby="payments-tab">
                                             <h4 className="font-weight-bold mt-0 mb-4">My Account</h4>
+                                            {isMember && (
+                                                <div> <p className="font-weight-bold mt-0 mb-4">Registered Membership Events</p>
+                                                {mevent == "" && <p>You are not registered in any of Membership events</p>}
+                                                    <div class="row">
+
+                                                        {
+                                                            mevent.map((curr) => {
+                                                                return (
+                                                                    <div class="col-md-6">
+                                                                        <div class="bg-white card payments-item mb-4 shadow-sm">
+                                                                            <div class="gold-members p-4">
+                                                                                <div class="media">
+                                                                                    <div class="media-body">
+                                                                                        <Link href="#">
+                                                                                            <a >
+                                                                                                <i class="icofont-certificate-alt-1 icofont-4x"></i>
+                                                                                            </a>
+                                                                                        </Link>
+                                                                                        <h5 class="mb-1">{curr.eventName}</h5>
+                                                                                        <p>Events date : {curr.eventDate}</p>
+                                                                                        {/* <p>Lorem ipsum dolor sit amet, consectetur adipis occ dzSubscribedsfast </p> */}
+                                                                                        <Link href="#" class="mb-0 text-black font-weight-bold">
+                                                                                            <a class="text-danger" data-toggle="modal" data-target="#delete-address-modal"><i class="icofont-ui-delete"></i> DELETE</a>
+                                                                                        </Link>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                            })
+                                                        }
+
+
+
+                                                    </div>
+                                                </div>)}
+                                            <p className="font-weight-bold mt-0 mb-4">Registered Free Events</p>
+                                            {fevent == "" && <p>You are not registered in any of free events</p>}
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="bg-white card payments-item mb-4 shadow-sm">
-                                                        <div class="gold-members p-4">
-                                                            <div class="media">
-                                                                <div class="media-body">
-                                                                    <Link href="#">
-                                                                        <a >
-                                                                            <i class="icofont-certificate-alt-1 icofont-4x"></i>
-                                                                        </a>
-                                                                    </Link>
-                                                                    <h5 class="mb-1">Event Name</h5>
-                                                                    <p>Events date : 12/06/2021</p>
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipis occ dzSubscribedsfast </p>
-                                                                    <Link href="#" class="mb-0 text-black font-weight-bold">
-                                                                        <a class="text-danger" data-toggle="modal" data-target="#delete-address-modal"><i class="icofont-ui-delete"></i> DELETE</a>
-                                                                    </Link>
+                                                {
+                                                    fevent.map((curr) => {
+                                                        return (
+                                                            <div class="col-md-6">
+                                                                <div class="bg-white card payments-item mb-4 shadow-sm">
+                                                                    <div class="gold-members p-4">
+                                                                        <div class="media">
+                                                                            <div class="media-body">
+                                                                                <Link href="#">
+                                                                                    <a >
+                                                                                        <i class="icofont-certificate-alt-1 icofont-4x"></i>
+                                                                                    </a>
+                                                                                </Link>
+                                                                                <h5 class="mb-1">{curr.eventName}</h5>
+                                                                                <p>Events date : {curr.eventDate}</p>
+                                                                                {/* <p>Lorem ipsum dolor sit amet, consectetur adipis occ dzSubscribedsfast </p> */}
+                                                                                <Link href="#" class="mb-0 text-black font-weight-bold">
+                                                                                    <a class="text-danger" data-toggle="modal" data-target="#delete-address-modal"><i class="icofont-ui-delete"></i> DELETE</a>
+                                                                                </Link>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
                                                                 </div>
                                                             </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="bg-white card payments-item mb-4 shadow-sm">
-                                                        <div class="gold-members p-4">
-                                                            <div class="media">
-                                                                <div class="media-body">
-                                                                    <Link href="#">
-                                                                        <a >
-                                                                            <i class="icofont-certificate-alt-1 icofont-4x"></i>
-                                                                        </a>
-                                                                    </Link>
-                                                                    <h5 class="mb-1">Event Name</h5>
-                                                                    <p>Events date : 17/10/2021</p>
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipis occ dzSubscribedsfast </p>
-
-                                                                    <Link href="#" class="mb-0 text-black font-weight-bold">
-                                                                        <a class="text-danger" data-toggle="modal" data-target="#delete-address-modal"><i class="icofont-ui-delete"></i> DELETE</a>
-                                                                    </Link>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                        )
+                                                    })
+                                                }
                                             </div>
                                         </div>
                                     </div>

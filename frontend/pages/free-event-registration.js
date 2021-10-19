@@ -25,8 +25,13 @@ function EventRegistraion() {
 	const [fevent, setEvent] = useState();
 	const id = query.id;
 	const router = useRouter();
-
+	console.log(fevent);
+	const eventName = fevent && fevent.eventName;
+	const eventDate = fevent && fevent.eventDate;
 	const joinEvent = (e) => {
+
+		
+
 		e.preventDefault();
 		fetch(`https://isoi-backend.herokuapp.com/api/users/free-events-registration/${id}` , {
 			method : "PUT",
@@ -35,7 +40,7 @@ function EventRegistraion() {
 				"Authorization": "Bearer " + JSON.parse(localStorage.getItem("jwt"))
 			},
 			body : JSON.stringify({
-				fname , lname , mname , phone , wpNumber , department 
+				fname , lname , mname , phone , wpNumber , department , eventName , eventDate
 			})
 		}).then(res => res.json())
 		.then(data => {

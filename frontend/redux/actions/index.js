@@ -61,3 +61,29 @@ export const getMemberDetails = () => {
         }).catch((e) => alert(e))
     })
 }
+export const getMyfEvents = () => {
+    return (dispatch => {
+        fetch("https://isoi-backend.herokuapp.com/api/users/getmyfree-event" , {
+            method : "GET",
+            headers : {
+                "Content-Type": "application/json",
+				"Authorization": "Bearer " + JSON.parse(localStorage.getItem("jwt"))
+            }
+        }).then(res => res.json()).then(data => {
+            dispatch({type : "SET_FEVENT" , payload : data})
+        }).catch((e) => alert(e))
+    })
+}
+export const getMyPevents = () => {
+    return (dispatch => {
+        fetch("https://isoi-backend.herokuapp.com/api/users/getmypaid-event" , {
+            method : "GET",
+            headers : {
+                "Content-Type": "application/json",
+				"Authorization": "Bearer " + JSON.parse(localStorage.getItem("jwt"))
+            }
+        }).then(res => res.json()).then(data => {
+            dispatch({type : "SET_PEVENT" , payload : data})
+        }).catch((e) => alert(e))
+    })
+}
