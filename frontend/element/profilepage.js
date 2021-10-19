@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useSelector, useDispatch } from "react-redux"
 import { logout, setUserDetails, getMemberDetails } from "../redux/actions/index"
 import { useEffect } from 'react';
-import ReactLoading from 'react-loading';
+
 function onChange(value) {
     console.log("Captcha value:", value);
 }
