@@ -22,7 +22,7 @@ function EventRegistraion() {
 	const [phone, setphone] = useState();
 	const [department  , setdepartment] = useState()
 	const { query } = useRouter()
-	const [fevent, setEvent] = useState();
+	const [pevent, setEvent] = useState();
 	const id = query.id;
 	const router = useRouter();
 
@@ -81,7 +81,7 @@ function EventRegistraion() {
 		setLoading(true)
 
 
-		fetch(`https://isoi-backend.herokuapp.com/api/admin//freeevent/${id}`, {
+		fetch(`https://isoi-backend.herokuapp.com/api/admin//paidevent/${id}`, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json"
@@ -113,7 +113,7 @@ function EventRegistraion() {
 							<ReactLoading type="bars" color="#896eff" height={'20%'} width={'20%'} />
 						</div>) : (<div className="section-head style-1 text-center">
 							<h6 className="sub-title bgl-primary m-b20 text-primary"> Event Registration Form</h6>
-							<h2 className="title">{fevent && fevent.eventName} Event  Registration Form</h2>
+							<h2 className="title">{pevent && pevent.eventName} Event  Registration Form</h2>
 							<p>Fill out the form carefully for registration</p>
 						</div>)}
 
