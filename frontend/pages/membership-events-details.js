@@ -117,7 +117,7 @@ function BlogLargeRightSidebar() {
 
 									<div className="widget widget_archive">
 										<div className="col-sm-12 mt-2">
-											<button type="button" className="btn btn-link d-inline-flex align-items-center" ><i className="fa fa-angle-right m-r10"></i><Link href={{ pathname: '/free-event-registration', query: { id : id } }}>Register Event Now</Link></button>
+											<button type="button" className="btn btn-link d-inline-flex align-items-center" ><i className="fa fa-angle-right m-r10"></i><Link href={{ pathname: '/membership-event-registration', query: { id : id } }}>Register Event Now</Link></button>
 										</div>
 									</div>
 									{/* <div className="widget widget_archive">
