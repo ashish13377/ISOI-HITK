@@ -1,6 +1,37 @@
-
+import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Newsletter() {
+	const [email , setEmail] = useState()
+
+	const sendMail = (e) => {
+		e.preventDefault()
+		fetch("https://isoi-backend.herokuapp.com/api/membership/sendmail", {
+			method : "POST",
+			headers : {
+				"Content-Type" : "application/json"
+			},
+			body : JSON.stringify({
+				email
+			})
+		}).then(res => res.json()).then(data => {
+			if(data.message){
+				toast.success(data.message, {
+					position: "top-center",
+					autoClose: false,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme : 'colored'
+				})
+				setEmail("")
+			}
+		})
+	}
+
     return (
       <>
         <section className="content-inner-3 bg-primary" style={{"backgroundImage":"url(images/background/bg13.png)","backgroundRepeat":"no-repeat","backgroundSize":"cover"}}>
@@ -22,9 +53,9 @@ function Newsletter() {
 								<div className="dzSubscribeMsg"></div>
 								<div className="form-group">
 									<div className="input-group">
-										<input name="dzEmail" required="required" type="email" className="form-control" placeholder="Email Address"/>
+										<input name="dzEmail" value={email} onChange={(e) => setEmail(e.target.value)} required="required" type="email" className="form-control" placeholder="Email Address"/>
 										<div className="input-group-addon">
-											<button name="submit" value="Submit" type="submit" className="btn rounded-xl shadow btn-primary">Subscribe Now</button>
+											<button name="submit" value="Submit" onClick={sendMail} type="submit" className="btn rounded-xl shadow btn-primary">Subscribe Now</button>
 										</div>
 									</div>
 								</div>
@@ -33,6 +64,7 @@ function Newsletter() {
 					</div>
 				</div>
 			</div>
+			<ToastContainer />
 		</section>
       </>
     )

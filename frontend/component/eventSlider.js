@@ -102,7 +102,7 @@ function EventSlider() {
                                                 </ul>
                                             </div>
                                             <br />
-                                            <a href="/contact-us-1" className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i>Join Now</a>
+                                            <a href="#" className="btn btn-link d-inline-flex align-items-center"><i className="fa fa-angle-right m-r10"></i><Link  href={{ pathname: '/free-event-registration', query: { id : currElem._id } }}>Join Now</Link></a>
                                         </div>
                                     </div>
                                 </div>
