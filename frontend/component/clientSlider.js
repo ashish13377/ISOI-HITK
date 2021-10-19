@@ -39,7 +39,9 @@ function ClientSlider() {
     return (
         <>
             <Slider {...settings}>
+			
 				<div className="item">
+				
 					<div className="clients-logo">
 						<img
 							className="logo-main"
