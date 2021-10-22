@@ -1,10 +1,30 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 import { Table, Pagination } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 import data from "./MemberData";
 
-const  Allmemberlist = () => {
+const Allmemberlist = () => {
+
+   const [member, setMember] = useState();
+   // const [loading ,setLoading] 
+
+   useEffect(() => {
+      fetch("https://isoi-backend.herokuapp.com/api/admin/getallmembers", {
+         method: "GET",
+         headers: {
+            "Authorization": "Bearer " + localStorage.getItem("jwt")
+         }
+      }).then(res => res.json())
+         .then(data => {
+            setMember(data)
+         }).catch((e) => {
+            alert(e);
+         })
+   }, [])
+
+   console.log(member);
+
    const sort = 10;
    let jobPagination = Array(Math.ceil(data.profileTable.data.length / sort))
       .fill()
@@ -17,7 +37,7 @@ const  Allmemberlist = () => {
          (activePag.current + 1) * sort
       )
    );
-   const [ setdemo] = useState();
+   const [setdemo] = useState();
    const onClick = (i) => {
       activePag.current = i;
 
@@ -50,7 +70,24 @@ const  Allmemberlist = () => {
                            </tr>
                         </thead>
                         <tbody>
-                           {jobData.current.map((d, i) => (
+                           {member && member.map((currElem) => (
+                              <tr key={currElem._id}>
+                                 <td key={currElem._id}><img
+                                    className="rounded-circle"
+                                    width="90"
+                                    src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_960_720.png"
+                                    alt=""
+                                 /></td>
+                                 <td key={currElem._id}>{currElem.fName} {currElem.mName} {currElem.lName}</td>
+                                 <td key={currElem._id}>{currElem.year ? currElem.year : "NA"}</td>
+                                 <td key={currElem._id}>{currElem.gender}</td>
+                                 <td key={currElem._id}>{currElem.duration}</td>
+                                 <td key={currElem._id}>{currElem.phone}</td>
+                                 <td key={currElem._id}>{currElem.email}</td>
+                                 <td key={currElem._id}>{currElem.createdAt}</td>
+                              </tr>
+                           ))}
+                           {/* {jobData.current.map((d, i) => (
                               <tr key={i}>
                                  {d.map((da, i) => (
                                     <Fragment key={i}>
@@ -87,7 +124,7 @@ const  Allmemberlist = () => {
                                     </Fragment>
                                  ))}
                               </tr>
-                           ))}
+                           ))} */}
                         </tbody>
                         <tfoot>
                            <tr role="row">
@@ -97,57 +134,6 @@ const  Allmemberlist = () => {
                            </tr>
                         </tfoot>
                      </table>
-
-                     <div className="d-flex justify-content-between align-items-center mt-3">
-                        <div className="dataTables_info">
-                           Showing {activePag.current * sort + 1} to
-                           {data.profileTable.data.length <
-                           (activePag.current + 1) * sort
-                              ? data.profileTable.data.length
-                              : (activePag.current + 1) * sort}
-                           of {data.profileTable.data.length} entries
-                        </div>
-                        <div className="dataTables_paginate paging_simple_numbers">
-                           <Pagination
-                              className="pagination-primary pagination-circle"
-                              size="lg"
-                           >
-                              <li
-                                 className="page-item page-indicator "
-                                 onClick={() =>
-                                    activePag.current > 1 &&
-                                    onClick(activePag.current - 1)
-                                 }
-                              >
-                                 <Link className="page-link" to="#">
-                                    <i className="la la-angle-left" />
-                                 </Link>
-                              </li>
-                              {jobPagination.map((number, i) => (
-                                 <Pagination.Item
-                                    className={
-                                       activePag.current === i ? "active" : ""
-                                    }
-                                    onClick={() => onClick(i)}
-                                 >
-                                    {number}
-                                 </Pagination.Item>
-                              ))}
-                              <li
-                                 className="page-item page-indicator"
-                                 onClick={() =>
-                                    activePag.current + 1 <
-                                       jobPagination.length &&
-                                    onClick(activePag.current + 1)
-                                 }
-                              >
-                                 <Link className="page-link" to="#">
-                                    <i className="la la-angle-right" />
-                                 </Link>
-                              </li>
-                           </Pagination>
-                        </div>
-                     </div>
                   </div>
                </Table>
             </div>
