@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
 import ReactLoading from 'react-loading';
-import { useSelector , useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { setUserDetails } from "../redux/actions/index"
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer , toast} from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 function EventRegistraion() {
 
@@ -20,7 +20,7 @@ function EventRegistraion() {
 	const [mname, setmname] = useState();
 	const [lname, setlname] = useState();
 	const [phone, setphone] = useState();
-	const [department  , setdepartment] = useState()
+	const [department, setdepartment] = useState()
 	const { query } = useRouter()
 	const [pevent, setEvent] = useState();
 	const id = query.id;
@@ -30,47 +30,60 @@ function EventRegistraion() {
 
 	const joinEvent = (e) => {
 		e.preventDefault();
-		fetch(`https://isoi-backend.herokuapp.com/api/users/paid-events-registration/${id}` , {
-			method : "PUT",
-			headers : {
-				"Content-Type": "application/json",
-				"Authorization": "Bearer " + JSON.parse(localStorage.getItem("jwt"))
-			},
-			body : JSON.stringify({
-				fname , lname , mname , phone , wpNumber , department , eventName , eventDate
+		if (!fname || !lname || !mname || !phone || !wpNumber || !department || !eventName || !eventDate) {
+			toast.warning("Please fill all field provided!", {
+				position: "top-center",
+				autoClose: 5000,
+				hideProgressBar: true,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: 'colored'
 			})
-		}).then(res => res.json())
-		.then(data => {
-			if(data.error){
-				toast.error(data.message, {
-					position: "top-center",
-					autoClose: 5000,
-					hideProgressBar: true,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-					theme: 'colored'
-				});
-			}else{
-				toast.success(data.message, {
-					position: "top-center",
-					autoClose: 5000,
-					hideProgressBar: true,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-					theme: 'colored'
-				});
-				setfname("")
-				setlname("")
-				setmname("")
-				setphone("")
-				setwpNumber("")
-				setdepartment("")
-			}
-		})
+		} else {
+			fetch(`https://isoi-backend.herokuapp.com/api/users/paid-events-registration/${id}`, {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json",
+					"Authorization": "Bearer " + JSON.parse(localStorage.getItem("jwt"))
+				},
+				body: JSON.stringify({
+					fname, lname, mname, phone, wpNumber, department, eventName, eventDate
+				})
+			}).then(res => res.json())
+				.then(data => {
+					if (data.error) {
+						toast.error(data.message, {
+							position: "top-center",
+							autoClose: 5000,
+							hideProgressBar: true,
+							closeOnClick: true,
+							pauseOnHover: true,
+							draggable: true,
+							progress: undefined,
+							theme: 'colored'
+						});
+					} else {
+						toast.success(data.message, {
+							position: "top-center",
+							autoClose: 5000,
+							hideProgressBar: true,
+							closeOnClick: true,
+							pauseOnHover: true,
+							draggable: true,
+							progress: undefined,
+							theme: 'colored'
+						});
+						setfname("")
+						setlname("")
+						setmname("")
+						setphone("")
+						setwpNumber("")
+						setdepartment("")
+					}
+				})
+		}
 	}
 
 
